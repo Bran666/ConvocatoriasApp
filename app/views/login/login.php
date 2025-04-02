@@ -1,6 +1,33 @@
 <div class="container py-5">
     <div class="row justify-content-center align-items-center">
+<<<<<<< HEAD
     
+=======
+        <!-- Columna del logo y descripción (izquierda) -->
+        <div class="col-12 col-lg-6 pe-lg-5 mb-4 mb-lg-0">
+            <div class="text-center text-lg-end"> <!-- Cambiado a text-lg-end -->
+                <!-- Logo grande -->
+                <img src="/img/SENA.jpg"alt="Logo de la empresa" class="img-fluid mb-4" style="max-height: 150px;">
+                
+                <!-- Título descriptivo -->
+                <h2 class="display-5 fw-bold mb-3">Bienvenido a nuestra plataforma</h2>
+                <!-- Descripción -->
+                <p class="fs-5 text-muted mb-4">
+                    Accede a todos los beneficios de nuestra plataforma educativa. 
+                    Ofrecemos cursos certificados, seguimiento personalizado y 
+                    las mejores herramientas para tu desarrollo profesional.
+                </p>
+                
+                <!-- Lista de beneficios -->
+                <ul class="list-unstyled fs-5">
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Acceso a cientos de cursos</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Certificados reconocidos</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Comunidad de aprendizaje</li>
+                    <li><i class="fas fa-check-circle text-success me-2"></i> Soporte 24/7</li>
+                </ul>
+            </div>
+        </div>
+>>>>>>> 8806a8cca1efd411ee57fabdaad0c70d54b173b4
 
         <!-- Columna del formulario (derecha) -->
         <div class="col-12 col-lg-6">

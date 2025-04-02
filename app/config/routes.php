@@ -72,7 +72,11 @@ return [
      // Otras rutas
     '/menu/init' => ['controller' => 'App\Controller\MenuController', 'action' => 'initMenu'], 
     '/favoritos/init' => ['controller' => 'App\Controller\FavoritosController', 'action' => 'initFavoritos'], 
+<<<<<<< HEAD
     '/explorar/init' => ['controller' => 'App\Controller\ExplorarController', 'action' => 'initExplorar'], 
+=======
+
+>>>>>>> 8806a8cca1efd411ee57fabdaad0c70d54b173b4
 
      // Otras rutas
      '/administrarUsuario/init' => ['controller' => 'App\Controller\AdministrarUsuariosController', 'action' => 'initAdministrarUsuario'], 
@@ -98,5 +102,28 @@ return [
     '/entidadInstitucion/edit/(\d+)' => ['controller' => 'App\Controller\EntidadInstitucionController', 'action' => 'editEntidadinstitucion'],
     '/entidadInstitucion/update/(\d+)' => ['controller' => 'App\Controller\EntidadInstitucionController','action' => 'updateEntidadinstitucion'],
     '/entidadInstitucion/delete/(\d+)' => ['controller' => 'App\Controller\EntidadInstitucionController', 'action' => 'deleteEntidadinstitucion'],
+<<<<<<< HEAD
+=======
+
+    
+    // Rutas para PublicoObjetivo
+    '/publicoObjetivo/init' => ['controller' => 'App\Controller\PublicoObjetivoController', 'action' => 'initPublicoObjetivo'],
+    '/publicoObjetivo/new' => ['controller' => 'App\Controller\PublicoObjetivoController', 'action' => 'new'],
+    '/publicoObjetivo/create' => ['controller' => 'App\Controller\PublicoObjetivoController', 'action' => 'create'],
+    '/publicoObjetivo/view/(\d+)' => ['controller' => 'App\Controller\PublicoObjetivoController', 'action' => 'view'],
+    '/publicoObjetivo/edit/(\d+)' => ['controller' => 'App\Controller\PublicoObjetivoController', 'action' => 'editPublicoObjetivo'],
+    '/publicoObjetivo/update/(\d+)' => ['controller' => 'App\Controller\PublicoObjetivoController', 'action' => 'updatePublicoObjetivo'],
+    '/publicoObjetivo/delete/(\d+)' => ['controller' => 'App\Controller\PublicoObjetivoController', 'action' => 'deletePublicoObjetivo'],
+
+    // Rutas para Requisitos
+    '/requisitos/init' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'initRequisitos'],
+    '/requisitos/new' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'new'],
+    '/requisitos/create' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'create'],
+    '/requisitos/view/(\d+)' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'view'],
+    '/requisitos/edit/(\d+)' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'editRequisitos'],
+    '/requisitos/update/(\d+)' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'updateRequisitos'],
+    '/requisitos/delete/(\d+)' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'deleteRequisitos'],
+
+>>>>>>> 8806a8cca1efd411ee57fabdaad0c70d54b173b4
 ];
 

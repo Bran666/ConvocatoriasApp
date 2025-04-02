@@ -24,7 +24,11 @@
                     </div>
                 </div>
                 <div class="text-end">
+<<<<<<< HEAD
                     <a href="/linea" class="btn btn-secondary">Volver</a>
+=======
+                    <a href="/linea/init" class="btn btn-secondary">Volver</a>
+>>>>>>> 8806a8cca1efd411ee57fabdaad0c70d54b173b4
                 </div>
             </form>
         </div>

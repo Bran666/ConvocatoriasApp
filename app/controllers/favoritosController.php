@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Controller;
+<<<<<<< HEAD
 
 use App\Models\FavoritosModel;
+=======
+>>>>>>> 8806a8cca1efd411ee57fabdaad0c70d54b173b4
 use App\Models\UserModel;
 
 require_once MAIN_APP_ROUTE . "../controllers/baseController.php";
