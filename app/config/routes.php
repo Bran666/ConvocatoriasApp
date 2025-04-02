@@ -72,11 +72,8 @@ return [
      // Otras rutas
     '/menu/init' => ['controller' => 'App\Controller\MenuController', 'action' => 'initMenu'], 
     '/favoritos/init' => ['controller' => 'App\Controller\FavoritosController', 'action' => 'initFavoritos'], 
-<<<<<<< HEAD
-    '/explorar/init' => ['controller' => 'App\Controller\ExplorarController', 'action' => 'initExplorar'], 
-=======
 
->>>>>>> 8806a8cca1efd411ee57fabdaad0c70d54b173b4
+    '/explorar/init' => ['controller' => 'App\Controller\ExplorarController', 'action' => 'initExplorar'], 
 
      // Otras rutas
      '/administrarUsuario/init' => ['controller' => 'App\Controller\AdministrarUsuariosController', 'action' => 'initAdministrarUsuario'], 
@@ -102,8 +99,7 @@ return [
     '/entidadInstitucion/edit/(\d+)' => ['controller' => 'App\Controller\EntidadInstitucionController', 'action' => 'editEntidadinstitucion'],
     '/entidadInstitucion/update/(\d+)' => ['controller' => 'App\Controller\EntidadInstitucionController','action' => 'updateEntidadinstitucion'],
     '/entidadInstitucion/delete/(\d+)' => ['controller' => 'App\Controller\EntidadInstitucionController', 'action' => 'deleteEntidadinstitucion'],
-<<<<<<< HEAD
-=======
+
 
     
     // Rutas para PublicoObjetivo
@@ -124,6 +120,6 @@ return [
     '/requisitos/update/(\d+)' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'updateRequisitos'],
     '/requisitos/delete/(\d+)' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'deleteRequisitos'],
 
->>>>>>> 8806a8cca1efd411ee57fabdaad0c70d54b173b4
+
 ];
 

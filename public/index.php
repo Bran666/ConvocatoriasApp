@@ -17,11 +17,10 @@ require_once '../app/controllers/administrarUsuariosController.php';
 require_once '../app/controllers/administrarConvocatoriasController.php';
 require_once '../app/controllers/requisitosController.php';
 require_once '../app/controllers/favoritosController.php';
-<<<<<<< HEAD
+
 require_once '../app/controllers/explorarController.php';
-=======
 require_once '../app/controllers/PublicoObjetivoController.php';
->>>>>>> 8806a8cca1efd411ee57fabdaad0c70d54b173b4
+
 
 // Acceder a lo que llege a la url
 $url = $_SERVER["REQUEST_URI"];
