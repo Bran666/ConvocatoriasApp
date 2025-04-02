@@ -7,11 +7,13 @@
     <img src="/img/SENA.jpg" alt="Logo" width="30" height="30">
                 </a>
                 <div class="d-flex align-items-center">
-                    <a href="#" class="text-decoration-none text-secondary me-3">Cerrar Sesión</a>
-                    <div class="bg-light rounded-circle d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">
-                        <span class="fw-bold"></span>
-                    </div>
-                </div>
+    <a href="#" class="text-decoration-none text-secondary me-3">Cerrar Sesión</a>
+    <a href="/userPerfil/init" class="text-decoration-none"> <!-- Añadí esta etiqueta <a> -->
+        <div class="bg-light rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+            <span class="fw-bold">BR</span>
+        </div>
+    </a> <!-- Cierre de la etiqueta <a> -->
+</div>
             </div>
         </nav>
 
@@ -30,13 +32,13 @@
     <!-- Navigation Tabs -->
 <ul class="nav nav-tabs mt-4 border-0 justify-content-end">
     <li class="nav-item">
-        <a class="nav-link active" href="#">Descubrir</a>
+        <a class="nav-link active" href="/menu/init">Descubrir</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Explorar</a>
+        <a class="nav-link" href="/explorar/init">Explorar</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="/favoritos/init">
             <i class="far fa-bookmark me-1"></i> Favoritos
         </a>
     </li>

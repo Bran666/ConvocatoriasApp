@@ -71,7 +71,8 @@ return [
 
      // Otras rutas
     '/menu/init' => ['controller' => 'App\Controller\MenuController', 'action' => 'initMenu'], 
-
+    '/favoritos/init' => ['controller' => 'App\Controller\FavoritosController', 'action' => 'initFavoritos'], 
+    '/explorar/init' => ['controller' => 'App\Controller\ExplorarController', 'action' => 'initExplorar'], 
 
      // Otras rutas
      '/administrarUsuario/init' => ['controller' => 'App\Controller\AdministrarUsuariosController', 'action' => 'initAdministrarUsuario'], 
@@ -79,5 +80,23 @@ return [
     // Otras rutas
     '/administrarConvocatorias/init' => ['controller' => 'App\Controller\administrarConvocatoriasController', 'action' => 'initadministrarConvocatorias'], 
 
+
+    // Otras rutas
+    '/linea/init' => ['controller' => 'App\Controller\LineaController', 'action' => 'initlinea'],
+    '/linea/new' => ['controller' => 'App\Controller\LineaController', 'action' => 'new'],
+    '/linea/create' => ['controller' => 'App\Controller\LineaController', 'action' => 'create'],
+    '/linea/view/(\d+)' => ['controller' => 'App\Controller\LineaController', 'action' => 'view'],
+    '/linea/edit/(\d+)' => ['controller' => 'App\Controller\LineaController', 'action' => 'editLinea'],
+    '/linea/update/(\d+)' => ['controller' => 'App\Controller\LineaController','action' => 'updateLinea'],
+    '/linea/delete/(\d+)' => ['controller' => 'App\Controller\LineaController', 'action' => 'deleteLinea'],
+
+    // Otras rutas
+    '/entidadInstitucion/init' => ['controller' => 'App\Controller\EntidadInstitucionController', 'action' => 'initEntidadinstitucion'],
+    '/entidadInstitucion/new' => ['controller' => 'App\Controller\EntidadInstitucionController', 'action' => 'new'],
+    '/entidadInstitucion/create' => ['controller' => 'App\Controller\EntidadInstitucionController', 'action' => 'create'],
+    '/entidadInstitucion/view/(\d+)' => ['controller' => 'App\Controller\EntidadInstitucionController', 'action' => 'view'],
+    '/entidadInstitucion/edit/(\d+)' => ['controller' => 'App\Controller\EntidadInstitucionController', 'action' => 'editEntidadinstitucion'],
+    '/entidadInstitucion/update/(\d+)' => ['controller' => 'App\Controller\EntidadInstitucionController','action' => 'updateEntidadinstitucion'],
+    '/entidadInstitucion/delete/(\d+)' => ['controller' => 'App\Controller\EntidadInstitucionController', 'action' => 'deleteEntidadinstitucion'],
 ];
 
