@@ -1,7 +1,3 @@
-<div class="d-grid">
-    <button type="submit" class="btn btn-success btn-lg">Publicar Convocatoria</button>
-</div>
-
 <div class="container-fluid py-30">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-14 col-xl-10">

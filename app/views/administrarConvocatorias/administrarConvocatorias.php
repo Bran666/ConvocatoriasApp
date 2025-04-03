@@ -1,39 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administración de Convocatorias</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- CSS mínimo para lo que Bootstrap no cubre -->
-    <style>
-        .bg-green-400 {
-            background-color: #4ade80;
-        }
-        .bg-green-200 {
-            background-color: #bbf7d0;
-        }
-        .status-active {
-            background-color: rgba(74, 222, 128, 0.1);
-            color: #16a34a;
-            border: 1px solid #16a34a;
-        }
-        .nav-tabs .nav-link {
-            color: #495057;
-        }
-        .nav-tabs .nav-link.active {
-            font-weight: 500;
-            color: #0d6efd;
-        }
-    </style>
-</head>
-<body>
+
     <!-- Header -->
-    <div class="container py-5" style="max-width: 1000px; margin: 0 auto;">
-    <header class="bg-green-400 shadow-sm">
+    <div class="container py-5">
+    <header class=" bg-success bg-gradient shadow-sm">
         <div class="container px-4 py-4">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center">
@@ -69,7 +37,7 @@
     </header>
 
     <!-- Admin info -->
-    <div class="bg-green-200 border-bottom">
+    <div class="bg-success bg-opacity-25 border-bottom">
         <div class="container px-4 py-3">
             <div class="d-flex align-items-center">
                 <div class="flex-shrink-0 me-3">

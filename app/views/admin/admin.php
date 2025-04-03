@@ -1,5 +1,5 @@
-<div class="container py-5" style="max-width: 1000px; margin: 0 auto;">
-
+<!--<div class="container py-5" style="max-width: 1000px; margin: 0 auto;">-->
+<div class="container py-5" style="max-width: 1000px; margin: 0 auto; border: 2px solid #aaa; border-radius: 10px; padding: 20px;">
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
