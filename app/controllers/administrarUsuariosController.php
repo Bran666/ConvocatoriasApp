@@ -13,7 +13,7 @@ class AdministrarUsuariosController extends BaseController
 
     public function __construct()
     {
-        $this->layout = 'administrarUsuarios_layouts';
+        $this->layout = 'login_layouts';
         $this->administrarUsuariosModel = new AdministrarUsuariosModel();
     }
 

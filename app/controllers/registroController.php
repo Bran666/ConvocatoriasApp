@@ -13,7 +13,7 @@ class RegistroController extends BaseController
     public function __construct()
     {
         // Definir el layout para el controlador específico
-        $this->layout = 'registro_layout';
+        $this->layout = 'login_layouts';
         parent::__construct(); // Llama al constructor del padre (BaseController)
     }
 

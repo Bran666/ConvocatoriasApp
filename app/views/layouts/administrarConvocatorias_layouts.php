@@ -9,26 +9,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- CSS mínimo para lo que Bootstrap no cubre -->
-    <style>
-        .bg-green-400 {
-            background-color: #4ade80;
-        }
-        .bg-green-200 {
-            background-color: #bbf7d0;
-        }
-        .status-active {
-            background-color: rgba(74, 222, 128, 0.1);
-            color: #16a34a;
-            border: 1px solid #16a34a;
-        }
-        .nav-tabs .nav-link {
-            color: #495057;
-        }
-        .nav-tabs .nav-link.active {
-            font-weight: 500;
-            color: #0d6efd;
-        }
-    </style>
+
 </head>
 
 <body >
