@@ -7,9 +7,33 @@
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
+<<<<<<< HEAD
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema convocatoriasBD
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema convocatoriasBD
+-- -----------------------------------------------------
+
+
+-- ----------------------------------a-------------------
+-- Table `convocatoriasBD`.`entidad-institucion`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `convocatoriasBD`.`entidad-institucion` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(70) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+=======
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+>>>>>>> 8806a8cca1efd411ee57fabdaad0c70d54b173b4
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;

@@ -1,30 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administración de Perfiles</title>
-   <!-- Bootstrap CSS -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome para iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#4ade80',
-                        secondary: '#f0fdf4',
-                    }
-                }
-            }
+    <title>Administración de Convocatorias</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS mínimo para lo que Bootstrap no cubre -->
+    <style>
+        .bg-green-400 {
+            background-color: #4ade80;
         }
-    </script>
-    
+        .bg-green-200 {
+            background-color: #bbf7d0;
+        }
+        .status-active {
+            background-color: rgba(74, 222, 128, 0.1);
+            color: #16a34a;
+            border: 1px solid #16a34a;
+        }
+        .nav-tabs .nav-link {
+            color: #495057;
+        }
+        .nav-tabs .nav-link.active {
+            font-weight: 500;
+            color: #0d6efd;
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
+
+<body >
     <?php include_once $content; ?>
 
     <!-- Bootstrap JS -->

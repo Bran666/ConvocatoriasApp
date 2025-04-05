@@ -1,76 +1,13 @@
-<!-- Asegúrate de incluir FontAwesome en el header de tu layout -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-    /* Estilos existentes */
-    .list-group-item {
-        border-radius: 0 !important;
-        border-left: 4px solid transparent;
-        transition: all 0.2s ease;
-    }
-
-    .list-group-item:hover {
-        border-left: 4px solid #0d6efd;
-        background-color: #f8f9fa;
-    }
-
-    .list-group-item.active {
-        background-color: #0d6efd;
-        border-color: #0d6efd;
-    }
-
-    .list-group-item i {
-        width: 20px;
-    }
-
-    /* Nuevos estilos para header y footer */
-    .custom-header {
-        background: linear-gradient(135deg, #0d6efd 0%, #0099ff 100%);
-        padding: 1rem 0;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .custom-footer {
-        background: #2c3e50;
-        color: white;
-        padding: 1.5rem 0;
-        margin-top: 3rem;
-    }
-
-    .main-wrapper {
-        min-height: calc(100vh - 200px);
-    }
-</style>
-
-<!-- Header -->
-<header class="custom-header mb-4">
-    <div class="container-fluid">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <h1 class="text-white mb-0">
-                    <i class="fas fa-layer-group me-2"></i>
-                    Sistema de Convocatorias
-                </h1>
-            </div>
-            <div class="col-md-6 text-end">
-                <span class="text-white">
-                    <i class="fas fa-user-circle me-2"></i>
-                    Bienvenido, Usuario
-                </span>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Main Content Wrapper -->
-<div class="main-wrapper">
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Menú Lateral Estático -->
-            <div class="col-md-2">
-                <div class="card position-fixed" style="width: 16%;">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0">Menú de Gestión</h5>
+<div class="container-fluid py-30">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-14 col-xl-10">
+            <div class="card shadow-lg">
+                <div class="card-header bg-success text-white text-center p-4">
+                    <h2 class="h3 mb-3"><i class="fas fa-bullhorn me-2"></i>Convocatorias</h2>
+                </div>
+                <div class="card-body">
+                    <div class="mb-4 text-center">
+                        <a href="/convocatoria/lista" class="btn btn-outline-primary">Ver todas las convocatorias</a>
                     </div>
                     <div class="card-body p-0">
                         <div class="list-group list-group-flush">
