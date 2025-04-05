@@ -62,24 +62,24 @@ return [
     // Otras rutas
     '/convocatoria/init' => ['controller' => 'App\Controller\ConvocatoriaController', 'action' => 'initConvocatoria'],
     '/convocatoria/edit/(\d+)' => ['controller' => 'App\Controller\ConvocatoriaController', 'action' => 'edit'],
-    '/convocatoria/update/(\d+)' => ['controller' => 'App\Controller\ConvocatoriaController','action' => 'update'],
+    '/convocatoria/update/(\d+)' => ['controller' => 'App\Controller\ConvocatoriaController', 'action' => 'update'],
     '/convocatoria/delete/(\d+)' => ['controller' => 'App\Controller\ConvocatoriaController', 'action' => 'delete'],
     '/convocatoria/lista' => ['controller' => 'App\Controller\ConvocatoriaController', 'action' => 'lista'],
-    
+
     '/userPerfil/init' => ['controller' => 'App\Controller\UserPerfilController', 'action' => 'initUserPerfil'],
     '/requisitos/init' => ['controller' => 'App\Controller\requisitosController', 'action' => 'initRequisitos'],
 
-     // Otras rutas
-    '/menu/init' => ['controller' => 'App\Controller\MenuController', 'action' => 'initMenu'], 
-    '/favoritos/init' => ['controller' => 'App\Controller\FavoritosController', 'action' => 'initFavoritos'], 
+    // Otras rutas
+    '/menu/init' => ['controller' => 'App\Controller\MenuController', 'action' => 'initMenu'],
+    '/favoritos/init' => ['controller' => 'App\Controller\FavoritosController', 'action' => 'initFavoritos'],
 
-    '/explorar/init' => ['controller' => 'App\Controller\ExplorarController', 'action' => 'initExplorar'], 
-
-     // Otras rutas
-     '/administrarUsuario/init' => ['controller' => 'App\Controller\AdministrarUsuariosController', 'action' => 'initAdministrarUsuario'], 
+    '/explorar/init' => ['controller' => 'App\Controller\ExplorarController', 'action' => 'initExplorar'],
 
     // Otras rutas
-    '/administrarConvocatorias/init' => ['controller' => 'App\Controller\administrarConvocatoriasController', 'action' => 'initadministrarConvocatorias'], 
+    '/administrarUsuario/init' => ['controller' => 'App\Controller\AdministrarUsuariosController', 'action' => 'initAdministrarUsuario'],
+
+    // Otras rutas
+    '/administrarConvocatorias/init' => ['controller' => 'App\Controller\administrarConvocatoriasController', 'action' => 'initadministrarConvocatorias'],
 
 
     // Otras rutas
@@ -88,7 +88,7 @@ return [
     '/linea/create' => ['controller' => 'App\Controller\LineaController', 'action' => 'create'],
     '/linea/view/(\d+)' => ['controller' => 'App\Controller\LineaController', 'action' => 'view'],
     '/linea/edit/(\d+)' => ['controller' => 'App\Controller\LineaController', 'action' => 'editLinea'],
-    '/linea/update/(\d+)' => ['controller' => 'App\Controller\LineaController','action' => 'updateLinea'],
+    '/linea/update/(\d+)' => ['controller' => 'App\Controller\LineaController', 'action' => 'updateLinea'],
     '/linea/delete/(\d+)' => ['controller' => 'App\Controller\LineaController', 'action' => 'deleteLinea'],
 
     // Otras rutas
@@ -97,11 +97,11 @@ return [
     '/entidadInstitucion/create' => ['controller' => 'App\Controller\EntidadInstitucionController', 'action' => 'create'],
     '/entidadInstitucion/view/(\d+)' => ['controller' => 'App\Controller\EntidadInstitucionController', 'action' => 'view'],
     '/entidadInstitucion/edit/(\d+)' => ['controller' => 'App\Controller\EntidadInstitucionController', 'action' => 'editEntidadinstitucion'],
-    '/entidadInstitucion/update/(\d+)' => ['controller' => 'App\Controller\EntidadInstitucionController','action' => 'updateEntidadinstitucion'],
+    '/entidadInstitucion/update/(\d+)' => ['controller' => 'App\Controller\EntidadInstitucionController', 'action' => 'updateEntidadinstitucion'],
     '/entidadInstitucion/delete/(\d+)' => ['controller' => 'App\Controller\EntidadInstitucionController', 'action' => 'deleteEntidadinstitucion'],
 
 
-    
+
     // Rutas para PublicoObjetivo
     '/publicoObjetivo/init' => ['controller' => 'App\Controller\PublicoObjetivoController', 'action' => 'initPublicoObjetivo'],
     '/publicoObjetivo/new' => ['controller' => 'App\Controller\PublicoObjetivoController', 'action' => 'new'],
@@ -122,4 +122,3 @@ return [
 
 
 ];
-
