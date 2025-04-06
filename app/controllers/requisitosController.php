@@ -12,7 +12,7 @@ class RequisitosController extends BaseController
 {
     public function __construct()
     {
-        $this->layout = 'requisitos_layout';
+        $this->layout = 'linea_layout';
     }
 
     public function initRequisitos()

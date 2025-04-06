@@ -12,7 +12,7 @@ class PublicoObjetivoController extends BaseController
 {
     public function __construct()
     {
-        $this->layout = 'publicoObjetivo_layout';
+        $this->layout = 'linea_layout';
     }
 
     public function initPublicoObjetivo()

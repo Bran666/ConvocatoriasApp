@@ -14,7 +14,7 @@ class ConvocatoriaController extends BaseController
 {
     public function __construct()
     {
-        $this->layout = 'convocatorias_layout';
+        $this->layout = 'linea_layout';
     }
 
     public function initConvocatoria()
