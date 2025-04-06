@@ -22,6 +22,9 @@ require_once '../app/controllers/favoritosController.php';
 
 require_once '../app/controllers/explorarController.php';
 require_once '../app/controllers/PublicoObjetivoController.php';
+require_once '../app/controllers/tipoController.php';
+require_once '../app/controllers/RequisitoSeleccionController.php';
+
 
 
 // Acceder a lo que llege a la url
