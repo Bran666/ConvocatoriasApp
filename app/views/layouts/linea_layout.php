@@ -51,7 +51,7 @@
   <div class="container-fluid">
     <div class="row align-items-center">
       <div class="col-md-6">
-        <a href="/dashboard" class="text-white text-decoration-none">
+        <a href="/menu/init" class="text-white text-decoration-none">
           <h1 class="mb-0">
             <i class="fas fa-layer-group me-2"></i>
             Sistema de Convocatorias
