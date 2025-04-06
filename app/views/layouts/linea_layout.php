@@ -92,7 +92,7 @@
               <a href="/publicoObjetivo/init" class="list-group-item list-group-item-action d-flex align-items-center">
                 <i class="fas fa-users me-2"></i> Público Objetivo
               </a>
-              <a href="/requisitos/view" class="list-group-item list-group-item-action d-flex align-items-center">
+              <a href="/requisitos/init" class="list-group-item list-group-item-action d-flex align-items-center">
                 <i class="fas fa-list-check me-2"></i> Requisitos
               </a>
               <a href="/entidadInstitucion/init" class="list-group-item list-group-item-action d-flex align-items-center">
@@ -101,9 +101,9 @@
               <a href="/rol/index" class="list-group-item list-group-item-action d-flex align-items-center">
                 <i class="fas fa-user-tag me-2"></i> Rol
               </a>
-              <a href="/requisitosSeleccion/init" class="list-group-item list-group-item-action d-flex align-items-center">
+              <!-- <a href="/requisitos/init" class="list-group-item list-group-item-action d-flex align-items-center">
                 <i class="fas fa-tasks me-2"></i> Requisitos Selección
-              </a>
+              </a> -->
               <a href="/tipo/init" class="list-group-item list-group-item-action d-flex align-items-center">
                 <i class="fas fa-tag me-2"></i> Tipo
               </a>

@@ -24,8 +24,7 @@ class MenuController extends BaseController
             $convocatorias = $convocatoriaModel->getAll();
             
             $data = [
-                "convocatorias" => $convocatorias,
-                "title" => "Convocatorias Disponibles"
+                'convocatorias' => $convocatorias  // Use actual data from model
             ];
             
             $this->render("/admin/admin.php", $data);
@@ -37,6 +36,10 @@ class MenuController extends BaseController
                 "convocatorias" => []
             ];
             $this->render("/admin/admin.php", $data);
+            
+            // In initMenu method
+            var_dump($convocatorias);
+            exit();
         }
     }
 }

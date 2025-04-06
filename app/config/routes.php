@@ -14,8 +14,6 @@ return [
         'action' => 'saludar',
     ],
     
-
-
     // Rutas para Rol
     '/rol/index' => ['controller' => 'App\Controller\RolController', 'action' => 'index'],
     '/rol/new' => ['controller' => 'App\Controller\RolController', 'action' => 'new'],
@@ -69,8 +67,6 @@ return [
     '/convocatoria/lista' => ['controller' => 'App\Controller\ConvocatoriaController', 'action' => 'lista'],
 
     '/userPerfil/init' => ['controller' => 'App\Controller\UserPerfilController', 'action' => 'initUserPerfil'],
-    '/requisitos/init' => ['controller' => 'App\Controller\requisitosController', 'action' => 'initRequisitos'],
-
     // Otras rutas
     '/menu/init' => ['controller' => 'App\Controller\MenuController', 'action' => 'initMenu'],
     '/favoritos/init' => ['controller' => 'App\Controller\FavoritosController', 'action' => 'initFavoritos'],
@@ -103,7 +99,6 @@ return [
     '/entidadInstitucion/delete/(\d+)' => ['controller' => 'App\Controller\EntidadInstitucionController', 'action' => 'deleteEntidadinstitucion'],
 
 
-
     // Rutas para PublicoObjetivo
     '/publicoObjetivo/init' => ['controller' => 'App\Controller\PublicoObjetivoController', 'action' => 'initPublicoObjetivo'],
     '/publicoObjetivo/new' => ['controller' => 'App\Controller\PublicoObjetivoController', 'action' => 'new'],
@@ -121,6 +116,4 @@ return [
     '/requisitos/edit/(\d+)' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'editRequisitos'],
     '/requisitos/update/(\d+)' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'updateRequisitos'],
     '/requisitos/delete/(\d+)' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'deleteRequisitos'],
-
-
 ];
