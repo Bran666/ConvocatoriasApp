@@ -1,5 +1,5 @@
 <!--<div class="container py-5" style="max-width: 1000px; margin: 0 auto;">-->
-<div class="container py-5" style="max-width: 1000px; margin: 0 auto; border: 2px solid #aaa; border-radius: 10px; padding: 20px;">
+<div class="container py-5" style="max-width: 1200px; margin: 0 auto; ">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
@@ -43,7 +43,7 @@
             </a>
         </li>
     </ul>
-
+<!--
     <div class="user-profile">
         <a href="/convocatoria/init"><i class="fas fa-chalkboard-teacher"></i><span> Crear Convocatorias</span></a></li>
         <br>
@@ -53,7 +53,7 @@
         <br>
         <a href="/administrarConvocatorias/init"><i class="fas fa-bullhorn me-2"></i> Ícono de perfil <span>Administrar Convocatorias</span></a>
     </div>
-
+-->
 
     <!-- Hero Section -->
     <div class="hero-section p-4 mt-4">
@@ -120,16 +120,16 @@
                                         <i class="fas fa-certificate me-1"></i> Destacado
                                     </span>
                                     <div class="text-end">
-                                        <h4 class="card-title fw-bold"><?= htmlspecialchars($convocatorias[0]->nombre ?? '') ?></h4>
-                                        <p class="card-text text-muted"><?= htmlspecialchars($convocatorias[0]->descripcion ?? '') ?></p>
+                                        <h4 class="card-title fw-bold"><?php echo htmlspecialchars($convocatorias[0]->nombre ?? '')?></h4>
+                                        <p class="card-text text-muted"><?php echo htmlspecialchars($convocatorias[0]->descripcion ?? '')?></p>
                                         <div class="d-flex flex-wrap justify-content-end mt-4">
                                             <div class="me-4 mb-2">
                                                 <i class="far fa-calendar card-info-icon text-success"></i>
-                                                <small>Cierre: <?= isset($convocatorias[0]->fechaCierre) ? date('d M Y', strtotime($convocatorias[0]->fechaCierre)) : 'N/A' ?></small>
+                                                <small>Cierre: <?php echo isset($convocatorias[0]->fechaCierre) ? date('d M Y', strtotime($convocatorias[0]->fechaCierre)) : 'N/A'?></small>
                                             </div>
                                             <div class="mb-2">
                                                 <i class="fas fa-users card-info-icon text-success"></i>
-                                                <small><?= htmlspecialchars($convocatorias[0]->objetivo ?? '') ?></small>
+                                                <small><?php echo htmlspecialchars($convocatorias[0]->objetivo ?? '')?></small>
                                             </div>
                                         </div>
                                     </div>
@@ -139,56 +139,70 @@
                     </div>
                 </div>
 
-                <!-- Dynamic Convocatorias Section -->
-                <div class="row">
-                    <?php if (!empty($convocatorias)): ?>
-                        <?php foreach ($convocatorias as $conv): ?>
-                            <div class="col-md-6 mb-4">
-                                <div class="card border-0 shadow-sm h-100">
-                                    <div class="card-body p-0">
-                                        <div class="position-relative">
-                                            <img src="/img/image.png" class="card-img-top object-fit-cover" alt="<?= htmlspecialchars($conv->nombre) ?>" style="height: 150px;">
-                                        </div>
-                                        <div class="p-2">
-                                            <h5 class="card-title fs-6"><?= htmlspecialchars($conv->nombre) ?></h5>
-                                            <p class="card-text text-muted small"><?= htmlspecialchars($conv->descripcion) ?></p>
-                                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                                <div>
-                                                    <i class="far fa-calendar text-muted me-1"></i>
-                                                    <small class="text-muted">Cierre: <?= date('d M Y', strtotime($conv->fechaCierre)) ?></small>
-                                                </div>
-                                                <button class="btn btn-outline-success btn-sm">Inscribirse</button>
-                                            </div>
-                                        </div>
-                                    </div>
+            <!-- Dynamic Convocatorias Section -->
+<div class="row">
+    <?php if (!empty($convocatorias)): ?>
+        <?php foreach ($convocatorias as $conv): ?>
+            <div class="col-md-6 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-0">
+                        <div class="position-relative">
+                            <img src="/img/image.png" class="card-img-top object-fit-cover" alt="<?php echo htmlspecialchars($conv->nombre) ?>" style="height: 150px;">
+                        </div>
+                        <div class="p-2">
+                            <h5 class="card-title fs-6"><?php echo htmlspecialchars($conv->nombre) ?></h5>
+                            <p class="card-text text-muted small"><?php echo htmlspecialchars($conv->descripcion) ?></p>
+                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                <div>
+                                    <i class="far fa-calendar text-muted me-1"></i>
+                                    <small class="text-muted">Cierre: <?php echo date('d M Y', strtotime($conv->fechaCierre)) ?></small>
                                 </div>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <div class="col-12">
-                            <div class="alert alert-info">
-                                No hay convocatorias disponibles en este momento.
+                                <!-- Botón Detalles -->
+                                <button class="btn btn-outline-primary btn-sm me-2" data-bs-toggle="modal" data-bs-target="#modalConvocatoria<?php echo $conv->id ?>">Detalles</button>
+                                <button class="btn btn-outline-success btn-sm">Inscribirse</button>
                             </div>
                         </div>
-                    <?php endif; ?>
+                    </div>
                 </div>
-        </div>
-    </div>
-<?php endif; ?> <!-- Close $convocatorias card condition -->
+            </div>
 
-<!-- Regular Cards Grid -->
-<?php if (!empty($convocatorias)): ?>
-    <div class="row">
-        <?php foreach ($convocatorias as $conv): ?>
-            <!-- Card content -->
+            <!-- Modal Detalles -->
+            <div class="modal fade" id="modalConvocatoria<?php echo $conv->id ?>" tabindex="-1" aria-labelledby="modalConvocatoriaLabel<?php echo $conv->id ?>" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalConvocatoriaLabel<?php echo $conv->id ?>">📋 Detalles de la Convocatoria</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <img src="/img/image.png" class="img-fluid w-100" style="height: 200px; object-fit: cover;">
+                            </div>
+                            <p><strong> Nombre:</strong> <?php echo htmlspecialchars($conv->nombre) ?></p>
+                            <p><strong> Fecha de Cierre:</strong> <?php echo htmlspecialchars($conv->fechaCierre) ?></p>
+                            <p><strong> Descripción:</strong> <?php echo htmlspecialchars($conv->descripcion) ?></p>
+                            <p><strong> Objetivo:</strong> <?php echo htmlspecialchars($conv->objetivo) ?></p>
+                            <p><strong> Entidad:</strong> </p>
+                            <p><strong> Usuario:</strong> </p>
+
+                            <div class="text-center mt-4">
+                                <button class="btn btn-success">
+                                    <i class="fas fa-pen"></i> Inscribirse
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin del Modal -->
         <?php endforeach; ?>
-    </div>
-<?php else: ?>
-    <div class="row">
+    <?php else: ?>
         <div class="col-12">
             <div class="alert alert-info">
-                No hay convocatorias disponibles
+                No hay convocatorias disponibles en este momento.
             </div>
         </div>
-    </div>
+    <?php endif; ?>
+</div>
+
 <?php endif; ?>
