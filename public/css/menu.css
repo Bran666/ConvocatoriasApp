@@ -1,0 +1,101 @@
+:root {
+    --primary-green: #4CAF50;
+    --dark-blue: #1e2a3a;
+}
+
+.navbar-brand img {
+    height: 30px;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--primary-green);
+    border-bottom: 2px solid var(--primary-green);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: transparent;
+}
+
+.nav-tabs .nav-link {
+    color: #6c757d;
+    border: none;
+}
+
+.hero-section {
+    background-color: var(--dark-blue);
+    color: white;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.green-underline {
+    border-bottom: 3px solid var(--primary-green);
+    width: 40px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
+}
+
+.btn-outline-light {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.category-pills .btn {
+    border-radius: 20px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.category-pills .btn-success {
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
+}
+
+.category-pills .btn-outline-secondary {
+    color: #6c757d;
+    border-color: #dee2e6;
+}
+
+.badge-destacado {
+    background-color: var(--primary-green);
+    color: white;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+.card-info-icon {
+    color: #6c757d;
+    margin-right: 5px;
+}
+
+.search-bar {
+    border-radius: 20px;
+    border: 1px solid #dee2e6;
+}
+
+.search-bar input {
+    border: none;
+}
+
+.search-bar input:focus {
+    box-shadow: none;
+}
+.card {
+transition: all 0.3s ease-in-out;
+z-index: 1; /* Valor base */
+}
+
+.card:hover {
+transform: scale(1.03); /* Mucho más sutil que 1.1 */
+box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Sombra más pronunciada */
+z-index: 10;
+border: 1px solid rgba(76, 175, 80, 0.3); /* Opcional: borde sutil */
+}
