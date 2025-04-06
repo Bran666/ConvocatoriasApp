@@ -14,7 +14,7 @@ class ExplorarController extends BaseController
     public function __construct()
     {
         //Se define Layaout para el controlador especifico
-        $this->layout = 'explorar_layout';
+        $this->layout = 'admin_layout';
         //parent::__construct();
     }
     

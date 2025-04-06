@@ -1,5 +1,5 @@
 <!--<div class="container py-5" style="max-width: 1000px; margin: 0 auto;">-->
-<div class="container py-5" style="max-width: 1000px; margin: 0 auto; border: 2px solid #aaa; border-radius: 10px; padding: 20px;">
+<div class="container py-5" style="max-width: 1200px; margin: 0 auto; ">
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
@@ -43,7 +43,7 @@
         </a>
     </li>
 </ul>
-
+<!--
      <div class="user-profile">
     <a href="/convocatoria/init"><i class="fas fa-chalkboard-teacher"></i><span> Crear Convocatorias</span></a></li>
     <br>
@@ -52,7 +52,7 @@
     <a href="/userPerfil/init"><i class="fas fa-user-circle"></i>  Ícono de perfil <span>Perfil Usuario</span></a>
     <br>
     <a href="/administrarConvocatorias/init"><i class="fas fa-bullhorn me-2"></i> Ícono de perfil <span>Administrar Convocatorias</span></a>
-</div>
+</div>-->
 
 
         <!-- Hero Section -->
@@ -107,47 +107,61 @@
                 <button class="btn btn-outline-secondary">Internacional</button>
             </div>
 
-          <!-- Cards -->
-          <div class="row">
-    <!-- Tarjeta principal -->
-    <div class="col-12 mb-4">
-        <div class="card border-0 shadow-sm">
-            <div class="card-body p-4">
-                <div class="row">
-                    <div class="col-md-8 offset-md-4"> <!-- Agregado offset-md-4 para mover el contenido a la derecha -->
-                        <span class="badge-destacado mb-3">
+            <div class="row justify-content-center">
+    <!-- Tarjeta principal más pequeña visualmente -->
+    <div class="col-12 mb-4 d-flex justify-content-center">
+        <div class="card border-0 shadow-sm scale-card">
+            <div class="card-body p-0">
+                <div class="row g-0">
+                    <!-- Columna para la imagen -->
+                    <div class="col-md-6 position-relative">
+                        <img src="/img/SENA.jpg" alt="Convocatoria Talento Digital"
+                             class="img-fluid h-100 rounded-start" style="object-fit: cover;">
+                        <span class="badge-destacado position-absolute top-0 start-0 m-3">
                             <i class="fas fa-certificate me-1"></i> Destacado
                         </span>
-                        <div class="text-end"> <!-- Alineación a la derecha -->
-                            <h4 class="card-title fw-bold">Convocatoria Nacional de Talento Digital 2025</h4>
-                            <p class="card-text text-muted">
-                                Forma parte de la nueva generación de profesionales en tecnologías de la información. Accede a formación de alta calidad y conecta con las mejores empresas del sector.
-                            </p>
-                            <div class="d-flex flex-wrap justify-content-end mt-4">
-                                <div class="me-4 mb-2">
-                                    <i class="far fa-calendar card-info-icon text-success"></i>
-                                    <small>Cierre: 20 Agosto 2025</small>
+                    </div>
+
+                    <!-- Columna para el contenido -->
+                    <div class="col-md-6">
+                        <div class="p-4 d-flex flex-column h-100">
+                            <div class="flex-grow-1">
+                                <h4 class="card-title fw-bold mb-3">Convocatoria Nacional de Talento Digital 2025</h4>
+                                <p class="card-text text-muted mb-4">
+                                    Forma parte de la nueva generación de profesionales en tecnologías de la información. Accede a formación de alta calidad y conecta con las mejores empresas del sector.
+                                </p>
+                                <div class="mt-auto">
+                                    <div class="d-flex flex-wrap mt-4">
+                                        <div class="me-4 mb-2">
+                                            <i class="far fa-calendar card-info-icon text-success"></i>
+                                            <small>Cierre: 20 Agosto 2025</small>
+                                        </div>
+                                        <div class="me-4 mb-2">
+                                            <i class="fas fa-map-marker-alt card-info-icon text-success"></i>
+                                            <small>Nacional</small>
+                                        </div>
+                                        <div class="mb-2">
+                                            <i class="fas fa-users card-info-icon text-success"></i>
+                                            <small>3,000 cupos disponibles</small>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <button class="btn btn-success rounded-pill px-4">
+                                            <i class="fas fa-user-plus me-1"></i> Inscribirse
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="me-4 mb-2">
-                                    <i class="fas fa-map-marker-alt card-info-icon text-success"></i>
-                                    <small>Nacional</small>
-                                </div>
-                                <div class="mb-2">
-                                    <i class="fas fa-users card-info-icon text-success"></i>
-                                    <small>3,000 cupos disponibles</small>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <button class="btn btn-success rounded-pill px-4">
-                                    <i class="fas fa-user-plus me-1"></i> Inscribirse
-                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div>    
+
+
+
+
 
 
     <!-- Tarjetas de cursos - Primera fila -->

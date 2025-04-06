@@ -15,7 +15,7 @@ class FavoritosController extends BaseController
     public function __construct()
     {
         //Se define Layaout para el controlador especifico
-        $this->layout = 'favoritos_layout';
+        $this->layout = 'admin_layout';
         //parent::__construct();
     }
     
