@@ -1,7 +1,7 @@
 <!-- Contenido Principal -->
-<div class="container py-4"> <!-- Contenedor Bootstrap centrado -->
-    <div class="card shadow mx-auto" style="max-width: 1000px;"> <!-- Contenedor más angosto -->
-        <div class="card-header bg-primary text-white">
+<div class="container py-4">
+    <div class="card shadow mx-auto border border-white bg-light" style="max-width: 1000px;"> <!-- Contenedor más blanco -->
+        <div class="card-header bg-success text-white"> <!-- Encabezado verde -->
             <h4 class="mb-0 d-flex justify-content-between align-items-center">
                 Lista de Convocatorias
                 <a href="/convocatoria/init" class="btn btn-light btn-sm">
@@ -20,11 +20,11 @@
             <?php if (!empty($convocatorias)): ?>
                 <div class="row">
                     <?php foreach ($convocatorias as $convocatoria): ?>
-                        <div class="col-12 mb-3"> <!-- Fila completa -->
+                        <div class="col-12 mb-3">
                             <div class="card shadow-sm">
                                 <div class="card-body">
                                     <h5 class="card-title mb-2">
-                                        <i class="fas fa-bullhorn me-2 text-primary"></i>
+                                        <i class="fas fa-bullhorn me-2 text-success"></i>
                                         <?php echo htmlspecialchars($convocatoria->nombre); ?>
                                     </h5>
                                     <p class="card-text text-muted small"><?php echo htmlspecialchars($convocatoria->descripcion); ?></p>
@@ -38,6 +38,9 @@
                                     </ul>
 
                                     <div class="d-flex justify-content-end gap-2">
+                                        <a href="/convocatoria/view/<?php echo $convocatoria->id; ?>" class="btn btn-outline-info btn-sm">
+                                            <i class="fas fa-eye me-1"></i> Ver
+                                        </a>
                                         <a href="/convocatoria/edit/<?php echo $convocatoria->id; ?>" class="btn btn-outline-success btn-sm">
                                             <i class="fas fa-edit me-1"></i> Editar
                                         </a>

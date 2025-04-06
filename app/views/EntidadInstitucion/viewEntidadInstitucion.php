@@ -1,7 +1,8 @@
 <!-- Contenido Principal -->
 <div class="container py-4"> <!-- Contenedor Bootstrap centrado -->
     <div class="card shadow mx-auto" style="max-width: 1000px;">
-        <div class="card-header bg-primary text-white">
+        <!-- Cabecera verde -->
+        <div class="card-header bg-success text-white">
             <h4 class="mb-0 d-flex justify-content-between align-items-center">
                 Entidades Institución
                 <a href="/entidadInstitucion/new" class="btn btn-light btn-sm">
@@ -15,10 +16,10 @@
                 <div class="row">
                     <?php foreach ($entidadInstituciones as $key => $value): ?>
                         <div class="col-12 mb-3"> <!-- Ocupa toda la fila -->
-                            <div class="card shadow-sm">
+                            <div class="card shadow-sm border border-light"> <!-- Borde más claro -->
                                 <div class="card-body d-flex justify-content-between align-items-center">
                                     <div>
-                                        <i class="fas fa-building me-2 text-primary"></i>
+                                        <i class="fas fa-building me-2 text-success"></i>
                                         <strong><?= $value->id ?> - <?= htmlspecialchars($value->nombre) ?></strong>
                                     </div>
                                     <div class="btn-group">

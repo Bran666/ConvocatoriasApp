@@ -1,75 +1,47 @@
-
-<!-- Main Content Wrapper -->
-<div class="main-wrapper">
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Menú Lateral Estático -->
-            <div class="col-md-2">
-                <div class="card position-fixed" style="width: 16%;">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0">Menú de Gestión</h5>
-                    </div>
-                    <div class="card-body p-0">
-                        <div class="list-group list-group-flush">
-                            <a href="/linea/init" class="list-group-item list-group-item-action active d-flex align-items-center">
-                                <i class="fas fa-chart-line me-2"></i> Línea
-                            </a>
-                            <a href="/publicoObjetivo/init" class="list-group-item list-group-item-action d-flex align-items-center">
-                                <i class="fas fa-users me-2"></i> Público Objetivo
-                            </a>
-                            <a href="/requisitos/init" class="list-group-item list-group-item-action d-flex align-items-center">
-                                <i class="fas fa-list-check me-2"></i> Requisitos
-                            </a>
-                            <a href="/entidadInstitucion/init" class="list-group-item list-group-item-action d-flex align-items-center">
-                                <i class="fas fa-building me-2"></i> Entidad Institución
-                            </a>
-                            <a href="/rol/index" class="list-group-item list-group-item-action d-flex align-items-center">
-                                <i class="fas fa-user-tag me-2"></i> Rol
-                            </a>
-                            <a href="/requisitosSeleccion/init" class="list-group-item list-group-item-action d-flex align-items-center">
-                                <i class="fas fa-tasks me-2"></i> Requisitos Selección
-                            </a>
-                            <a href="/tipo/init" class="list-group-item list-group-item-action d-flex align-items-center">
-                                <i class="fas fa-tag me-2"></i> Tipo
-                            </a>
-                            <a href="/convocatoria/lista" class="list-group-item list-group-item-action d-flex align-items-center">
-                                <i class="fas fa-bullhorn me-2"></i> Convocatorias
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contenido Principal -->
-            <div class="col-md-10">
-                <div class="container">
-                    <!-- Botón Nuevo con estilo Bootstrap -->
-                    <a href="/linea/new" class="btn btn-primary mb-3">
-                        <i class="fas fa-plus me-2"></i>
-                        Nuevo
-                    </a>
-
-                    <!-- Lista de registros -->
-                    <?php if (isset($lineas) && is_array($lineas)): ?>
-                        <div class="list-group">
-                            <?php foreach ($lineas as $key => $value): ?>
-                                <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center bg-light">
-                                    <div>
-                                        <span class="fw-bold"><?= $value->id ?> - <?= $value->nombre ?></span>
-                                        <span class="d-block text-muted"><?= $value->descripcion ?></span>
-                                    </div>
-                                    <div class="btn-group">
-                                        <a href="/linea/view/<?= $value->id ?>" class="btn btn-sm btn-outline-primary">Consultar</a>
-                                        <a href="/linea/edit/<?= $value->id ?>" class="btn btn-sm btn-outline-secondary">Editar</a>
-                                        <a href="/linea/delete/<?= $value->id ?>" class="btn btn-sm btn-outline-danger">Eliminar</a>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </div>
+<!-- Contenido Principal -->
+<div class="col-md-10 mx-auto">
+  <div class="card shadow-sm border border-light">
+    <!-- Encabezado verde -->
+    <div class="card-header bg-success text-white py-2">
+      <div class="d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Líneas</h5>
+        <a href="/linea/new" class="btn btn-light btn-sm">
+          <i class="fas fa-plus me-2"></i>Nuevo
+        </a>
+      </div>
     </div>
-</div>
 
+    <!-- Cuerpo de la tarjeta -->
+    <div class="card-body">
+      <?php if (isset($lineas) && is_array($lineas)): ?>
+        <div class="row g-3">
+          <?php foreach ($lineas as $key => $value): ?>
+            <div class="col-12">
+              <div class="card border-light bg-white shadow-sm">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <h6 class="card-title mb-1 fw-bold"><?= $value->id ?> - <?= $value->nombre ?></h6>
+                      <p class="card-text mb-0 text-muted"><?= $value->descripcion ?></p>
+                    </div>
+                    <div class="btn-group">
+                      <a href="/linea/view/<?= $value->id ?>" class="btn btn-sm btn-outline-success">
+                        <i class="fas fa-search me-1"></i> Consultar
+                      </a>
+                      <a href="/linea/edit/<?= $value->id ?>" class="btn btn-sm btn-outline-secondary">
+                        <i class="fas fa-edit me-1"></i> Editar
+                      </a>
+                      <a href="/linea/delete/<?= $value->id ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar esta línea?');">
+                        <i class="fas fa-trash-alt me-1"></i> Eliminar
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      <?php endif; ?>
+    </div>
+  </div>
+</div>
