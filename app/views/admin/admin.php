@@ -43,7 +43,7 @@
         </a>
     </li>
 </ul>
-<!--
+
      <div class="user-profile">
     <a href="/convocatoria/init"><i class="fas fa-chalkboard-teacher"></i><span> Crear Convocatorias</span></a></li>
     <br>
@@ -53,7 +53,7 @@
     <br>
     <a href="/administrarConvocatorias/init"><i class="fas fa-bullhorn me-2"></i> Ícono de perfil <span>Administrar Convocatorias</span></a>
 </div>
--->
+
 
         <!-- Hero Section -->
         <div class="hero-section p-4 mt-4">

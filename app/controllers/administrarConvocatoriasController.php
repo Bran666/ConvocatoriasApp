@@ -14,7 +14,7 @@ class AdministrarConvocatoriasController extends BaseController
     public function __construct()
     {
         //Se define Layaout para el controlador especifico
-        $this->layout = 'administrarConvocatorias_layouts';
+        $this->layout = 'login_layouts';
         //parent::__construct();
     }
     public function init() {
