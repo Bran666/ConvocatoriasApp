@@ -73,21 +73,3 @@
     </div>
 </div>
 
-<!-- Footer -->
-<footer class="custom-footer">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6">
-                <h5>Sistema de Convocatorias</h5>
-                <p class="mb-0">© 2023 Todos los derechos reservados</p>
-            </div>
-            <div class="col-md-6 text-end">
-                <div class="social-links">
-                    <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
