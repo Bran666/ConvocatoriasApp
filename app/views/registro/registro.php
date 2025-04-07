@@ -1,4 +1,4 @@
-<div class="container  py-0 ">
+<div class="container  py-5 ">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6 col-xl-5"> <!-- Columnas más anchas -->
             <div class="card shadow-lg border-0 rounded-3"> <!-- Sombra más pronunciada y bordes redondeados -->

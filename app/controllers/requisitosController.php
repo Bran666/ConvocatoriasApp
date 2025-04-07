@@ -18,39 +18,33 @@ class RequisitosController extends BaseController
     public function initRequisitos()
     {
         try {
-            // Si es POST, actualizar primero
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $id = $_POST["id"] ?? null;
-                $nombre = $_POST["nombre"] ?? null;
-                $obervaciones = $_POST["obervaciones"] ?? null;
-                $idEntidad = $_POST["idEntidad"] ?? null;
-                $idRequisitoSeleccion = $_POST["idRequisitoSeleccion"] ?? null;
-
-                if ($id) {
-                    $requisitosObjEdit = new RequisitosModel($id, $nombre, $obervaciones, $idEntidad, $idRequisitoSeleccion);
-                    $requisitosObjEdit->editRequisitos();
-                }
-            }
-
-            // Luego mostrar la lista actualizada
-            $objRequisitos = new RequisitosModel();
-            $requisitos = $objRequisitos->getAll();
-            
+            $objTipo = new RequisitosModel();
+            $requisitos = $objTipo->getAll();
+    
             $data = [
                 'title' => 'Lista de Requisitos',
-                "requisitos" => $requisitos,
+                "requisitos" => $requisitos, // Aquí se pasa correctamente el array de requisitos
             ];
-            $this->render("requisitos/viewRequisitos.php", $data);
-            
+            $this->render("requisitos/viewRequisitos.php", $data); // Asegúrate de pasar $data a la vista
         } catch (Exception $e) {
-            error_log("Error in RequisitosController->initRequisitos: " . $e->getMessage());
+            error_log("Error in TipoController->initRequisitos: " . $e->getMessage());
             $data = [
                 'title' => 'Lista de Requisitos',
-                "requisitos" => [],
+                "requisitos" => [], // Se pasa un array vacío en caso de error
                 "error" => "Error al cargar los requisitos"
             ];
-            $this->render("requisitos/viewRequisitos.php", $data);
+            $this->render("requisitos/viewRequisitos.php", $data); // También pasar $data aquí
         }
+    }
+    
+    
+    
+
+    public function initPerfil()
+    {
+        $this->layout = 'login_layouts';
+
+        $this->render("requisitos/requisitos.php");
     }
 
     // Add this method or update existing one
@@ -60,17 +54,17 @@ class RequisitosController extends BaseController
             // Get entidades from database
             $entidadModel = new \App\Models\EntidadInstitucionModel();
             $entidades = $entidadModel->getAll();
-            
+
             // Get requisitos selección from database
             $requisitoSeleccionModel = new \App\Models\RequisitoSeleccionModel();
             $requisitosSeleccion = $requisitoSeleccionModel->getAll();
-            
+
             $data = [
                 'title' => 'Nuevo Requisito',
                 'entidades' => $entidades,
                 'requisitosSeleccion' => $requisitosSeleccion
             ];
-            
+
             $this->render('requisitos/newRequisitos.php', $data);
         } catch (\Exception $e) {
             error_log("Error in RequisitosController->new: " . $e->getMessage());
@@ -115,9 +109,8 @@ class RequisitosController extends BaseController
                 throw new Exception("No se pudo guardar el requisito");
             }
 
-            header('Location: /requisitos/init');
+            header('Location: /requisitosCrud/init');
             exit();
-
         } catch (Exception $e) {
             error_log("Error en create requisito: " . $e->getMessage());
             header('Location: /requisitos/new');
@@ -161,9 +154,9 @@ class RequisitosController extends BaseController
             $requisitosObjEdit = new RequisitosModel($id, $nombre, $observaciones, $idEntidad, $idRequisitoSeleccion);
             $res = $requisitosObjEdit->editRequisitos();
             if ($res) {
-                header('Location:/requisitos/init');
+                header('Location:/requisitosCrud/init');
             } else {
-                header('Location:/requisitos/init');
+                header('Location:/requisitosCrud/init');
             }
         }
     }
@@ -174,9 +167,9 @@ class RequisitosController extends BaseController
             $requisitosObjDelete = new RequisitosModel($id);
             $res = $requisitosObjDelete->deleteRequisitos();
             if ($res) {
-                header('Location:/requisitos/init');
+                header('Location:/requisitosCrud/init');
             } else {
-                header('Location:/requisitos/init');
+                header('Location:/requisitosCrud/init');
             }
         }
     }

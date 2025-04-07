@@ -109,7 +109,8 @@ return [
     '/publicoObjetivo/delete/(\d+)' => ['controller' => 'App\Controller\PublicoObjetivoController', 'action' => 'deletePublicoObjetivo'],
 
     // Rutas para Requisitos
-    '/requisitos/init' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'initRequisitos'],
+    '/requisitos/init' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'initPerfil'],
+    '/requisitosCrud/init' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'initRequisitos'],
     '/requisitos/new' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'new'],
     '/requisitos/create' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'create'],
     '/requisitos/view/(\d+)' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'view'],

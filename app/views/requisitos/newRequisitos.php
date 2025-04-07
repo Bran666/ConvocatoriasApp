@@ -4,7 +4,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4>Agregar Requisito
-                        <a href="/requisitos/init" class="btn btn-danger float-end">Volver</a>
+                        <a href="/requisitosCrud/init" class="btn btn-danger float-end">Volver</a>
                     </h4>
                 </div>
                 <div class="card-body">

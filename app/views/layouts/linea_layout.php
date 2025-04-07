@@ -92,7 +92,7 @@
               <a href="/publicoObjetivo/init" class="list-group-item list-group-item-action d-flex align-items-center">
                 <i class="fas fa-users me-2"></i> Público Objetivo
               </a>
-              <a href="/requisitos/init" class="list-group-item list-group-item-action d-flex align-items-center">
+              <a href="/requisitosCrud/init" class="list-group-item list-group-item-action d-flex align-items-center">
                 <i class="fas fa-list-check me-2"></i> Requisitos
               </a>
               <a href="/entidadInstitucion/init" class="list-group-item list-group-item-action d-flex align-items-center">

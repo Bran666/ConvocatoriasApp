@@ -5,7 +5,7 @@
         <div class="card-header bg-success text-white">
             <h4 class="mb-0">
                 Editar Requisito
-                <a href="/requisitos/init" class="btn btn-light float-end">
+                <a href="/requisitosCrud/init" class="btn btn-light float-end">
                     <i class="fas fa-arrow-left me-2"></i>Volver
                 </a>
             </h4>

@@ -20,6 +20,8 @@ require_once '../app/controllers/administrarConvocatoriasController.php';
 require_once '../app/controllers/requisitosController.php';
 require_once '../app/controllers/favoritosController.php';
 
+require_once '../app/controllers/userController.php';
+
 require_once '../app/controllers/explorarController.php';
 require_once '../app/controllers/PublicoObjetivoController.php';
 require_once '../app/controllers/tipoController.php';

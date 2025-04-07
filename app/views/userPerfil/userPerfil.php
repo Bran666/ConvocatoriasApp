@@ -45,7 +45,7 @@
                             <i class="fas fa-user-circle text-success me-2"></i> Datos del usuario / Empresa
                         </h4>
                         
-                        <form action="userPerfil/init" method="post">
+                        <form action="/userPerfil/init" method="post">
                             <div class="mb-3">
                                 <label for="nombre" class="form-label">
                                     <i class="fas fa-user me-1"></i> Nombre:
