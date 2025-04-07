@@ -1,7 +1,6 @@
 
 
-<div class="container py-5" style="max-width: 1200px; margin: 0 auto;">
-
+<div class="container py-5" style="max-width: 1200px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); padding: 25px; position: relative;">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light mb-4">
         <div class="container-fluid">
@@ -11,11 +10,11 @@
             </a>
             <div class="d-flex align-items-center">
                 <a href="#" class="text-decoration-none text-secondary me-3">Cerrar Sesión</a>
-                <a href="/userPerfil/init" class="text-decoration-none"> <!-- Añadí esta etiqueta <a> -->
+                <a href="/userPerfil/init" class="text-decoration-none">
                     <div class="bg-light rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
                         <span class="fw-bold">BR</span>
                     </div>
-                </a> <!-- Cierre de la etiqueta <a> -->
+                </a>
             </div>
         </div>
     </nav>

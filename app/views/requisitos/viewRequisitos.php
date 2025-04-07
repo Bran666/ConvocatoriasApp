@@ -19,8 +19,8 @@
                         <div>
                             <h6 class="mb-1 text-success"> <?= htmlspecialchars($requisito->nombre) ?></h6>
                             <small class="text-muted"> Observaciones: <?= $requisito->obervaciones ?></small><br>
-                            <small class="text-muted"> Entidad: <?= $requisito->idEntidad ?></small><br>
-                            <small class="text-muted"> Requisito Selección: <?= $requisito->idRequisitoSeleccion ?></small>
+                            <small class="text-muted"> Entidad: <?= htmlspecialchars($requisito->nombreEntidad ?? 'No asignada') ?></small><br>
+                            <small class="text-muted"> Requisito Selección: <?= htmlspecialchars($requisito->nombreRequisitoSeleccion ?? 'No asignado') ?></small>
                         </div>
                         <div class="btn-group">
                             <a href="/requisitos/view/<?= $requisito->id ?>" class="btn btn-outline-primary btn-sm">

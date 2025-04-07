@@ -1,152 +1,151 @@
-<div class="container py-5" style="max-width: 1200px; margin: 0 auto; ">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light mb-4">
-            <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="/img/SENA.jpg" alt="Logo" width="30" height="30">
-                <span class="ms-2 fw-semibold">SENA</span>
-            </a>
-                <div class="d-flex align-items-center">
-    <a href="#" class="text-decoration-none text-secondary me-3">Cerrar Sesión</a>
-    <a href="/userPerfil/init" class="text-decoration-none"> <!-- Añadí esta etiqueta <a> -->
-        <div class="bg-light rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
-            <span class="fw-bold">BR</span>
-        </div>
-    </a> <!-- Cierre de la etiqueta <a> -->
-</div>
-            </div>
-        </nav>
-
-        <!-- Search Bar -->
-        <div class="row mb-4">
-            <div class="col-md-6">
-                <div class="input-group search-bar">
-                    <span class="input-group-text bg-transparent border-0">
-                        <i class="fas fa-search text-secondary"></i>
-                    </span>
-                    <input type="text" class="form-control bg-transparent border-0" placeholder="Buscar programas, cursos o convocatorias">
-                </div>
-            </div>
-        </div>
-
-        <!-- Navigation Tabs -->
-        <ul class="nav nav-tabs border-0 justify-content-end mb-5">
-            <li class="nav-item">
-                <a class="nav-link" href="/menu/init">Descubrir</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="/explorar/init">Explorar</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/favoritos/init">
-                    <i class="far fa-bookmark me-1"></i> Favoritos
+<div class="container py-5" style="max-width: 1200px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); padding: 25px; position: relative;">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light mb-4">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="/img/SENA.jpg" alt="Logo" width="30" height="30">
+            <span class="ms-2 fw-semibold">SENA</span>
+        </a>
+            <div class="d-flex align-items-center">
+                <a href="#" class="text-decoration-none text-secondary me-3">Cerrar Sesión</a>
+                <a href="/userPerfil/init" class="text-decoration-none">
+                    <div class="bg-light rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                        <span class="fw-bold">BR</span>
+                    </div>
                 </a>
-            </li>
-        </ul>
-
-        <!-- Explorar Header -->
-        <div class="mb-5">
-            <h1 class="fw-bold mb-2">Explorar Convocatorias</h1>
-            <p class="text-muted">Descubre todas las oportunidades disponibles según tus intereses y ubicación</p>
-        </div>
-
-        <!-- Filters Section -->
-        <div class="filter-section mb-5">
-            <h5 class="fw-semibold mb-4">Filtros de búsqueda</h5>
-            
-            <div class="row g-4">
-                <!-- Categoría -->
-                <div class="col-md-4">
-                    <label class="form-label fw-medium">Categoría</label>
-                    <select class="form-select">
-                        <option selected>Todas las categorías</option>
-                        <option>Formación Técnica</option>
-                        <option>Formación Tecnológica</option>
-                        <option>Certificaciones</option>
-                        <option>Prácticas</option>
-                        <option>Internacional</option>
-                    </select>
-                </div>
-                
-                <!-- Ubicación -->
-                <div class="col-md-4">
-                    <label class="form-label fw-medium">Ubicación</label>
-                    <select class="form-select">
-                        <option selected>Todo el país</option>
-                        <option>Bogotá</option>
-                        <option>Medellín</option>
-                        <option>Cali</option>
-                        <option>Barranquilla</option>
-                        <option>Virtual</option>
-                    </select>
-                </div>
-                
-                <!-- Fecha -->
-                <div class="col-md-4">
-                    <label class="form-label fw-medium">Fecha de inicio</label>
-                    <select class="form-select">
-                        <option selected>Cualquier fecha</option>
-                        <option>Próximos 7 días</option>
-                        <option>Próximos 30 días</option>
-                        <option>Próximos 3 meses</option>
-                        <option>Personalizado</option>
-                    </select>
-                </div>
-            </div>
-            
-            <div class="mt-4">
-                <button class="btn btn-success me-2">
-                    <i class="fas fa-filter me-2"></i> Aplicar filtros
-                </button>
             </div>
         </div>
+    </nav>
 
-        <!-- Map View Toggle -->
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h5 class="fw-semibold mb-0">Resultados (24)</h5>
-            <div class="d-flex gap-2">
-                <button class="btn btn-outline-secondary btn-sm">
-                    <i class="fas fa-map-marker-alt me-2"></i> Ver en mapa
-                </button>
-                <select class="form-select form-select-sm" style="width: auto;">
-                    <option selected>Más recientes</option>
-                    <option>Popularidad</option>
-                    <option>Fecha de inicio</option>
+    <!-- Search Bar -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="input-group search-bar">
+                <span class="input-group-text bg-transparent border-0">
+                    <i class="fas fa-search text-secondary"></i>
+                </span>
+                <input type="text" class="form-control bg-transparent border-0" placeholder="Buscar programas, cursos o convocatorias">
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <ul class="nav nav-tabs border-0 justify-content-end mb-5">
+        <li class="nav-item">
+            <a class="nav-link" href="/menu/init">Descubrir</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="/explorar/init">Explorar</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/favoritos/init">
+                <i class="far fa-bookmark me-1"></i> Favoritos
+            </a>
+        </li>
+    </ul>
+
+    <!-- Explorar Header -->
+    <div class="mb-5">
+        <h1 class="fw-bold mb-2">Explorar Convocatorias</h1>
+        <p class="text-muted">Descubre todas las oportunidades disponibles según tus intereses y ubicación</p>
+    </div>
+
+    <!-- Filters Section -->
+    <div class="filter-section mb-5">
+        <h5 class="fw-semibold mb-4">Filtros de búsqueda</h5>
+        
+        <div class="row g-4">
+            <!-- Categoría -->
+            <div class="col-md-4">
+                <label class="form-label fw-medium">Categoría</label>
+                <select class="form-select">
+                    <option selected>Todas las categorías</option>
+                    <option>Formación Técnica</option>
+                    <option>Formación Tecnológica</option>
+                    <option>Certificaciones</option>
+                    <option>Prácticas</option>
+                    <option>Internacional</option>
+                </select>
+            </div>
+            
+            <!-- Ubicación -->
+            <div class="col-md-4">
+                <label class="form-label fw-medium">Ubicación</label>
+                <select class="form-select">
+                    <option selected>Todo el país</option>
+                    <option>Bogotá</option>
+                    <option>Medellín</option>
+                    <option>Cali</option>
+                    <option>Barranquilla</option>
+                    <option>Virtual</option>
+                </select>
+            </div>
+            
+            <!-- Fecha -->
+            <div class="col-md-4">
+                <label class="form-label fw-medium">Fecha de inicio</label>
+                <select class="form-select">
+                    <option selected>Cualquier fecha</option>
+                    <option>Próximos 7 días</option>
+                    <option>Próximos 30 días</option>
+                    <option>Próximos 3 meses</option>
+                    <option>Personalizado</option>
                 </select>
             </div>
         </div>
+        
+        <div class="mt-4">
+            <button class="btn btn-success me-2">
+                <i class="fas fa-filter me-2"></i> Aplicar filtros
+            </button>
+        </div>
+    </div>
 
-        <!-- Results Grid -->
-        <div class="row g-4 mb-5">
-            <!-- Card 1 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="position-relative">
-                        <img src="/img/sena2.jpg?height=150&width=300" class="card-img-top" alt="Desarrollo Web" style="height: 150px; object-fit: cover;">
-                        <span class="badge bg-success position-absolute top-0 end-0 m-2">Nuevo</span>
-                        <button class="bookmark-btn">
-                            <i class="far fa-bookmark"></i>
-                        </button>
-                    </div>
-                    <div class="card-body p-4">
-                        <h5 class="card-title fw-semibold">Técnico en Desarrollo de Aplicaciones Web</h5>
-                        <p class="card-text text-muted small">Aprende a crear aplicaciones web modernas con las tecnologías más demandadas del mercado.</p>
-                        <div class="d-flex flex-wrap mt-3 mb-3">
-                            <div class="me-3 mb-2">
-                                <i class="far fa-clock card-info-icon me-1"></i>
-                                <small class="text-muted">Inicio: 15 Jul</small>
-                            </div>
-                            <div class="me-3 mb-2">
-                                <i class="fas fa-map-marker-alt card-info-icon me-1"></i>
-                                <small class="text-muted">Bogotá</small>
-                            </div>
-                            <div class="mb-2">
-                                <i class="fas fa-users card-info-icon me-1"></i>
-                                <small class="text-muted">30 cupos</small>
-                            </div>
+    <!-- Map View Toggle -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h5 class="fw-semibold mb-0">Resultados (24)</h5>
+        <div class="d-flex gap-2">
+            <button class="btn btn-outline-secondary btn-sm">
+                <i class="fas fa-map-marker-alt me-2"></i> Ver en mapa
+            </button>
+            <select class="form-select form-select-sm" style="width: auto;">
+                <option selected>Más recientes</option>
+                <option>Popularidad</option>
+                <option>Fecha de inicio</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Results Grid -->
+    <div class="row g-4 mb-5">
+        <!-- Card 1 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100">
+                <div class="position-relative">
+                    <img src="/img/sena2.jpg?height=150&width=300" class="card-img-top" alt="Desarrollo Web" style="height: 150px; object-fit: cover;">
+                    <span class="badge bg-success position-absolute top-0 end-0 m-2">Nuevo</span>
+                    <button class="bookmark-btn">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="card-title fw-semibold">Técnico en Desarrollo de Aplicaciones Web</h5>
+                    <p class="card-text text-muted small">Aprende a crear aplicaciones web modernas con las tecnologías más demandadas del mercado.</p>
+                    <div class="d-flex flex-wrap mt-3 mb-3">
+                        <div class="me-3 mb-2">
+                            <i class="far fa-clock card-info-icon me-1"></i>
+                            <small class="text-muted">Inicio: 15 Jul</small>
                         </div>
-                        <button class="btn btn-success w-100">Inscribirse</button>
+                        <div class="me-3 mb-2">
+                            <i class="fas fa-map-marker-alt card-info-icon me-1"></i>
+                            <small class="text-muted">Bogotá</small>
+                        </div>
+                        <div class="mb-2">
+                            <i class="fas fa-users card-info-icon me-1"></i>
+                            <small class="text-muted">30 cupos</small>
+                        </div>
                     </div>
+                    <button class="btn btn-success w-100">Inscribirse</button>
                 </div>
             </div>
 

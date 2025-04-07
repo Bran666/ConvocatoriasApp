@@ -1,5 +1,5 @@
 <!--<div class="container py-5" style="max-width: 1000px; margin: 0 auto;">-->
-<div class="container py-5" style="max-width: 1200px; margin: 0 auto; ">
+<div class="container py-5" style="max-width: 1200px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); padding: 25px; position: relative;">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
@@ -169,27 +169,95 @@
             <!-- Modal Detalles -->
             <div class="modal fade" id="modalConvocatoria<?php echo $conv->id ?>" tabindex="-1" aria-labelledby="modalConvocatoriaLabel<?php echo $conv->id ?>" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalConvocatoriaLabel<?php echo $conv->id ?>">📋 Detalles de la Convocatoria</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    <div class="modal-content border-0 shadow">
+                        <div class="modal-header bg-success text-white border-0">
+                            <h5 class="modal-title" id="modalConvocatoriaLabel<?php echo $conv->id ?>">
+                                <i class="fas fa-clipboard-list me-2"></i> Detalles de la Convocatoria
+                            </h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                         </div>
-                        <div class="modal-body">
-                            <div class="mb-3">
+                        <div class="modal-body p-0">
+                            <!-- Banner image with overlay -->
+                            <div class="position-relative">
                                 <img src="/img/image.png" class="img-fluid w-100" style="height: 200px; object-fit: cover;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-3" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+                                    <h4 class="text-white mb-0"><?php echo htmlspecialchars($conv->nombre) ?></h4>
+                                </div>
+                                <span class="badge bg-danger position-absolute top-0 end-0 m-3">
+                                    Cierra: <?php echo date('d M Y', strtotime($conv->fechaCierre)) ?>
+                                </span>
                             </div>
-                            <p><strong> Nombre:</strong> <?php echo htmlspecialchars($conv->nombre) ?></p>
-                            <p><strong> Fecha de Cierre:</strong> <?php echo htmlspecialchars($conv->fechaCierre) ?></p>
-                            <p><strong> Descripción:</strong> <?php echo htmlspecialchars($conv->descripcion) ?></p>
-                            <p><strong> Objetivo:</strong> <?php echo htmlspecialchars($conv->objetivo) ?></p>
-                            <p><strong> Entidad:</strong> </p>
-                            <p><strong> Usuario:</strong> </p>
-
-                            <div class="text-center mt-4">
-                                <button class="btn btn-success">
-                                    <i class="fas fa-pen"></i> Inscribirse
-                                </button>
+                            
+                            <!-- Content section -->
+                            <div class="p-4">
+                                <!-- Info cards -->
+                                <div class="row mb-4">
+                                    <div class="col-md-4 mb-3 mb-md-0">
+                                        <div class="card h-100 border-0 bg-light">
+                                            <div class="card-body text-center">
+                                                <i class="far fa-calendar-alt text-success fa-2x mb-2"></i>
+                                                <h6 class="card-title">Fecha de Cierre</h6>
+                                                <p class="card-text"><?php echo date('d M Y', strtotime($conv->fechaCierre)) ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3 mb-md-0">
+                                        <div class="card h-100 border-0 bg-light">
+                                            <div class="card-body text-center">
+                                                <i class="fas fa-building text-success fa-2x mb-2"></i>
+                                                <h6 class="card-title">Entidad</h6>
+                                                <p class="card-text">SENA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card h-100 border-0 bg-light">
+                                            <div class="card-body text-center">
+                                                <i class="fas fa-user-tie text-success fa-2x mb-2"></i>
+                                                <h6 class="card-title">Responsable</h6>
+                                                <p class="card-text">Administrador</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Tabs for content organization -->
+                                <ul class="nav nav-tabs" id="convocatoriaTab<?php echo $conv->id ?>" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="descripcion-tab<?php echo $conv->id ?>" data-bs-toggle="tab" data-bs-target="#descripcion<?php echo $conv->id ?>" type="button" role="tab" aria-controls="descripcion" aria-selected="true">Descripción</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="objetivo-tab<?php echo $conv->id ?>" data-bs-toggle="tab" data-bs-target="#objetivo<?php echo $conv->id ?>" type="button" role="tab" aria-controls="objetivo" aria-selected="false">Objetivo</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="requisitos-tab<?php echo $conv->id ?>" data-bs-toggle="tab" data-bs-target="#requisitos<?php echo $conv->id ?>" type="button" role="tab" aria-controls="requisitos" aria-selected="false">Requisitos</button>
+                                    </li>
+                                </ul>
+                                
+                                <div class="tab-content p-3 border border-top-0 rounded-bottom mb-4" id="convocatoriaTabContent<?php echo $conv->id ?>">
+                                    <div class="tab-pane fade show active" id="descripcion<?php echo $conv->id ?>" role="tabpanel" aria-labelledby="descripcion-tab<?php echo $conv->id ?>">
+                                        <p><?php echo htmlspecialchars($conv->descripcion) ?></p>
+                                    </div>
+                                    <div class="tab-pane fade" id="objetivo<?php echo $conv->id ?>" role="tabpanel" aria-labelledby="objetivo-tab<?php echo $conv->id ?>">
+                                        <p><?php echo htmlspecialchars($conv->objetivo) ?></p>
+                                    </div>
+                                    <div class="tab-pane fade" id="requisitos<?php echo $conv->id ?>" role="tabpanel" aria-labelledby="requisitos-tab<?php echo $conv->id ?>">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item bg-transparent"><i class="fas fa-check-circle text-success me-2"></i> Documento de identidad</li>
+                                            <li class="list-group-item bg-transparent"><i class="fas fa-check-circle text-success me-2"></i> Hoja de vida actualizada</li>
+                                            <li class="list-group-item bg-transparent"><i class="fas fa-check-circle text-success me-2"></i> Certificados académicos</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                        <div class="modal-footer bg-light">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                <i class="fas fa-times me-1"></i> Cerrar
+                            </button>
+                            <button type="button" class="btn btn-success">
+                                <i class="fas fa-user-plus me-1"></i> Inscribirse
+                            </button>
                         </div>
                     </div>
                 </div>

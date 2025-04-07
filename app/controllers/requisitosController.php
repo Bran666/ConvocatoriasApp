@@ -53,9 +53,35 @@ class RequisitosController extends BaseController
         }
     }
 
+    // Add this method or update existing one
     public function new()
     {
-        $this->render('requisitos/newRequisitos.php');
+        try {
+            // Get entidades from database
+            $entidadModel = new \App\Models\EntidadInstitucionModel();
+            $entidades = $entidadModel->getAll();
+            
+            // Get requisitos selección from database
+            $requisitoSeleccionModel = new \App\Models\RequisitoSeleccionModel();
+            $requisitosSeleccion = $requisitoSeleccionModel->getAll();
+            
+            $data = [
+                'title' => 'Nuevo Requisito',
+                'entidades' => $entidades,
+                'requisitosSeleccion' => $requisitosSeleccion
+            ];
+            
+            $this->render('requisitos/newRequisitos.php', $data);
+        } catch (\Exception $e) {
+            error_log("Error in RequisitosController->new: " . $e->getMessage());
+            $data = [
+                'title' => 'Nuevo Requisito',
+                'entidades' => [],
+                'requisitosSeleccion' => [],
+                'error' => 'Error al cargar los datos'
+            ];
+            $this->render('requisitos/newRequisitos.php', $data);
+        }
     }
 
     public function create()

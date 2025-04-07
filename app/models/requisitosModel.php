@@ -25,7 +25,12 @@ class RequisitosModel extends BaseModel
     public function getAll(): array
     {
         try {
-            $query = "SELECT * FROM `Requisitos`";
+            $query = "SELECT r.*, 
+                      e.nombre AS nombreEntidad, 
+                      rs.nombre AS nombreRequisitoSeleccion 
+                      FROM `Requisitos` r
+                      LEFT JOIN `entidad_institucion` e ON r.idEntidad = e.id
+                      LEFT JOIN `requisito-seleccion` rs ON r.idRequisitoSeleccion = rs.id";
             $statement = $this->dbConnection->query($query);
             $result = $statement->fetchAll(\PDO::FETCH_OBJ);
             return $result;
@@ -40,9 +45,9 @@ class RequisitosModel extends BaseModel
         try {
             $query = "INSERT INTO requisitos (nombre, obervaciones, idEntidad, idRequisitoSeleccion) 
                      VALUES (?, ?, ?, ?)";
-            
+
             $stmt = $this->dbConnection->prepare($query);
-            
+
             // Depurar valores antes de insertar
             error_log("Intentando insertar: " . json_encode([
                 'nombre' => $this->nombre,
@@ -50,7 +55,7 @@ class RequisitosModel extends BaseModel
                 'idEntidad' => $this->idEntidad,
                 'idRequisitoSeleccion' => $this->idRequisitoSeleccion
             ]));
-            
+
             $result = $stmt->execute([
                 $this->nombre,
                 $this->observaciones,
@@ -62,7 +67,7 @@ class RequisitosModel extends BaseModel
                 error_log("Error SQL: " . print_r($stmt->errorInfo(), true));
                 return false;
             }
-            
+
             return true;
         } catch (Exception $e) {
             error_log("Error en save: " . $e->getMessage());

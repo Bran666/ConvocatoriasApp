@@ -17,7 +17,7 @@ class EntidadInstitucionModel extends BaseModel
         //Se llama al constructor del padre
         parent::__construct();
         //Se especifica la tabla
-        $this->table = " entidad_institucion";
+        $this->table = "entidad_institucion";
     }
     public function save()
     {

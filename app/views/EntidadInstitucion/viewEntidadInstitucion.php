@@ -30,7 +30,7 @@
                                             <i class="fas fa-edit me-1"></i> Editar
                                         </a>
                                         <a href="/entidadInstitucion/delete/<?= $value->id ?>" class="btn btn-outline-danger btn-sm"
-                                           onclick="return confirm('¿Está seguro de eliminar este registro?')">
+                                            onclick="return confirm('¿Está seguro de eliminar este registro?')">
                                             <i class="fas fa-trash me-1"></i> Eliminar
                                         </a>
                                     </div>
