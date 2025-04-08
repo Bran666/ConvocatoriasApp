@@ -15,37 +15,146 @@ class RequisitosController extends BaseController
         $this->layout = 'linea_layout';
     }
 
-    public function initRequisitos()
-    {
-        try {
-            $objTipo = new RequisitosModel();
-            $requisitos = $objTipo->getAll();
-    
-            $data = [
-                'title' => 'Lista de Requisitos',
-                "requisitos" => $requisitos, // Aquí se pasa correctamente el array de requisitos
-            ];
-            $this->render("requisitos/viewRequisitos.php", $data); // Asegúrate de pasar $data a la vista
-        } catch (Exception $e) {
-            error_log("Error in TipoController->initRequisitos: " . $e->getMessage());
-            $data = [
-                'title' => 'Lista de Requisitos',
-                "requisitos" => [], // Se pasa un array vacío en caso de error
-                "error" => "Error al cargar los requisitos"
-            ];
-            $this->render("requisitos/viewRequisitos.php", $data); // También pasar $data aquí
-        }
-    }
-    
-    
-    
-
     public function initPerfil()
     {
         $this->layout = 'login_layouts';
 
-        $this->render("requisitos/requisitos.php");
+        try {
+            // Initialize all variables with default values
+            $tipos = [];
+            $requisitosSeleccion = [];
+            $requisitosPorTipo = [];
+            $categorias = [
+                'administrativos' => 'Administrativos',
+                'documentacion' => 'Documentación',
+                'financieros' => 'Financieros'
+            ];
+
+            // Get tipos from database
+            $tipoModel = new \App\Models\TipoModel();
+            $tipos = $tipoModel->getAll() ?? [];
+
+            // Get requisitos selección if tipos exist
+            if (!empty($tipos)) {
+                $requisitoSeleccionModel = new \App\Models\RequisitoSeleccionModel();
+                $requisitosSeleccion = $requisitoSeleccionModel->getAll() ?? [];
+
+                // Organize requisitos by tipo
+                foreach ($requisitosSeleccion as $requisito) {
+                    if (!isset($requisitosPorTipo[$requisito->idTipo])) {
+                        $requisitosPorTipo[$requisito->idTipo] = [];
+                    }
+
+                    // Categorize requisitos
+                    if (
+                        stripos($requisito->nombre, 'documento') !== false ||
+                        stripos($requisito->nombre, 'formulario') !== false ||
+                        stripos($requisito->nombre, 'carta') !== false
+                    ) {
+                        $requisito->categoria = 'documentacion';
+                    } elseif (
+                        stripos($requisito->nombre, 'pago') !== false ||
+                        stripos($requisito->nombre, 'cuenta') !== false ||
+                        stripos($requisito->nombre, 'financ') !== false
+                    ) {
+                        $requisito->categoria = 'financieros';
+                    } else {
+                        $requisito->categoria = 'administrativos';
+                    }
+
+                    $requisitosPorTipo[$requisito->idTipo][] = $requisito;
+                }
+            }
+
+            $data = [
+                'title' => 'Requisitos',
+                'tipos' => $tipos,
+                'requisitosPorTipo' => $requisitosPorTipo,
+                'categorias' => $categorias,
+                'debug' => true,
+                'requisitosSeleccionDebug' => $requisitosSeleccion
+            ];
+
+            $this->render("requisitos/requisitos.php", $data);
+        } catch (Exception $e) {
+            error_log("Error in RequisitosController->init: " . $e->getMessage());
+            $data = [
+                'title' => 'Requisitos',
+                'tipos' => [],
+                'requisitosPorTipo' => [],
+                'categorias' => [],
+                'error' => "Error al cargar los requisitos: " . $e->getMessage(),
+                'debug' => true,
+                'errorDebug' => $e->getMessage()
+            ];
+            $this->render("requisitos/requisitos.php", $data);
+        }
     }
+
+
+
+    public function initRequisitos()
+    {
+        try {
+            $requisitosModel = new RequisitosModel();
+            $requisitos = $requisitosModel->getAll() ?? [];
+
+            $data = [
+                'title' => 'Lista de Requisitos',
+                'requisitos' => $requisitos
+            ];
+
+            $this->render("requisitos/viewRequisitos.php", $data);
+        } catch (Exception $e) {
+            error_log("Error in RequisitosController->init: " . $e->getMessage());
+            $data = [
+                'title' => 'Lista de Requisitos',
+                'requisitos' => [],
+                'error' => "Error al cargar los requisitos: " . $e->getMessage()
+            ];
+            $this->render("requisitos/viewRequisitos.php", $data);
+        }
+    }
+
+    // Add a method to save the checked requirements
+    public function guardarChequeo()
+    {
+        try {
+            // Get JSON data from request
+            $jsonData = file_get_contents('php://input');
+            $data = json_decode($jsonData);
+
+            if (!$data || !isset($data->requisitos)) {
+                echo json_encode(['success' => false, 'message' => 'Datos inválidos']);
+                return;
+            }
+
+            $usuarioId = $_SESSION['id'] ?? 0;
+            if (!$usuarioId) {
+                echo json_encode(['success' => false, 'message' => 'Usuario no autenticado']);
+                return;
+            }
+
+            // Delete existing checks for this user
+            $chequeoModel = new \App\Models\ChequeoModel();
+            $chequeoModel->deleteByUsuario($usuarioId);
+
+            // Save new checks
+            $success = true;
+            foreach ($data->requisitos as $requisitoId) {
+                $result = $chequeoModel->save($usuarioId, $requisitoId);
+                if (!$result) {
+                    $success = false;
+                }
+            }
+
+            echo json_encode(['success' => $success]);
+        } catch (Exception $e) {
+            error_log("Error in RequisitosController->guardarChequeo: " . $e->getMessage());
+            echo json_encode(['success' => false, 'message' => 'Error al guardar los requisitos']);
+        }
+    }
+
 
     // Add this method or update existing one
     public function new()

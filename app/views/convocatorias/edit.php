@@ -1,6 +1,5 @@
-<!-- Contenido Principal -->
-<div class="d-flex justify-content-center">
-    <div class="card shadow-sm border border-success w-100" style="max-width: 1000px; background-color: #ffffff;">
+<div class="container mt-4" style="max-width: 800px; margin: 0 auto;">
+    <div class="card shadow-sm">
         <div class="card-header bg-success text-white py-2">
             <div class="d-flex justify-content-between align-items-center">
                 <h5 class="mb-0">Editar Convocatoria</h5>
@@ -9,83 +8,82 @@
                 </a>
             </div>
         </div>
-
-        <div class="card-body p-4">
-            <form action="/convocatoria/update/<?php echo htmlspecialchars($convocatoria['id']); ?>" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="id" value="<?php echo htmlspecialchars($convocatoria['id']); ?>">
-
-                <!-- Campo Nombre -->
+        <div class="card-body p-3">
+            <?php if (isset($convocatoria) && !empty($convocatoria)): ?>
+            <?php 
+            // Debugging: Check if $convocatoria is an array or object
+            if (is_array($convocatoria)) {
+                $convocatoria = (object)$convocatoria;
+            }
+            ?>
+            <form action="/convocatoria/update/<?= $convocatoria->id ?>" method="post">
+                <input type="hidden" name="id" value="<?= $convocatoria->id ?>">
+                
                 <div class="mb-3">
-                    <label for="nombre" class="form-label fw-bold small">Nombre</label>
-                    <input type="text" class="form-control form-control-sm" id="nombre" name="nombre"
-                           value="<?php echo htmlspecialchars($convocatoria['nombre']); ?>" required>
+                    <label class="form-label">Nombre</label>
+                    <input type="text" name="nombre" class="form-control" value="<?= htmlspecialchars($convocatoria->nombre) ?>" required>
                 </div>
-
-                <!-- Campo Fecha Revisión -->
+                
                 <div class="mb-3">
-                    <label for="fechaRevision" class="form-label fw-bold small">Fecha Revisión</label>
-                    <input type="date" class="form-control form-control-sm" id="fechaRevision" name="fechaRevision"
-                           value="<?php echo htmlspecialchars($convocatoria['fechaRevision'] ?? ''); ?>" required>
+                    <label class="form-label">Descripción</label>
+                    <textarea name="descripcion" class="form-control" required><?= htmlspecialchars(is_array($convocatoria) ? $convocatoria['descripcion'] : $convocatoria->descripcion) ?></textarea>
                 </div>
-
-                <!-- Campo Fecha Cierre -->
-                <div class="mb-3">
-                    <label for="fechaCierre" class="form-label fw-bold small">Fecha Cierre</label>
-                    <input type="date" class="form-control form-control-sm" id="fechaCierre" name="fechaCierre"
-                           value="<?php echo htmlspecialchars($convocatoria['fechaCierre'] ?? ''); ?>" required>
+                
+                <div class="row g-2">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Fecha de Revisión</label>
+                            <input type="date" name="fechaRevision" class="form-control" value="<?= is_array($convocatoria) ? $convocatoria['fechaRevision'] : $convocatoria->fechaRevision ?>" required>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Fecha de Cierre</label>
+                            <input type="date" name="fechaCierre" class="form-control" value="<?= is_array($convocatoria) ? $convocatoria['fechaCierre'] : $convocatoria->fechaCierre ?>" required>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- Campo Entidad -->
+                
                 <div class="mb-3">
-                    <label for="fkIdEntidad" class="form-label fw-bold small">Entidad</label>
-                    <select class="form-select form-select-sm" id="fkIdEntidad" name="fkIdEntidad" required>
+                    <label class="form-label">Objetivo</label>
+                    <textarea name="objetivo" class="form-control" required><?= htmlspecialchars(is_array($convocatoria) ? $convocatoria['objetivo'] : $convocatoria->objetivo) ?></textarea>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label">Observaciones</label>
+                    <textarea name="observaciones" class="form-control"><?= htmlspecialchars(is_array($convocatoria) ? $convocatoria['observaciones'] : $convocatoria->observaciones) ?></textarea>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label">Entidad</label>
+                    <select name="fkIdEntidad" class="form-select" required>
                         <?php foreach ($entidades as $entidad): ?>
-                            <option value="<?php echo $entidad->id; ?>"
-                                <?php echo ($entidad->id == $convocatoria['fkIdEntidad']) ? 'selected' : ''; ?>>
-                                <?php echo htmlspecialchars($entidad->nombre); ?>
-                            </option>
+                        <option value="<?= $entidad->id ?>" <?= $entidad->id == (is_array($convocatoria) ? $convocatoria['fkIdEntidad'] : $convocatoria->fkIdEntidad) ? 'selected' : '' ?>>
+                            <?= htmlspecialchars($entidad->nombre) ?>
+                        </option>
                         <?php endforeach; ?>
                     </select>
                 </div>
-
-                <!-- Campo Investigador -->
+                
                 <div class="mb-3">
-                    <label for="fkIdInvestigador" class="form-label fw-bold small">Investigador</label>
-                    <select class="form-select form-select-sm" id="fkIdInvestigador" name="fkIdInvestigador" required>
+                    <label class="form-label">Investigador</label>
+                    <select name="fkIdInvestigador" class="form-select" required>
                         <?php foreach ($investigadores as $investigador): ?>
-                            <option value="<?php echo $investigador->id; ?>"
-                                <?php echo ($investigador->id == $convocatoria['fkIdInvestigador']) ? 'selected' : ''; ?>>
-                                <?php echo htmlspecialchars($investigador->nombre); ?>
-                            </option>
+                        <option value="<?= $investigador->id ?>" <?= $investigador->id == (is_array($convocatoria) ? $convocatoria['fkIdInvestigador'] : $convocatoria->fkIdInvestigador) ? 'selected' : '' ?>>
+                            <?= htmlspecialchars($investigador->nombre) ?>
+                        </option>
                         <?php endforeach; ?>
                     </select>
                 </div>
-
-                <!-- Campo Descripción -->
-                <div class="mb-3">
-                    <label for="descripcion" class="form-label fw-bold small">Descripción</label>
-                    <textarea class="form-control form-control-sm" id="descripcion" name="descripcion" rows="3" required><?php echo htmlspecialchars($convocatoria['descripcion']); ?></textarea>
-                </div>
-
-                <!-- Campo Objetivo -->
-                <div class="mb-3">
-                    <label for="objetivo" class="form-label fw-bold small">Objetivo</label>
-                    <textarea class="form-control form-control-sm" id="objetivo" name="objetivo" rows="3" required><?php echo htmlspecialchars($convocatoria['objetivo'] ?? ''); ?></textarea>
-                </div>
-
-                <!-- Campo Observaciones -->
-                <div class="mb-3">
-                    <label for="observaciones" class="form-label fw-bold small">Observaciones</label>
-                    <textarea class="form-control form-control-sm" id="observaciones" name="observaciones" rows="3"><?php echo htmlspecialchars($convocatoria['observaciones'] ?? ''); ?></textarea>
-                </div>
-
-                <!-- Botón -->
-                <div class="d-grid mt-4">
-                    <button type="submit" class="btn btn-success btn-sm">
-                        <i class="fas fa-save me-1"></i>Guardar Cambios
-                    </button>
-                </div>
+                
+                <button type="submit" class="btn btn-success">Guardar Cambios</button>
             </form>
+            <?php else: ?>
+            <div class="alert alert-danger">
+                No se encontró la convocatoria solicitada.
+            </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>

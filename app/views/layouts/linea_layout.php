@@ -65,7 +65,7 @@
             Bienvenido, Usuario
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-            <li><a class="dropdown-item" href="/perfil"><i class="fas fa-id-card me-2"></i>Ver Perfil</a></li>
+            <li><a class="dropdown-item" href="/userPerfil/init"><i class="fas fa-id-card me-2"></i>Ver Perfil</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
           </ul>

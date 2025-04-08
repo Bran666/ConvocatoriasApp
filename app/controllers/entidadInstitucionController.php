@@ -49,66 +49,129 @@ class EntidadInstitucionController extends BaseController
     // Guarda los datos del formulario
     public function create()
     {
-        $nombre = $_POST['nombre'] ?? null;
-        if ($nombre) {
-            $objEntidadInstitucion = new EntidadInstitucionModel(null, $nombre);
-            $resp = $objEntidadInstitucion->save();
-            if ($resp) {
-                header('Location:/entidadInstitucion/init');
-            } else {
-                header('Location:/entidadInstitucion/init');
-            };
+        try {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $nombre = trim($_POST['nombre'] ?? '');
+                
+                if (empty($nombre)) {
+                    throw new Exception("El nombre es requerido");
+                }
+
+                $entidadModel = new EntidadInstitucionModel();
+                $data = ['nombre' => $nombre];  // Create data array
+                $result = $entidadModel->save($data);  // Pass data array to save method
+
+                if ($result) {
+                    $_SESSION['success'] = "Institución creada exitosamente";
+                    header('Location: /entidadInstitucion/init');
+                    exit();
+                }
+                throw new Exception("Error al crear la institución");
+            }
+
+            $this->render('EntidadInstitucion/newEntidadInstitucion.php');
+        } catch (Exception $e) {
+            $this->render('EntidadInstitucion/newEntidadInstitucion.php', [
+                'error' => $e->getMessage(),
+                'formData' => $_POST
+            ]);
         }
     }
 
     public function view($id)
     {
-        $objEntidadInstitucion = new EntidadInstitucionModel($id);
-        $entidadInstitucionInfo = $objEntidadInstitucion->getEntidadInstitucion();
-        $data = [
-            "id" => $entidadInstitucionInfo[0]->id,
-            "nombre" => $entidadInstitucionInfo[0]->nombre,
-        ];
-        $this->render("EntidadInstitucion/viewOneEntidadInstitucion.php", $data);
+        try {
+            $entidadModel = new EntidadInstitucionModel();
+            $entidad = $entidadModel->getById($id);  // Using getById instead of getEntidadInstitucion
+            
+            if (!$entidad) {
+                throw new Exception("Institución no encontrada");
+            }
+
+            $data = [
+                "id" => $entidad->id,
+                "nombre" => $entidad->nombre,
+            ];
+            
+            $this->render("EntidadInstitucion/viewOneEntidadInstitucion.php", $data);
+        } catch (Exception $e) {
+            $_SESSION['error'] = $e->getMessage();
+            header('Location: /entidadInstitucion/init');
+            exit();
+        }
     }
 
     // Mostrar lo que se quiere editar 
     public function editEntidadInstitucion($id)
     {
-        $objEntidadInstitucion = new EntidadInstitucionModel($id);
-        $entidadInfo = $objEntidadInstitucion->getEntidadInstitucion();
-        $data = [
-            "infoReal" => $entidadInfo[0],
-        ];
-        $this->render("EntidadInstitucion/editEntidadInstitucion.php", $data);
+        try {
+            $entidadModel = new EntidadInstitucionModel();
+            $entidad = $entidadModel->getById($id);  // Using getById instead of getEntidadInstitucion
+            
+            if (!$entidad) {
+                throw new Exception("Institución no encontrada");
+            }
+
+            $this->render("EntidadInstitucion/editEntidadInstitucion.php", [
+                "infoReal" => $entidad
+            ]);
+        } catch (Exception $e) {
+            $_SESSION['error'] = $e->getMessage();
+            header('Location: /entidadInstitucion/init');
+            exit();
+        }
     }
 
-    // Se edita como tal en la BD
     public function updateEntidadInstitucion()
     {
-        if (isset($_POST["id"])) {
-            $id = $_POST["id"] ?? null;
-            $nombre = $_POST["nombre"] ?? null;
-            $entidadInstitucionObjEdit = new EntidadInstitucionModel($id, $nombre);
-            $res = $entidadInstitucionObjEdit->editEntidadInstitucion();
-            if ($res) {
-                header('Location:/entidadInstitucion/init');
-            } else {
-                header('Location:/entidadInstitucion/init');
+        try {
+            if (!isset($_POST["id"]) || !isset($_POST["nombre"])) {
+                throw new Exception("Datos incompletos");
             }
+
+            $id = $_POST["id"];
+            $nombre = trim($_POST["nombre"]);
+            
+            if (empty($nombre)) {
+                throw new Exception("El nombre es requerido");
+            }
+
+            $entidadModel = new EntidadInstitucionModel();
+            $result = $entidadModel->update($id, ['nombre' => $nombre]);
+
+            if ($result) {
+                $_SESSION['success'] = "Institución actualizada exitosamente";
+            } else {
+                $_SESSION['error'] = "Error al actualizar la institución";
+            }
+        } catch (Exception $e) {
+            $_SESSION['error'] = $e->getMessage();
         }
+        
+        header('Location: /entidadInstitucion/init');
+        exit();
     }
 
     public function deleteEntidadInstitucion($id)
     {
-        if (isset($id)) {
-            $entidadInstitucionObjDelete = new EntidadInstitucionModel($id);
-            $res = $entidadInstitucionObjDelete->deleteEntidadInstitucion();
-            if ($res) {
-                header('Location:/entidadInstitucion/init');
-            } else {
-                header('Location:/entidadInstitucion/init');
+        try {
+            if (!$id) {
+                throw new Exception("ID inválido");
             }
+
+            $entidadModel = new EntidadInstitucionModel();
+            $result = $entidadModel->delete($id);  // Changed from deleteEntidadInstitucion to delete
+
+            if ($result) {
+                $_SESSION['success'] = "Institución eliminada exitosamente";
+            } else {
+                $_SESSION['error'] = "Error al eliminar la institución";
+            }
+        } catch (Exception $e) {
+            $_SESSION['error'] = $e->getMessage();
         }
+
+        header('Location: /entidadInstitucion/init');
+        exit();
     }
 }

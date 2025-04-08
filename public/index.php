@@ -6,22 +6,13 @@ require_once '../app/controllers/lineaController.php';
 require_once '../app/controllers/entidadInstitucionController.php';
 require_once '../app/controllers/homeController.php';
 require_once '../app/controllers/RolController.php';
-require_once '../app/controllers/centroController.php';
-require_once '../app/controllers/programaController.php';
 require_once '../app/controllers/loginController.php';
 require_once '../app/controllers/registroController.php';
 require_once '../app/controllers/convocatoriaController.php';
 require_once '../app/controllers/menuController.php';
-require_once '../app/controllers/administrarUsuarioController.php';
-require_once '../app/controllers/usuarioInteresController.php';
-require_once '../app/controllers/UserPerfilController.php';
-require_once '../app/controllers/administrarUsuariosController.php';
-require_once '../app/controllers/administrarConvocatoriasController.php';
 require_once '../app/controllers/requisitosController.php';
 require_once '../app/controllers/favoritosController.php';
-
 require_once '../app/controllers/userController.php';
-
 require_once '../app/controllers/explorarController.php';
 require_once '../app/controllers/PublicoObjetivoController.php';
 require_once '../app/controllers/tipoController.php';

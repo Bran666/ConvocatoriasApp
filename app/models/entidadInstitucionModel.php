@@ -5,73 +5,73 @@ namespace App\Models;
 use PDO;
 use PDOException;
 
+use Exception;
+
 require_once MAIN_APP_ROUTE . "../models/baseModel.php";
 
 class EntidadInstitucionModel extends BaseModel
 {
-    public function __construct(
-        private ?int $id = null,
-        private ?string $nombre = null,
-     
-    ) {
-        //Se llama al constructor del padre
+    public function __construct()
+    {
         parent::__construct();
-        //Se especifica la tabla
         $this->table = "entidad_institucion";
     }
-    public function save()
+
+    public function getById($id)
     {
         try {
-            //1. Se prepara la consulta
-            $sql = $this->dbConnection->prepare("INSERT INTO $this->table (nombre) VALUES (?)");
-            //2. Se remplasan las variables con bindParam
-            $sql->bindParam(1, $this->nombre, PDO::PARAM_STR);
-            //3. Se ejecuta la consulta
-            $res = $sql->execute();
-            return $res;
-        } catch (PDOException $ex) {
-            echo "Error en consulta> " . $ex->getMessage();
+            $stmt = $this->dbConnection->prepare("SELECT * FROM $this->table WHERE id = ?");
+            $stmt->execute([$id]);
+            return $stmt->fetch(PDO::FETCH_OBJ);
+        } catch (PDOException $e) {
+            error_log("Error getting entidad by ID: " . $e->getMessage());
+            return null;
         }
     }
-    public function getEntidadInstitucion()
+
+    public function save($data)
     {
         try {
-            $sql = "SELECT * FROM $this->table WHERE id=:id";
-            $statement = $this->dbConnection->prepare($sql);
-            $statement->bindParam(":id", $this->id, PDO::PARAM_INT);
-            $statement->execute();
-            $result = $statement->fetchAll(PDO::FETCH_OBJ);
-            return $result;
-        } catch (PDOException $ex) {
-            echo "Error al obtener la linea> " . $ex->getMessage();
-        }
-    }
-    public function editEntidadInstitucion()
-    {
-        try {
-            $sql = "UPDATE $this->table SET nombre=:nombre WHERE id=:id";
-            $statement = $this->dbConnection->prepare($sql);
-            $statement->bindParam(":nombre", $this->nombre, PDO::PARAM_STR);
-          
-            $statement->bindParam(":id", $this->id, PDO::PARAM_INT);
-            $resp = $statement->execute();
-            return $resp;
-        } catch (PDOException $ex) {
-            echo "El registro no pudo ser editado: " . $ex->getMessage();
+            if (!isset($data['nombre']) || empty($data['nombre'])) {
+                throw new Exception("Nombre is required");
+            }
+
+            $stmt = $this->dbConnection->prepare(
+                "INSERT INTO $this->table (nombre) VALUES (?)"
+            );
+            return $stmt->execute([$data['nombre']]);
+        } catch (PDOException $e) {
+            error_log("Error saving entidad: " . $e->getMessage());
+            return false;
+        } catch (Exception $e) {
+            error_log("Validation error: " . $e->getMessage());
             return false;
         }
     }
 
-    public function deleteEntidadInstitucion()
+    public function update($id, $data)
     {
         try {
-            $sql = "DELETE FROM $this->table WHERE id=:id";
-            $statement = $this->dbConnection->prepare($sql);
-            $statement->bindParam(":id", $this->id, PDO::PARAM_INT);
-            $resp = $statement->execute();
-            return $resp;
-        } catch (PDOException $ex) {
-            echo "El no pudo ser Eliminado " . $ex->getMessage();
+            $stmt = $this->dbConnection->prepare(
+                "UPDATE $this->table SET nombre = ? WHERE id = ?"
+            );
+            return $stmt->execute([$data['nombre'], $id]);
+        } catch (PDOException $e) {
+            error_log("Error updating entidad: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function delete($id)
+    {
+        try {
+            $stmt = $this->dbConnection->prepare(
+                "DELETE FROM $this->table WHERE id = ?"
+            );
+            return $stmt->execute([$id]);
+        } catch (PDOException $e) {
+            error_log("Error deleting entidad: " . $e->getMessage());
+            return false;
         }
     }
 }

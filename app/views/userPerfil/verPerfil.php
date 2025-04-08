@@ -94,7 +94,7 @@
 
             <div class="profile-details">
                 <label>Correo Electrónico:</label>
-                <p><?php echo htmlspecialchars($usuario['correo']); ?></p>
+                <p><?php echo htmlspecialchars($usuario['email']); ?></p>
             </div>
 
             <div class="profile-details">

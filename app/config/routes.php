@@ -60,6 +60,7 @@ return [
     '/registro/init' => ['controller' => 'App\Controller\RegistroController', 'action' => 'initRegistro'],
 
     // Otras rutas de funciones de las tablas
+    '/convocatoria/view/(\d+)' => ['controller' => 'App\Controller\ConvocatoriaController', 'action' => 'view'],
     '/convocatoria/init' => ['controller' => 'App\Controller\ConvocatoriaController', 'action' => 'initConvocatoria'],
     '/convocatoria/edit/(\d+)' => ['controller' => 'App\Controller\ConvocatoriaController', 'action' => 'edit'],
     '/convocatoria/update/(\d+)' => ['controller' => 'App\Controller\ConvocatoriaController', 'action' => 'update'],
@@ -135,5 +136,4 @@ return [
     '/requisitoSeleccion/edit/(\d+)' => ['controller' => 'App\Controller\RequisitoSeleccionController', 'action' => 'editRequisitoSeleccion'],
     '/requisitoSeleccion/update/(\d+)' => ['controller' => 'App\Controller\RequisitoSeleccionController', 'action' => 'updateRequisitoSeleccion'],
     '/requisitoSeleccion/delete/(\d+)' => ['controller' => 'App\Controller\RequisitoSeleccionController', 'action' => 'deleteRequisitoSeleccion'],
-
 ];

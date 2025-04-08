@@ -28,38 +28,37 @@ class ConvocatoriaModel extends BaseModel
     }
 
     public function crearConvocatoria(
-        string $nombre,
-        string $fechaRevision,
-        string $fechaCierre,
-        string $descripcion,
-        string $objetivo,
-        string $observaciones,
-        string $fkIdEntidad,
-        string $idUsuario,
-        string $fkIdInvestigador,
+        $nombre,
+        $descripcion,
+        $fechaRevision,
+        $fechaCierre,
+        $objetivo,
+        $observaciones,
+        $fkIdEntidad,
+        $idUsuario,
+        $fkIdInvestigador
     ) {
         try {
             $sql = "INSERT INTO convocatorias (
-                nombre, fechaRevision, fechaCierre, descripcion,
+                nombre, descripcion, fechaRevision, fechaCierre, 
                 objetivo, observaciones, fkIdEntidad, idUsuario, 
                 fkIdInvestigador
             ) VALUES (
-                :nombre,  :fechaRevision, :fechaCierre, :descripcion,
-                :objetivo, :observaciones, :fkIdEntidad, :fkIdInvestigador,
-                :idUsuario
+                :nombre, :descripcion, :fechaRevision, :fechaCierre, 
+                :objetivo, :observaciones, :fkIdEntidad, :idUsuario, 
+                :fkIdInvestigador
             )";
 
             $stmt = $this->dbConnection->prepare($sql);
             $stmt->bindParam(':nombre', $nombre);
+            $stmt->bindParam(':descripcion', $descripcion);
             $stmt->bindParam(':fechaRevision', $fechaRevision);
             $stmt->bindParam(':fechaCierre', $fechaCierre);
-            $stmt->bindParam(':descripcion', $descripcion);
             $stmt->bindParam(':objetivo', $objetivo);
             $stmt->bindParam(':observaciones', $observaciones);
             $stmt->bindParam(':fkIdEntidad', $fkIdEntidad);
             $stmt->bindParam(':idUsuario', $idUsuario);
             $stmt->bindParam(':fkIdInvestigador', $fkIdInvestigador);
-
 
             return $stmt->execute();
         } catch (PDOException $e) {
@@ -68,13 +67,14 @@ class ConvocatoriaModel extends BaseModel
         }
     }
 
-    public function getConvocatoriaById($id) {
+    public function getConvocatoriaById($id)
+    {
         try {
             $sql = "SELECT * FROM convocatorias WHERE id = :id";
             $stmt = $this->dbConnection->prepare($sql);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
-            return $stmt->fetch(PDO::FETCH_ASSOC);
+            return $stmt->fetch(PDO::FETCH_OBJ);  // Changed from FETCH_ASSOC to FETCH_OBJ
         } catch (PDOException $e) {
             error_log("Error getting convocatoria: " . $e->getMessage());
             return false;
@@ -88,12 +88,10 @@ class ConvocatoriaModel extends BaseModel
         string $fechaRevision,
         string $fechaCierre,
         string $objetivo,
-        string $observaciones,
-        string $fkIdEntidad,
-        string $fkIdInvestigador,
-        ?string $enlaceInscripcion = null,
-        ?string $imagen = null,
-        ?int $idInteres = null
+        ?string $observaciones,
+        int $fkIdEntidad,
+        int $idUsuario,
+        int $fkIdInvestigador
     ) {
         try {
             $sql = "UPDATE convocatorias SET 
@@ -104,14 +102,12 @@ class ConvocatoriaModel extends BaseModel
                 objetivo = :objetivo,
                 observaciones = :observaciones,
                 fkIdEntidad = :fkIdEntidad,
-                fkIdInvestigador = :fkIdInvestigador,
-                enlaceInscripcion = :enlaceInscripcion,
-                imagen = NULLIF(:imagen, ''),
-                idInteres = :idInteres
+                idUsuario = :idUsuario,
+                fkIdInvestigador = :fkIdInvestigador
                 WHERE id = :id";
 
             $stmt = $this->dbConnection->prepare($sql);
-            
+
             $params = [
                 ':id' => $id,
                 ':nombre' => $nombre,
@@ -121,10 +117,8 @@ class ConvocatoriaModel extends BaseModel
                 ':objetivo' => $objetivo,
                 ':observaciones' => $observaciones,
                 ':fkIdEntidad' => $fkIdEntidad,
-                ':fkIdInvestigador' => $fkIdInvestigador,
-                ':enlaceInscripcion' => $enlaceInscripcion,
-                ':imagen' => $imagen,
-                ':idInteres' => $idInteres
+                ':idUsuario' => $idUsuario,
+                ':fkIdInvestigador' => $fkIdInvestigador
             ];
 
             foreach ($params as $key => $value) {
@@ -138,7 +132,8 @@ class ConvocatoriaModel extends BaseModel
         }
     }
 
-    public function deleteConvocatoria($id) {
+    public function deleteConvocatoria($id)
+    {
         try {
             $sql = "DELETE FROM convocatorias WHERE id = :id";
             $stmt = $this->dbConnection->prepare($sql);

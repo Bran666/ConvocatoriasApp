@@ -38,15 +38,15 @@
                                     </ul>
 
                                     <div class="d-flex justify-content-end gap-2">
-                                        <a href="/convocatoria/view/<?php echo $convocatoria->id; ?>" class="btn btn-outline-info btn-sm">
-                                            <i class="fas fa-eye me-1"></i> Ver
+                                        <a href="/convocatoria/view/<?= $convocatoria->id ?>" class="btn btn-info btn-sm">
+                                            <i class="fas fa-eye"></i> Ver
                                         </a>
                                         <a href="/convocatoria/edit/<?php echo $convocatoria->id; ?>" class="btn btn-outline-success btn-sm">
                                             <i class="fas fa-edit me-1"></i> Editar
                                         </a>
-                                        <a href="/convocatoria/delete/<?php echo $convocatoria->id; ?>" 
-                                           class="btn btn-outline-danger btn-sm"
-                                           onclick="return confirm('¿Estás seguro de que deseas eliminar esta convocatoria?');">
+                                        <a href="/convocatoria/delete/<?php echo $convocatoria->id; ?>"
+                                            class="btn btn-outline-danger btn-sm"
+                                            onclick="return confirm('¿Estás seguro de que deseas eliminar esta convocatoria?');">
                                             <i class="fas fa-trash me-1"></i> Eliminar
                                         </a>
                                     </div>

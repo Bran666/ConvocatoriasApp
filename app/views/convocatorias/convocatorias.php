@@ -58,3 +58,23 @@
         </div>
     </div>
 </div>
+
+<!-- Entidad Field -->
+<div class="mb-3">
+    <label for="fkIdEntidad" class="form-label">Entidad</label>
+    <select class="form-select" id="fkIdEntidad" name="fkIdEntidad" required>
+        <?php foreach ($entidades as $entidad): ?>
+            <option value="<?= $entidad->id ?>"><?= htmlspecialchars($entidad->nombre) ?></option>
+        <?php endforeach; ?>
+    </select>
+</div>
+
+<!-- Investigador Field -->
+<div class="mb-3">
+    <label for="fkIdInvestigador" class="form-label">Investigador</label>
+    <select class="form-select" id="fkIdInvestigador" name="fkIdInvestigador">
+        <?php foreach ($investigadores as $investigador): ?>
+            <option value="<?= $investigador->id ?>"><?= htmlspecialchars($investigador->nombre) ?></option>
+        <?php endforeach; ?>
+    </select>
+</div>
