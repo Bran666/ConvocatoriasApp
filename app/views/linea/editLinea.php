@@ -1,13 +1,14 @@
 <!-- Contenido Principal -->
-<div class="col-md-10">
-  <div class="row justify-content-center">
-    <div class="col-md-8"> <!-- Contenedor más pequeño y centrado -->
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-md-10 offset-md-2"> <!-- Más ancho y desplazado a la derecha -->
       <div class="card shadow-sm">
         <div class="card-header bg-success text-white py-2">
-          <h4 class="mb-0">Editar Línea
-          <a href="/linea/init" class="btn btn-light btn-sm float-end">
-                            <i class="fas fa-arrow-left me-1"></i>Volver
-                        </a>
+          <h4 class="mb-0">
+            Editar Línea
+            <a href="/linea/init" class="btn btn-light btn-sm float-end">
+              <i class="fas fa-arrow-left me-1"></i>Volver
+            </a>
           </h4>
         </div>
         <div class="card-body">
@@ -24,15 +25,15 @@
             </div>
             <!-- Campo Descripción -->
             <div class="mb-3">
-              <label for="descripcion" class="form-label fw-semibold">Descripción</label>
-              <input type="text" class="form-control" value="<?php echo $infoReal->descripcion; ?>" name="descripcion" id="descripcion" required>
-            </div>
+          <label for="descripcion" class="form-label fw-semibold">Descripción</label>
+          <textarea class="form-control" name="descripcion" id="descripcion" required><?php echo $infoReal->descripcion; ?></textarea>
+        </div>
+
             <!-- Botón Guardar Cambios -->
             <div class="d-grid gap-2">
               <button type="submit" class="btn btn-success">
                 <i class="fas fa-save me-2"></i> Guardar Cambios
               </button>
-              
             </div>
           </form>
         </div>

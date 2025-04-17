@@ -22,8 +22,14 @@ class ConvocatoriaController extends BaseController
     public function initConvocatoria()
     {
         try {
+            // Obtener entidades e investigadores para el formulario
+            $entidadModel = new EntidadInstitucionModel();
+            $usuarioModel = new UserModel();
+            $entidades = $entidadModel->getAll();
+            $investigadores = $usuarioModel->getInvestigadores();
+    
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                // Get form data with proper validation
+                // Obtener los datos del formulario con validación
                 $data = [
                     'nombre' => trim($_POST['nombre'] ?? ''),
                     'descripcion' => trim($_POST['descripcion'] ?? ''),
@@ -36,7 +42,7 @@ class ConvocatoriaController extends BaseController
                     'fkIdInvestigador' => (int)($_POST['fkIdInvestigador'] ?? 1)
                 ];
     
-                // Validate required fields
+                // Validación de campos requeridos
                 if (empty($data['nombre']) || empty($data['descripcion']) || 
                     empty($data['fechaRevision']) || empty($data['fechaCierre']) || 
                     empty($data['objetivo']) || empty($data['fkIdEntidad'])) {
@@ -65,18 +71,23 @@ class ConvocatoriaController extends BaseController
                 }
             }
     
-            // Display form
-            $this->render('convocatorias/convocatorias.php');
+            // Mostrar formulario de creación con las entidades e investigadores
+            $this->render('convocatorias/convocatorias.php', [
+                'entidades' => $entidades,
+                'investigadores' => $investigadores
+            ]);
     
         } catch (Exception $e) {
             error_log("Error en initConvocatoria: " . $e->getMessage());
             $this->render('convocatorias/convocatorias.php', [
                 'error' => $e->getMessage(),
-                'intereses' => $intereses ?? [],
+                'entidades' => [],
+                'investigadores' => [],
                 'formData' => $_POST ?? []
             ]);
         }
     }
+    
 
     public function edit($id)
     {

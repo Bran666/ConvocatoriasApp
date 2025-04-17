@@ -27,6 +27,10 @@ body {
     display: flex;
     align-items: center;
 }
+.favorito-icon.active {
+    color: gold !important;
+}
+
 
 .user-icon {
     margin-right: 10px;

@@ -46,7 +46,6 @@
   </style>
 </head>
 <body>
-
 <header class="bg-success bg-gradient py-3 shadow text-white mb-4">
   <div class="container-fluid">
     <div class="row align-items-center">
@@ -59,17 +58,9 @@
         </a>
       </div>
       <div class="col-md-6 text-end">
-        <div class="dropdown">
-          <a class="text-white dropdown-toggle text-decoration-none" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fas fa-user-circle me-2"></i>
-            Bienvenido, Usuario
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-            <li><a class="dropdown-item" href="/userPerfil/init"><i class="fas fa-id-card me-2"></i>Ver Perfil</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
-          </ul>
-        </div>
+        <a href="/userPerfil/init" class="text-white text-decoration-none">
+          <i class="fas fa-user-circle me-2"></i>
+        </a>
       </div>
     </div>
   </div>
@@ -86,7 +77,7 @@
           </div>
           <div class="card-body p-0">
             <div class="list-group list-group-flush">
-              <a href="/linea/init" class="list-group-item list-group-item-action active d-flex align-items-center">
+              <a href="/linea/init" class="list-group-item list-group-item-action d-flex align-items-center">
                 <i class="fas fa-chart-line me-2"></i> Línea
               </a>
               <a href="/publicoObjetivo/init" class="list-group-item list-group-item-action d-flex align-items-center">
@@ -120,16 +111,15 @@
     </div>
   </div>
 </div>
-
 <footer class="custom-footer">
-  <div class="container-fluid">
-    <div class="row">
+  <div class="container-fluid text-center">
+    <div class="row justify-content-center">
       <div class="col-md-6">
-        <h5>Sistema de Convocatorias</h5>
-        <p class="mb-0">© 2023 Todos los derechos reservados</p>
+        <h5 class="row justify-content-center">Sistema de Convocatorias</h5>
+        <p class="mb-0">© 2025 Todos los derechos reservados</p>
       </div>
-      <div class="col-md-6 text-end">
-        <div class="social-links">
+      <div class="col-md-6">
+        <div class="social-links text-center">
           <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
           <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
           <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>

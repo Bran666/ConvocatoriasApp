@@ -25,14 +25,14 @@
                       <p class="card-text mb-0 text-muted"><?= $value->descripcion ?></p>
                     </div>
                     <div class="btn-group">
-                      <a href="/linea/view/<?= $value->id ?>" class="btn btn-sm btn-outline-success">
-                        <i class="fas fa-search me-1"></i> Consultar
+                      <a href="/linea/view/<?= $value->id ?>" class="btn btn-outline-primary btn-sm">
+                        <i class="fas fa-eye me-1"></i> Ver
                       </a>
-                      <a href="/linea/edit/<?= $value->id ?>" class="btn btn-sm btn-outline-secondary">
+                      <a href="/linea/edit/<?= $value->id ?>" class="btn btn-outline-success btn-sm">
                         <i class="fas fa-edit me-1"></i> Editar
                       </a>
-                      <a href="/linea/delete/<?= $value->id ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar esta línea?');">
-                        <i class="fas fa-trash-alt me-1"></i> Eliminar
+                      <a href="/linea/delete/<?= $value->id ?>" class="btn btn-outline-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar esta línea?');">
+                        <i class="fas fa-trash me-1"></i> Eliminar
                       </a>
                     </div>
                   </div>

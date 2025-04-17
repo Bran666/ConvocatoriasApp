@@ -2,48 +2,44 @@
 
 namespace App\Controller;
 
-use App\Models\ExplorarModel;
-use App\Models\FavoritosModel;
-use App\Models\UserModel;
+use App\Models\MenuModel;
+use App\Models\ConvocatoriaModel;
+use Exception;
 
 require_once MAIN_APP_ROUTE . "../controllers/baseController.php";
 require_once MAIN_APP_ROUTE . "../models/ExplorarModel.php";
+require_once MAIN_APP_ROUTE . "../models/convocatoriaModel.php";
 
 class ExplorarController extends BaseController
 {
     public function __construct()
     {
-        //Se define Layaout para el controlador especifico
         $this->layout = 'admin_layout';
-        //parent::__construct();
     }
-    
+
     public function initExplorar()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $correo = trim($_POST['txtCorreo'] ?? '');
-            $password = trim($_POST['txtPassword'] ?? '');
+        try {
+            $convocatoriaModel = new ConvocatoriaModel();
+            $convocatorias = $convocatoriaModel->getAll();
             
-            if (empty($correo) || empty($password)) {
-                $error = "El correo y la contraseña son obligatorios";
-                $this->render("explorar/explorar.php", ["error" => $error]);
-                echo $correo;
-                echo $password;
-                return;
-            }
+            $data = [
+                'convocatorias' => $convocatorias  // Use actual data from model
+            ];
             
-            $userModel = new ExplorarModel();
-            if ($userModel->validarLogin($correo, $password)) {
-                header("Location: /favoritos/init");
-                exit();
-            } else {
-                $error = "Correo o contraseña incorrectos";
-                $this->render("explorar/explorar.php", ["error" => $error]);
-    
-                return;
-            }
+            $this->render("/explorar/explorar.php", $data);
+            
+        } catch (Exception $e) {
+            error_log("Error loading convocatorias: " . $e->getMessage());
+            $data = [
+                "error" => "Error al cargar las convocatorias",
+                "convocatorias" => []
+            ];
+            $this->render("/explorar/explorar.php", $data);
+            
+            // In initMenu method
+            var_dump($convocatorias);
+            exit();
         }
-        
-        $this->render("explorar/explorar.php");
     }
 }

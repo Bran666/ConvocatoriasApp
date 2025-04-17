@@ -1,62 +1,63 @@
-<div class="container mt-4" style="max-width: 800px; margin: 0 auto;">
-    <div class="card shadow-sm">
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-md-10 offset-md-2"> <!-- Alineado a la derecha -->
+      <div class="card shadow-sm">
         <div class="card-header bg-success text-white py-2">
-            <div class="d-flex justify-content-between align-items-center">
-                <h5 class="mb-0">Detalles de la Convocatoria</h5>
-                <a href="/convocatoria/lista" class="btn btn-light btn-sm">
-                    <i class="fas fa-arrow-left me-1"></i>Volver
-                </a>
-            </div>
+          <h4 class="mb-0">
+            Detalles de la Convocatoria
+            <a href="/convocatoria/lista" class="btn btn-light btn-sm float-end">
+              <i class="fas fa-arrow-left me-1"></i>Volver
+            </a>
+          </h4>
         </div>
-        <div class="card-body p-3">
-            <h4 class="mb-3"><?= htmlspecialchars($convocatoria->nombre) ?></h4>
-            
-            <div class="row g-2">
-                <div class="col-md-6">
-                    <div class="mb-2">
-                        <strong>Entidad:</strong>
-                        <p class="mb-0"><?= htmlspecialchars($entidad->nombre ?? 'No especificado') ?></p>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="mb-2">
-                        <strong>Investigador:</strong>
-                        <p class="mb-0"><?= htmlspecialchars($investigador->nombre ?? 'No especificado') ?></p>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="mb-2">
-                        <strong>Fecha de Revisión:</strong>
-                        <p class="mb-0"><?= htmlspecialchars($convocatoria->fechaRevision) ?></p>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="mb-2">
-                        <strong>Fecha de Cierre:</strong>
-                        <p class="mb-0"><?= htmlspecialchars($convocatoria->fechaCierre) ?></p>
-                    </div>
-                </div>
-            </div>
+        <div class="card-body">
+          <h5 class="fw-bold mb-3"><?= htmlspecialchars($convocatoria->nombre) ?></h5>
 
-            <div class="mt-3">
-                <strong>Descripción:</strong>
-                <p class="mb-2"><?= nl2br(htmlspecialchars($convocatoria->descripcion)) ?></p>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div>
+                <label class="form-label fw-semibold">Entidad</label>
+                <div class="form-control-plaintext"><?= htmlspecialchars($entidad->nombre ?? 'No especificado') ?></div>
+              </div>
             </div>
+            <div class="col-md-6">
+              <div>
+                <label class="form-label fw-semibold">Investigador</label>
+                <div class="form-control-plaintext"><?= htmlspecialchars($investigador->nombre ?? 'No especificado') ?></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div>
+                <label class="form-label fw-semibold">Fecha de Revisión</label>
+                <div class="form-control-plaintext"><?= htmlspecialchars($convocatoria->fechaRevision) ?></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div>
+                <label class="form-label fw-semibold">Fecha de Cierre</label>
+                <div class="form-control-plaintext"><?= htmlspecialchars($convocatoria->fechaCierre) ?></div>
+              </div>
+            </div>
+          </div>
 
-            <div class="mt-3">
-                <strong>Objetivo:</strong>
-                <p class="mb-2"><?= nl2br(htmlspecialchars($convocatoria->objetivo)) ?></p>
-            </div>
+          <div class="mt-3">
+            <label class="form-label fw-semibold">Descripción</label>
+            <div class="form-control-plaintext"><?= nl2br(htmlspecialchars($convocatoria->descripcion)) ?></div>
+          </div>
 
-            <?php if (!empty($convocatoria->observaciones)): ?>
-            <div class="mt-3">
-                <strong>Observaciones:</strong>
-                <p class="mb-0"><?= nl2br(htmlspecialchars($convocatoria->observaciones)) ?></p>
-            </div>
-            <?php endif; ?>
+          <div class="mt-3">
+            <label class="form-label fw-semibold">Objetivo</label>
+            <div class="form-control-plaintext"><?= nl2br(htmlspecialchars($convocatoria->objetivo)) ?></div>
+          </div>
+
+          <?php if (!empty($convocatoria->observaciones)): ?>
+          <div class="mt-3">
+            <label class="form-label fw-semibold">Observaciones</label>
+            <div class="form-control-plaintext"><?= nl2br(htmlspecialchars($convocatoria->observaciones)) ?></div>
+          </div>
+          <?php endif; ?>
         </div>
+      </div>
     </div>
+  </div>
 </div>

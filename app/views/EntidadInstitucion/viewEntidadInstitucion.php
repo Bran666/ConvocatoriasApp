@@ -1,49 +1,53 @@
 <!-- Contenido Principal -->
-<div class="container py-4"> <!-- Contenedor Bootstrap centrado -->
-    <div class="card shadow mx-auto" style="max-width: 1000px;">
+<div class="container mt-2"> <!-- Espacio reducido arriba -->
+  <div class="row">
+    <div class="col-md-10 offset-md-2"> <!-- Alineado a la derecha -->
+      <div class="card shadow"> <!-- Tarjeta principal -->
         <!-- Cabecera verde -->
         <div class="card-header bg-success text-white">
-            <h4 class="mb-0 d-flex justify-content-between align-items-center">
-                Entidades Institución
-                <a href="/entidadInstitucion/new" class="btn btn-light btn-sm">
-                    <i class="fas fa-plus me-2"></i> Agregar Nuevo
-                </a>
-            </h4>
+          <h4 class="mb-0 d-flex justify-content-between align-items-center">
+            Entidades Institución
+            <a href="/entidadInstitucion/new" class="btn btn-light btn-sm">
+              <i class="fas fa-plus me-2"></i> Agregar Nuevo
+            </a>
+          </h4>
         </div>
 
         <div class="card-body">
-            <?php if (isset($entidadInstituciones) && is_array($entidadInstituciones)): ?>
-                <div class="row">
-                    <?php foreach ($entidadInstituciones as $key => $value): ?>
-                        <div class="col-12 mb-3"> <!-- Ocupa toda la fila -->
-                            <div class="card shadow-sm border border-light"> <!-- Borde más claro -->
-                                <div class="card-body d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <i class="fas fa-building me-2 text-success"></i>
-                                        <strong><?= $value->id ?> - <?= htmlspecialchars($value->nombre) ?></strong>
-                                    </div>
-                                    <div class="btn-group">
-                                        <a href="/entidadInstitucion/view/<?= $value->id ?>" class="btn btn-outline-info btn-sm">
-                                            <i class="fas fa-eye me-1"></i> Ver
-                                        </a>
-                                        <a href="/entidadInstitucion/edit/<?= $value->id ?>" class="btn btn-outline-success btn-sm">
-                                            <i class="fas fa-edit me-1"></i> Editar
-                                        </a>
-                                        <a href="/entidadInstitucion/delete/<?= $value->id ?>" class="btn btn-outline-danger btn-sm"
-                                            onclick="return confirm('¿Está seguro de eliminar este registro?')">
-                                            <i class="fas fa-trash me-1"></i> Eliminar
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
+          <?php if (isset($entidadInstituciones) && is_array($entidadInstituciones)): ?>
+            <div class="row">
+              <?php foreach ($entidadInstituciones as $key => $value): ?>
+                <div class="col-12 mb-3"> <!-- Ocupa toda la fila -->
+                  <div class="card shadow-sm border border-light"> <!-- Borde más claro -->
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                      <div>
+                        <i class="fas fa-building me-2 text-success"></i>
+                        <strong><?= $value->id ?> - <?= htmlspecialchars($value->nombre) ?></strong>
+                      </div>
+                      <div class="btn-group">
+                        <a href="/entidadInstitucion/view/<?= $value->id ?>" class="btn btn-outline-info btn-sm">
+                          <i class="fas fa-eye me-1"></i> Ver
+                        </a>
+                        <a href="/entidadInstitucion/edit/<?= $value->id ?>" class="btn btn-outline-success btn-sm">
+                          <i class="fas fa-edit me-1"></i> Editar
+                        </a>
+                        <a href="/entidadInstitucion/delete/<?= $value->id ?>" class="btn btn-outline-danger btn-sm"
+                          onclick="return confirm('¿Está seguro de eliminar este registro?')">
+                          <i class="fas fa-trash me-1"></i> Eliminar
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-            <?php else: ?>
-                <div class="alert alert-info">
-                    <i class="fas fa-info-circle me-2"></i> No hay registros disponibles.
-                </div>
-            <?php endif; ?>
+              <?php endforeach; ?>
+            </div>
+          <?php else: ?>
+            <div class="alert alert-info">
+              <i class="fas fa-info-circle me-2"></i> No hay registros disponibles.
+            </div>
+          <?php endif; ?>
         </div>
+      </div>
     </div>
+  </div>
 </div>

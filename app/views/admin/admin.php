@@ -107,37 +107,46 @@
             <button class="btn btn-outline-secondary">Internacional</button>
         </div>
 
-        <!-- Cards Section -->
         <div class="row">
-            <!-- Featured Card Section -->
-            <?php if (isset($convocatorias) && is_array($convocatorias) && count($convocatorias) > 0): ?>
-                <div class="col-12 mb-4">
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="row">
-                                <div class="col-md-8 offset-md-4">
-                                    <span class="badge-destacado mb-3">
-                                        <i class="fas fa-certificate me-1"></i> Destacado
-                                    </span>
-                                    <div class="text-end">
-                                        <h4 class="card-title fw-bold"><?php echo htmlspecialchars($convocatorias[0]->nombre ?? '')?></h4>
-                                        <p class="card-text text-muted"><?php echo htmlspecialchars($convocatorias[0]->descripcion ?? '')?></p>
-                                        <div class="d-flex flex-wrap justify-content-end mt-4">
-                                            <div class="me-4 mb-2">
-                                                <i class="far fa-calendar card-info-icon text-success"></i>
-                                                <small>Cierre: <?php echo isset($convocatorias[0]->fechaCierre) ? date('d M Y', strtotime($convocatorias[0]->fechaCierre)) : 'N/A'?></small>
-                                            </div>
-                                            <div class="mb-2">
-                                                <i class="fas fa-users card-info-icon text-success"></i>
-                                                <small><?php echo htmlspecialchars($convocatorias[0]->objetivo ?? '')?></small>
-                                            </div>
-                                        </div>
-                                    </div>
+    <!-- Featured Card Section -->
+    <?php if (isset($convocatorias) && is_array($convocatorias) && count($convocatorias) > 0): ?>
+        <div class="col-12 mb-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-0">
+                    <div class="row g-0 align-items-stretch">
+                        
+                        <!-- Mitad Izquierda: Imagen -->
+                        <div class="col-md-6">
+                            <img src="/img/image.png" class="img-fluid w-85 h-100 rounded-start" alt="<?php echo htmlspecialchars($convocatorias[0]->nombre ?? '') ?>" style="object-fit: cover;">
+                        </div>
+                        
+                        <!-- Mitad Derecha: Contenido -->
+                        <div class="col-md-6 p-4">
+                            <span class="badge-destacado mb-3 d-inline-block">
+                                <i class="fas fa-certificate me-1"></i> Destacado
+                            </span>
+                            <h4 class="card-title fw-bold"><?php echo htmlspecialchars($convocatorias[0]->nombre ?? '')?></h4>
+                            <p class="card-text text-muted"><?php echo htmlspecialchars($convocatorias[0]->descripcion ?? '')?></p>
+                            <div class="d-flex flex-wrap mt-4">
+                                <div class="me-4 mb-2">
+                                    <i class="far fa-calendar card-info-icon text-success"></i>
+                                    <small>Cierre: <?php echo isset($convocatorias[0]->fechaCierre) ? date('d M Y', strtotime($convocatorias[0]->fechaCierre)) : 'N/A'?></small>
+                                </div>
+                                <div class="mb-2">
+                                    <i class="fas fa-users card-info-icon text-success"></i>
+                                    <small><?php echo htmlspecialchars($convocatorias[0]->objetivo ?? '')?></small>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+
+                    </div> <!-- /.row -->
+                </div> <!-- /.card-body -->
+            </div> <!-- /.card -->
+        </div>
+
+</div>
+
+
 
             <!-- Dynamic Convocatorias Section -->
 <div class="row">

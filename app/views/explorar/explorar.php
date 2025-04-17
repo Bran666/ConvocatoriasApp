@@ -115,206 +115,190 @@
             </select>
         </div>
     </div>
-
-    <!-- Results Grid -->
-    <div class="row g-4 mb-5">
-        <!-- Card 1 -->
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100">
-                <div class="position-relative">
-                    <img src="/img/sena2.jpg?height=150&width=300" class="card-img-top" alt="Desarrollo Web" style="height: 150px; object-fit: cover;">
-                    <span class="badge bg-success position-absolute top-0 end-0 m-2">Nuevo</span>
-                    <button class="bookmark-btn">
-                        <i class="far fa-bookmark"></i>
-                    </button>
-                </div>
+<!-- Cards Section -->
+<div class="row">
+    <!-- Featured Card Section -->
+    <?php if (!empty($convocatorias)): ?>
+        <div class="col-12 mb-4">
+            <div class="card border-0 shadow-lg rounded-4">
                 <div class="card-body p-4">
-                    <h5 class="card-title fw-semibold">Técnico en Desarrollo de Aplicaciones Web</h5>
-                    <p class="card-text text-muted small">Aprende a crear aplicaciones web modernas con las tecnologías más demandadas del mercado.</p>
-                    <div class="d-flex flex-wrap mt-3 mb-3">
-                        <div class="me-3 mb-2">
-                            <i class="far fa-clock card-info-icon me-1"></i>
-                            <small class="text-muted">Inicio: 15 Jul</small>
-                        </div>
-                        <div class="me-3 mb-2">
-                            <i class="fas fa-map-marker-alt card-info-icon me-1"></i>
-                            <small class="text-muted">Bogotá</small>
-                        </div>
-                        <div class="mb-2">
-                            <i class="fas fa-users card-info-icon me-1"></i>
-                            <small class="text-muted">30 cupos</small>
-                        </div>
-                    </div>
-                    <button class="btn btn-success w-100">Inscribirse</button>
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="position-relative">
-                        <img src="/img/sena2.jpg?height=150&width=300" class="card-img-top" alt="Análisis de Datos" style="height: 150px; object-fit: cover;">
-                        <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-2">Destacado</span>
-                        <button class="bookmark-btn">
-                            <i class="far fa-bookmark"></i>
-                        </button>
-                    </div>
-                    <div class="card-body p-4">
-                        <h5 class="card-title fw-semibold">Tecnólogo en Análisis de Datos</h5>
-                        <p class="card-text text-muted small">Conviértete en un experto en análisis de datos y business intelligence.</p>
-                        <div class="d-flex flex-wrap mt-3 mb-3">
-                            <div class="me-3 mb-2">
-                                <i class="far fa-clock card-info-icon me-1"></i>
-                                <small class="text-muted">Inicio: 20 Jul</small>
-                            </div>
-                            <div class="me-3 mb-2">
-                                <i class="fas fa-map-marker-alt card-info-icon me-1"></i>
-                                <small class="text-muted">Medellín</small>
-                            </div>
-                            <div class="mb-2">
-                                <i class="fas fa-users card-info-icon me-1"></i>
-                                <small class="text-muted">25 cupos</small>
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill">
+                                <i class="fas fa-certificate me-1"></i> Destacado
+                            </span>
+                            <h4 class="fw-bold"><?php echo htmlspecialchars($convocatorias[0]->nombre ?? '')?></h4>
+                            <p class="text-muted"><?php echo htmlspecialchars($convocatorias[0]->descripcion ?? '')?></p>
+                            <div class="d-flex flex-wrap justify-content-between mt-4 text-muted small">
+                                <div class="me-4">
+                                    <i class="far fa-calendar text-success me-1"></i>
+                                    Cierre: <?php echo isset($convocatorias[0]->fechaCierre) ? date('d M Y', strtotime($convocatorias[0]->fechaCierre)) : 'N/A'?>
+                                </div>
+                                <div>
+                                    <i class="fas fa-users text-success me-1"></i>
+                                    <?php echo htmlspecialchars($convocatorias[0]->objetivo ?? '')?>
+                                </div>
                             </div>
                         </div>
-                        <button class="btn btn-success w-100">Inscribirse</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="position-relative">
-                        <img src="/img/image.png?height=150&width=300" class="card-img-top" alt="Ciberseguridad" style="height: 150px; object-fit: cover;">
-                        <span class="badge bg-success position-absolute top-0 end-0 m-2">Popular</span>
-                        <button class="bookmark-btn">
-                            <i class="far fa-bookmark"></i>
-                        </button>
-                    </div>
-                    <div class="card-body p-4">
-                        <h5 class="card-title fw-semibold">Especialización en Ciberseguridad</h5>
-                        <p class="card-text text-muted small">Protege sistemas y redes con las técnicas más avanzadas de seguridad informática.</p>
-                        <div class="d-flex flex-wrap mt-3 mb-3">
-                            <div class="me-3 mb-2">
-                                <i class="far fa-clock card-info-icon me-1"></i>
-                                <small class="text-muted">Inicio: 25 Jul</small>
-                            </div>
-                            <div class="me-3 mb-2">
-                                <i class="fas fa-map-marker-alt card-info-icon me-1"></i>
-                                <small class="text-muted">Cali</small>
-                            </div>
-                            <div class="mb-2">
-                                <i class="fas fa-users card-info-icon me-1"></i>
-                                <small class="text-muted">20 cupos</small>
-                            </div>
-                        </div>
-                        <button class="btn btn-success w-100">Inscribirse</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="position-relative">
-                        <img src="/img/image.png?height=150&width=300" class="card-img-top" alt="Marketing Digital" style="height: 150px; object-fit: cover;">
-                        <button class="bookmark-btn">
-                            <i class="far fa-bookmark"></i>
-                        </button>
-                    </div>
-                    <div class="card-body p-4">
-                        <h5 class="card-title fw-semibold">Técnico en Marketing Digital</h5>
-                        <p class="card-text text-muted small">Domina las estrategias digitales para posicionar marcas y productos en internet.</p>
-                        <div class="d-flex flex-wrap mt-3 mb-3">
-                            <div class="me-3 mb-2">
-                                <i class="far fa-clock card-info-icon me-1"></i>
-                                <small class="text-muted">Inicio: 30 Jul</small>
-                            </div>
-                            <div class="me-3 mb-2">
-                                <i class="fas fa-map-marker-alt card-info-icon me-1"></i>
-                                <small class="text-muted">Barranquilla</small>
-                            </div>
-                            <div class="mb-2">
-                                <i class="fas fa-users card-info-icon me-1"></i>
-                                <small class="text-muted">15 cupos</small>
-                            </div>
-                        </div>
-                        <button class="btn btn-success w-100">Inscribirse</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="position-relative">
-                        <img src="/img/image.png?height=150&width=300" class="card-img-top" alt="Diseño Gráfico" style="height: 150px; object-fit: cover;">
-                        <button class="bookmark-btn">
-                            <i class="far fa-bookmark"></i>
-                        </button>
-                    </div>
-                    <div class="card-body p-4">
-                        <h5 class="card-title fw-semibold">Técnico en Diseño Gráfico Digital</h5>
-                        <p class="card-text text-muted small">Desarrolla habilidades creativas y técnicas para el diseño visual en medios digitales.</p>
-                        <div class="d-flex flex-wrap mt-3 mb-3">
-                            <div class="me-3 mb-2">
-                                <i class="far fa-clock card-info-icon me-1"></i>
-                                <small class="text-muted">Inicio: 5 Ago</small>
-                            </div>
-                            <div class="me-3 mb-2">
-                                <i class="fas fa-map-marker-alt card-info-icon me-1"></i>
-                                <small class="text-muted">Virtual</small>
-                            </div>
-                            <div class="mb-2">
-                                <i class="fas fa-users card-info-icon me-1"></i>
-                                <small class="text-muted">50 cupos</small>
-                            </div>
-                        </div>
-                        <button class="btn btn-success w-100">Inscribirse</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="position-relative">
-                        <img src="/img/image.png?height=150&width=300" class="card-img-top" alt="Gestión de Proyectos" style="height: 150px; object-fit: cover;">
-                        <span class="badge bg-danger position-absolute top-0 end-0 m-2">Último día</span>
-                        <button class="bookmark-btn">
-                            <i class="far fa-bookmark"></i>
-                        </button>
-                    </div>
-                    <div class="card-body p-4">
-                        <h5 class="card-title fw-semibold">Tecnólogo en Gestión de Proyectos</h5>
-                        <p class="card-text text-muted small">Aprende metodologías ágiles y tradicionales para liderar proyectos exitosos.</p>
-                        <div class="d-flex flex-wrap mt-3 mb-3">
-                            <div class="me-3 mb-2">
-                                <i class="far fa-clock card-info-icon me-1"></i>
-                                <small class="text-muted">Inicio: 10 Ago</small>
-                            </div>
-                            <div class="me-3 mb-2">
-                                <i class="fas fa-map-marker-alt card-info-icon me-1"></i>
-                                <small class="text-muted">Bogotá</small>
-                            </div>
-                            <div class="mb-2">
-                                <i class="fas fa-users card-info-icon me-1"></i>
-                                <small class="text-muted">10 cupos</small>
-                            </div>
-                        </div>
-                        <button class="btn btn-success w-100">Inscribirse</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Load More Button -->
-        <div class="text-center mb-5">
-            <button class="btn btn-outline-secondary rounded-pill px-4">
-                <i class="fas fa-sync-alt me-2"></i> Cargar más convocatorias
-            </button>
-        </div>
-    </div>
+        <!-- Dynamic Convocatorias Section -->
+        <?php foreach ($convocatorias as $conv): ?>
+            <div class="col-md-4 mb-4 d-flex align-items-stretch">
+                <div class="card border-0 shadow-sm w-100 d-flex flex-column">
+                    <!-- Imagen -->
+                    <div class="position-relative">
+                        <img src="/img/image.png" class="card-img-top object-fit-cover" alt="<?php echo htmlspecialchars($conv->nombre) ?>" style="height: 200px; object-fit: cover;">
+                    </div>
 
-</body>
-</html>
+                    <!-- Contenido -->
+                    <div class="card-body d-flex flex-column p-3">
+                        <h5 class="card-title mb-2"><?php echo htmlspecialchars($conv->nombre) ?></h5>
+                        <p class="card-text text-muted small flex-grow-1"><?php echo htmlspecialchars($conv->descripcion) ?></p>
+
+                        <!-- Información y botones al final -->
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between align-items-center text-muted small mb-3">
+                                <div>
+                                    <i class="far fa-calendar me-1"></i>
+                                    Cierre: <?php echo date('d M Y', strtotime($conv->fechaCierre)) ?>
+                                </div>
+                            </div>
+
+                            <!-- Botones -->
+                            <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex gap-2"> <!-- Aquí se separan los botones -->
+                        <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalConvocatoria<?php echo $conv->id ?>">Detalles</button>
+                        <button class="btn btn-outline-success btn-sm">Inscribirse</button>
+                    </div>
+                    <!-- Ícono de favorito -->
+                    <i class="far fa-star favorito-icon text-warning" style="cursor:pointer;" onclick="toggleFavorito(this)"></i>
+                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+  
+
+
+
+            <!-- Modal Detalles -->
+            <div class="modal fade" id="modalConvocatoria<?php echo $conv->id ?>" tabindex="-1" aria-labelledby="modalConvocatoriaLabel<?php echo $conv->id ?>" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content border-0 shadow">
+                        <div class="modal-header bg-success text-white border-0">
+                            <h5 class="modal-title" id="modalConvocatoriaLabel<?php echo $conv->id ?>">
+                                <i class="fas fa-clipboard-list me-2"></i> Detalles de la Convocatoria
+                            </h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                        </div>
+                        <div class="modal-body p-0">
+                            <!-- Banner image with overlay -->
+                            <div class="position-relative">
+                                <img src="/img/image.png" class="img-fluid w-100" style="height: 200px; object-fit: cover;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-3" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+                                    <h4 class="text-white mb-0"><?php echo htmlspecialchars($conv->nombre) ?></h4>
+                                </div>
+                                <span class="badge bg-danger position-absolute top-0 end-0 m-3">
+                                    Cierra: <?php echo date('d M Y', strtotime($conv->fechaCierre)) ?>
+                                </span>
+                            </div>
+                            
+                            <!-- Content section -->
+                            <div class="p-4">
+                                <!-- Info cards -->
+                                <div class="row mb-4">
+                                    <div class="col-md-4 mb-3 mb-md-0">
+                                        <div class="card h-100 border-0 bg-light">
+                                            <div class="card-body text-center">
+                                                <i class="far fa-calendar-alt text-success fa-2x mb-2"></i>
+                                                <h6 class="card-title">Fecha de Cierre</h6>
+                                                <p class="card-text"><?php echo date('d M Y', strtotime($conv->fechaCierre)) ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3 mb-md-0">
+                                        <div class="card h-100 border-0 bg-light">
+                                            <div class="card-body text-center">
+                                                <i class="fas fa-building text-success fa-2x mb-2"></i>
+                                                <h6 class="card-title">Entidad</h6>
+                                                <p class="card-text">SENA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card h-100 border-0 bg-light">
+                                            <div class="card-body text-center">
+                                                <i class="fas fa-user-tie text-success fa-2x mb-2"></i>
+                                                <h6 class="card-title">Responsable</h6>
+                                                <p class="card-text">Administrador</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Tabs for content organization -->
+                                <ul class="nav nav-tabs" id="convocatoriaTab<?php echo $conv->id ?>" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="descripcion-tab<?php echo $conv->id ?>" data-bs-toggle="tab" data-bs-target="#descripcion<?php echo $conv->id ?>" type="button" role="tab" aria-controls="descripcion" aria-selected="true">Descripción</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="objetivo-tab<?php echo $conv->id ?>" data-bs-toggle="tab" data-bs-target="#objetivo<?php echo $conv->id ?>" type="button" role="tab" aria-controls="objetivo" aria-selected="false">Objetivo</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="requisitos-tab<?php echo $conv->id ?>" data-bs-toggle="tab" data-bs-target="#requisitos<?php echo $conv->id ?>" type="button" role="tab" aria-controls="requisitos" aria-selected="false">Requisitos</button>
+                                    </li>
+                                </ul>
+                                
+                                <div class="tab-content p-3 border border-top-0 rounded-bottom mb-4" id="convocatoriaTabContent<?php echo $conv->id ?>">
+                                    <div class="tab-pane fade show active" id="descripcion<?php echo $conv->id ?>" role="tabpanel" aria-labelledby="descripcion-tab<?php echo $conv->id ?>">
+                                        <p><?php echo htmlspecialchars($conv->descripcion) ?></p>
+                                    </div>
+                                    <div class="tab-pane fade" id="objetivo<?php echo $conv->id ?>" role="tabpanel" aria-labelledby="objetivo-tab<?php echo $conv->id ?>">
+                                        <p><?php echo htmlspecialchars($conv->objetivo) ?></p>
+                                    </div>
+                                    <div class="tab-pane fade" id="requisitos<?php echo $conv->id ?>" role="tabpanel" aria-labelledby="requisitos-tab<?php echo $conv->id ?>">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item bg-transparent"><i class="fas fa-check-circle text-success me-2"></i> Documento de identidad</li>
+                                            <li class="list-group-item bg-transparent"><i class="fas fa-check-circle text-success me-2"></i> Hoja de vida actualizada</li>
+                                            <li class="list-group-item bg-transparent"><i class="fas fa-check-circle text-success me-2"></i> Certificados académicos</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer bg-light">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                <i class="fas fa-times me-1"></i> Cerrar
+                            </button>
+                            <button type="button" class="btn btn-success">
+                                <i class="fas fa-user-plus me-1"></i> Inscribirse
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin del Modal -->
+        <?php endforeach; ?>
+    <?php else: ?>
+        <div class="col-12">
+            <div class="alert alert-info">
+                No hay convocatorias disponibles en este momento.
+            </div>
+        </div>
+    <?php endif; ?>
+</div>
+
+
+<!-- Script para manejar el color del favorito -->
+<script>
+    function toggleFavorito(icon) {
+        icon.classList.toggle('fas'); // Cambia de 'far' (borde) a 'fas' (relleno)
+        icon.style.color = icon.classList.contains('fas') ? 'gold' : '';
+    }
+</script>
