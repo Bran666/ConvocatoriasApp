@@ -13,10 +13,15 @@
         <!-- Cuerpo del formulario a lo ancho -->
         <div class="card-body px-4 py-3">
             <form action="/publicoObjetivo/create" method="POST">
-                <!-- Campo Nombre -->
+                <!-- Campo Nombre con ícono -->
                 <div class="mb-3">
                     <label for="nombre" class="form-label fw-bold">Nombre</label>
-                    <input type="text" name="nombre" class="form-control" required>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="fas fa-users"></i>
+                        </span>
+                        <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Ingrese el nombre del público objetivo" required>
+                    </div>
                 </div>
 
                 <!-- Botón de guardar -->

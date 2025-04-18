@@ -12,12 +12,12 @@ class RequisitosController extends BaseController
 {
     public function __construct()
     {
-        $this->layout = 'linea_layout';
+        $this->layout = 'menuPrincipal_layout';
     }
 
     public function initPerfil()
     {
-        $this->layout = 'login_layouts';
+        $this->layout = 'perfil_layout';
 
         try {
             // Initialize all variables with default values
@@ -243,12 +243,36 @@ class RequisitosController extends BaseController
 
     public function editRequisitos($id)
     {
-        $objRequisitos = new RequisitosModel($id);
-        $requisitosInfo = $objRequisitos->getRequisitos();
-        $data = [
-            "infoReal" => $requisitosInfo[0],
-        ];
-        $this->render("requisitos/editRequisitos.php", $data);
+        try {
+            // Get the current requisito information
+            $objRequisitos = new RequisitosModel($id);
+            $requisitosInfo = $objRequisitos->getRequisitos();
+            
+            // Get entidades from database
+            $entidadModel = new \App\Models\EntidadInstitucionModel();
+            $entidades = $entidadModel->getAll();
+            
+            // Get requisitos selección from database
+            $requisitoSeleccionModel = new \App\Models\RequisitoSeleccionModel();
+            $requisitosSeleccion = $requisitoSeleccionModel->getAll();
+            
+            $data = [
+                "infoReal" => $requisitosInfo[0],
+                "entidades" => $entidades,
+                "requisitosSeleccion" => $requisitosSeleccion
+            ];
+            
+            $this->render("requisitos/editRequisitos.php", $data);
+        } catch (Exception $e) {
+            error_log("Error in RequisitosController->editRequisitos: " . $e->getMessage());
+            $data = [
+                "infoReal" => $requisitosInfo[0] ?? null,
+                "entidades" => [],
+                "requisitosSeleccion" => [],
+                "error" => "Error al cargar los datos para edición"
+            ];
+            $this->render("requisitos/editRequisitos.php", $data);
+        }
     }
 
     public function updateRequisitos()
@@ -256,10 +280,10 @@ class RequisitosController extends BaseController
         if (isset($_POST["id"])) {
             $id = $_POST["id"] ?? null;
             $nombre = $_POST["nombre"] ?? null;
-            $observaciones = $_POST["obervaciones"] ?? null; // Cambiado de observaciones a obervaciones
-            $idEntidad = $_POST["idEntidad"] ?? null;
+            $observaciones = $_POST["obervaciones"] ?? null;
+            $idEntidad = $_POST["fkIdEntidad"] ?? null;
             $idRequisitoSeleccion = $_POST["idRequisitoSeleccion"] ?? null;
-
+    
             $requisitosObjEdit = new RequisitosModel($id, $nombre, $observaciones, $idEntidad, $idRequisitoSeleccion);
             $res = $requisitosObjEdit->editRequisitos();
             if ($res) {
@@ -269,6 +293,7 @@ class RequisitosController extends BaseController
             }
         }
     }
+    
 
     public function deleteRequisitos($id)
     {

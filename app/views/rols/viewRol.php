@@ -3,12 +3,17 @@
     <div class="card shadow">
         <!-- Cabecera verde -->
         <div class="card-header bg-success text-white">
-            <h5 class="mb-0 d-flex justify-content-between align-items-center">
-                Lista de Roles
+            <div class="d-flex justify-content-between align-items-center">
+                <!-- Ícono y título juntos -->
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-user-cog me-2"></i>
+                    <h5 class="mb-0">Lista de Roles</h5>
+                </div>
+                <!-- Botón a la derecha -->
                 <a href="/rol/new" class="btn btn-light btn-sm">
                     <i class="fas fa-plus me-2"></i>Nuevo Rol
                 </a>
-            </h5>
+            </div>
         </div>
 
         <!-- Cuerpo del contenido -->
@@ -20,14 +25,14 @@
                             <div class="card shadow-sm border border-white">
                                 <div class="card-body d-flex justify-content-between align-items-center p-2">
                                     <div>
-                                        <i class="fas fa-user-tag me-2 text-success"></i>
-                                        <strong><?= htmlspecialchars($value->nombre) ?></strong>
+                                        <i class="fas fa-user-tag me-2  text-secondary"></i>
+                                        <?= htmlspecialchars($value->nombre) ?>
                                     </div>
                                     <div class="btn-group btn-group-sm">
-                                        <a href="/rol/view/<?= $value->id ?>" class="btn btn-outline-info btn-sm">
+                                        <a href="/rol/view/<?= $value->id ?>" class="btn btn-outline-primary btn-sm">
                                             <i class="fas fa-eye me-1"></i> Ver
                                         </a>
-                                        <a href="/rol/edit/<?= $value->id ?>" class="btn btn-outline-primary btn-sm">
+                                        <a href="/rol/edit/<?= $value->id ?>" class="btn btn-outline-success btn-sm">
                                             <i class="fas fa-edit me-1"></i> Editar
                                         </a>
                                         <a href="/rol/delete/<?= $value->id ?>" class="btn btn-outline-danger btn-sm"
@@ -41,7 +46,7 @@
                     <?php endforeach; ?>
                 </div>
             <?php else: ?>
-                <div class="alert alert-info mb-0">
+                <div class="alert alert-info mb-0 text-center">
                     <i class="fas fa-info-circle me-2"></i> No hay roles registrados.
                 </div>
             <?php endif; ?>

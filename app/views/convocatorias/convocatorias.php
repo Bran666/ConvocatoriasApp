@@ -92,6 +92,7 @@
     <label for="fkIdInvestigador">Investigador</label>
   </div>
 </div>
+      
 
             <!-- Botón de Guardar -->
             <div class="d-grid gap-2">

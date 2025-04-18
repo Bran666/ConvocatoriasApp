@@ -1,4 +1,5 @@
 <!-- Contenido Principal -->
+<!-- Contenido Principal -->
 <div class="container mt-2"> <!-- Espacio reducido arriba -->
   <div class="row">
     <div class="col-md-10 offset-md-2"> <!-- Alineado a la derecha -->
@@ -6,12 +7,16 @@
         <!-- Cabecera verde -->
         <div class="card-header bg-success text-white">
           <h4 class="mb-0 d-flex justify-content-between align-items-center">
-            Entidades Institución
+            <span>
+              <i class="fas fa-university me-2"></i> Entidades Institución
+            </span>
             <a href="/entidadInstitucion/new" class="btn btn-light btn-sm">
               <i class="fas fa-plus me-2"></i> Agregar Nuevo
             </a>
           </h4>
         </div>
+
+
 
         <div class="card-body">
           <?php if (isset($entidadInstituciones) && is_array($entidadInstituciones)): ?>
@@ -21,11 +26,11 @@
                   <div class="card shadow-sm border border-light"> <!-- Borde más claro -->
                     <div class="card-body d-flex justify-content-between align-items-center">
                       <div>
-                        <i class="fas fa-building me-2 text-success"></i>
-                        <strong><?= $value->id ?> - <?= htmlspecialchars($value->nombre) ?></strong>
+                        <i class="fas fa-building me-2 text-secondary"></i>
+                        <?= $value->id ?> - <?= htmlspecialchars($value->nombre) ?>
                       </div>
                       <div class="btn-group">
-                        <a href="/entidadInstitucion/view/<?= $value->id ?>" class="btn btn-outline-info btn-sm">
+                        <a href="/entidadInstitucion/view/<?= $value->id ?>" class="btn btn-outline-primary btn-sm">
                           <i class="fas fa-eye me-1"></i> Ver
                         </a>
                         <a href="/entidadInstitucion/edit/<?= $value->id ?>" class="btn btn-outline-success btn-sm">
@@ -42,8 +47,8 @@
               <?php endforeach; ?>
             </div>
           <?php else: ?>
-            <div class="alert alert-info">
-              <i class="fas fa-info-circle me-2"></i> No hay registros disponibles.
+            <div class="alert alert-info text-center">
+              <i class="fas fa-info-circle me-2"></i>No hay registros disponibles.
             </div>
           <?php endif; ?>
         </div>

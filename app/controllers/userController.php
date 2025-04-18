@@ -12,7 +12,7 @@ class UserPerfilController extends BaseController
     public function __construct()
     {
         // Se define Layout para el controlador específico
-        $this->layout = 'login_layouts';
+        $this->layout = 'perfil_layout';
     }
 
     public function initUserPerfil()

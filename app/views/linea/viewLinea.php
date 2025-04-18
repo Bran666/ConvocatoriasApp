@@ -4,7 +4,9 @@
     <!-- Encabezado verde -->
     <div class="card-header bg-success text-white py-2">
       <div class="d-flex justify-content-between align-items-center">
-        <h5 class="mb-0">Líneas</h5>
+        <h5 class="mb-0">
+          <i class="fas fa-stream me-2"></i> Líneas
+        </h5>
         <a href="/linea/new" class="btn btn-light btn-sm">
           <i class="fas fa-plus me-2"></i>Nuevo
         </a>
@@ -13,7 +15,7 @@
 
     <!-- Cuerpo de la tarjeta -->
     <div class="card-body">
-      <?php if (isset($lineas) && is_array($lineas)): ?>
+      <?php if (isset($lineas) && is_array($lineas) && count($lineas) > 0): ?>
         <div class="row g-3">
           <?php foreach ($lineas as $key => $value): ?>
             <div class="col-12">
@@ -21,8 +23,12 @@
                 <div class="card-body">
                   <div class="d-flex justify-content-between align-items-center">
                     <div>
-                      <h6 class="card-title mb-1 fw-bold"><?= $value->id ?> - <?= $value->nombre ?></h6>
-                      <p class="card-text mb-0 text-muted"><?= $value->descripcion ?></p>
+                      <h6 class="card-title mb-1 fw-bold">
+                        <i class="fas fa-tag me-2 text-secondary"></i><?= $value->id ?> - <?= $value->nombre ?>
+                      </h6>
+                      <p class="card-text mb-0 text-muted">
+                        <i class="fas fa-align-left me-1 text-muted"></i> <?= $value->descripcion ?>
+                      </p>
                     </div>
                     <div class="btn-group">
                       <a href="/linea/view/<?= $value->id ?>" class="btn btn-outline-primary btn-sm">
@@ -40,6 +46,10 @@
               </div>
             </div>
           <?php endforeach; ?>
+        </div>
+      <?php else: ?>
+        <div class="alert alert-info text-center">
+          <i class="fas fa-info-circle me-2"></i>No hay líneas registradas por el momento.
         </div>
       <?php endif; ?>
     </div>

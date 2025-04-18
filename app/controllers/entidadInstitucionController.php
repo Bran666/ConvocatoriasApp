@@ -14,7 +14,7 @@ class EntidadInstitucionController extends BaseController
 {
     public function __construct()
     {
-        $this->layout = 'linea_layout';
+        $this->layout = 'menuPrincipal_layout';
     }
 
     public function initEntidadInstitucion()

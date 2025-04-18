@@ -6,10 +6,9 @@
         <div class="col-12 col-lg-6">
             <div class="card shadow-lg">
                 <div class="card-header bg-success text-center text-white py-3">
-                    <h2 class="mb-2 display-5">
+                    <h2 class="h1 mb-2 fw-bold">
                         <i class="fas fa-user-circle me-2"></i>Inicio de Sesión
                     </h2>
-                    <p class="mb-0 fs-5">Bienvenido de nuevo! Por favor ingresa tus credenciales</p>
                 </div>
 
                 <div class="card-body p-4 p-lg-5">

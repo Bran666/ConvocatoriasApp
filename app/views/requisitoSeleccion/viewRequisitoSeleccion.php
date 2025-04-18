@@ -4,12 +4,15 @@
         <!-- Cabecera verde -->
         <div class="card-header bg-success text-white">
             <h5 class="mb-0 d-flex justify-content-between align-items-center">
-                Requisitos de Selección
+                <span>
+                    <i class="fas fa-clipboard-check me-2"></i> Requisitos de Selección
+                </span>
                 <a href="/requisitoSeleccion/new" class="btn btn-light btn-sm">
                     <i class="fas fa-plus me-2"></i> Agregar Nuevo
                 </a>
             </h5>
         </div>
+
 
         <!-- Cuerpo del contenido -->
         <div class="card-body p-3">
@@ -20,12 +23,12 @@
                             <div class="card shadow-sm border border-light">
                                 <div class="card-body d-flex justify-content-between align-items-center">
                                     <div>
-                                        <i class="fas fa-clipboard-list me-2 text-success"></i>
-                                        <strong><?= $value->id ?> - <?= htmlspecialchars($value->nombre) ?></strong>
+                                        <i class="fas fa-clipboard-list me-2 text-secondary"></i>
+                                        <?= $value->id ?> - <?= htmlspecialchars($value->nombre) ?>
                                         <span class="text-muted ms-2">(<?= htmlspecialchars($value->tipo_nombre) ?>)</span>
                                     </div>
                                     <div class="btn-group">
-                                        <a href="/requisitoSeleccion/view/<?= $value->id ?>" class="btn btn-outline-info btn-sm">
+                                        <a href="/requisitoSeleccion/view/<?= $value->id ?>" class="btn btn-outline-primary btn-sm">
                                             <i class="fas fa-eye me-1"></i> Ver
                                         </a>
                                         <a href="/requisitoSeleccion/edit/<?= $value->id ?>" class="btn btn-outline-success btn-sm">
