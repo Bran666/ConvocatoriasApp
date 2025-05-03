@@ -99,3 +99,14 @@ box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Sombra más pronunciada */
 z-index: 10;
 border: 1px solid rgba(76, 175, 80, 0.3); /* Opcional: borde sutil */
 }
+.btn-outline-secondary {
+    color: #198754; /* verde Bootstrap */
+    background-color: white;
+    border-color: #198754;
+  }
+  
+  .btn-outline-secondary:hover {
+    color: white;
+    background-color: #198754; /* Se rellena de verde al pasar el mouse */
+    border-color: #198754;
+  }

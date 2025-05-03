@@ -11,20 +11,26 @@
 
                         <!-- Título -->
                         <div>
-                            <h2 class="fs-3 fw-bold mb-1" style="letter-spacing: 0.5px;">Requisitos</h2>
-                            <p class="text-white mb-0 fs-7" style="opacity: 0.9;">Gestión documental</p>
-                        </div>
+                        <h2 class="fw-bold mb-1 d-flex align-items-center" style="
+        font-size: 2.5rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        letter-spacing: 1px;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.2);">
+        <i class="bi bi-folder-check me-3" style="font-size: 2.5rem;"></i>
+        Requisitos
+    </h2>
+</div>
 
-                        <!-- Barra de progreso -->
-                        <div class="text-end">
-                            <div class="progress rounded-pill mb-2" style="height: 10px; width: 160px; background-color: rgba(255, 255, 255, 0.4);">
-                                <div class="progress-bar bg-white" role="progressbar" style="width: 0%;"
-                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <span class="badge bg-white text-success fw-semibold rounded-pill px-3 py-1 fs-7 shadow-sm">
-                                <span id="progress-value">0%</span> completado
-                            </span>
-                        </div>
+<!-- Barra de progreso -->
+<div class="text-end">
+    <div class="progress rounded-pill mb-2" style="height: 10px; width: 160px; background-color: rgba(255, 255, 255, 0.4);">
+        <div class="progress-bar bg-white" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <span class="badge bg-white text-success fw-semibold rounded-pill px-3 py-2 shadow-sm" style="font-size: 1.1rem;">
+        <i class="bi bi-bar-chart-steps me-1"></i>
+        <span id="progress-value">0%</span> completado
+    </span>
+</div>
                     </div>
                     <div class="card-body p-4">
                         <!-- Verifica si hay tipos -->
@@ -120,21 +126,22 @@
                         <?php endif; ?>
                     </div>
 
-                    <!-- Footer -->
-                    <div class="card-footer d-flex justify-content-between p-4 bg-light">
-                        <div>
-                            <button id="showRequisitosBtn" class="btn btn-outline-secondary rounded-pill px-4">
-                                <i class="bi bi-x-lg me-2"></i>Cancelar
-                            </button>
+                   <!-- Footer -->
+<div class="card-footer d-flex justify-content-between p-4 bg-light">
+    <div>
+        <button id="showRequisitosBtn" class="btn btn-outline-secondary rounded px-4">
+            <i class="bi bi-x-lg me-2"></i>Cancelar
+        </button>
 
-                            <a href="/menu/init" class="btn btn-outline-success rounded-pill px-4 ms-2">
-                                <i class="bi bi-house me-2"></i>Volver al Menú
-                            </a>
-                        </div>
-                        <button class="btn btn-success rounded-pill px-4" id="btnGuardar">
-                            <i class="bi bi-check2-circle me-2"></i>Guardar
-                        </button>
-                    </div>
+        <a href="/menu/init" class="btn btn-outline-success rounded px-4 ms-2">
+            <i class="bi bi-house me-2"></i>Volver al Menú
+        </a>
+    </div>
+    <button class="btn btn-success rounded px-4" id="btnGuardar">
+        <i class="bi bi-check2-circle me-2"></i>Guardar
+    </button>
+</div>
+
                 </div>
             </div>
 
@@ -161,46 +168,38 @@
                     });
 
                     function calculateProgress() {
-                        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-                        const total = checkboxes.length;
-                        const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
-                        const progress = total > 0 ? Math.round((checked / total) * 100) : 0;
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const total = checkboxes.length;
+    const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
+    const progress = total > 0 ? Math.round((checked / total) * 100) : 0;
 
-                        // Update progress text
-                        document.getElementById('progress-value').textContent = `${progress}%`;
+    // Actualizar texto del progreso
+    const progressValue = document.getElementById('progress-value');
+    progressValue.textContent = `${progress}%`;
 
-                        // Update progress bar
-                        const progressBar = document.querySelector('.progress-bar');
-                        progressBar.style.width = `${progress}%`;
-                        progressBar.setAttribute('aria-valuenow', progress);
+    // Actualizar barra de progreso
+    const progressBar = document.querySelector('.progress-bar');
+    progressBar.style.width = `${progress}%`;
+    progressBar.setAttribute('aria-valuenow', progress);
 
-                        // Change progress bar color based on completion
-                        if (progress < 30) {
-                            progressBar.className = 'progress-bar bg-danger';
-                        } else if (progress < 70) {
-                            progressBar.className = 'progress-bar bg-warning';
-                        } else if (progress === 100) {
-                            // Set color to blue when progress is 100%
-                            progressBar.className = 'progress-bar bg-primary';
-                        } else {
-                            progressBar.className = 'progress-bar bg-success';
-                        }
+    // Resetear clases previas
+    progressBar.className = 'progress-bar';
+    progressValue.className = '';
 
-                        // Change progress text color when it's 100%
-                        const progressValue = document.getElementById('progress-value');
-                        if (progress === 100) {
-                            progressValue.classList.add('text-white');
-                            progressValue.classList.remove('text-success', 'text-warning', 'text-danger');
-                        } else if (progress >= 70) {
-                            progressValue.classList.add('text-success');
-                            progressValue.classList.remove('text-warning', 'text-danger', 'text-white');
-                        } else if (progress >= 30) {
-                            progressValue.classList.add('text-warning');
-                            progressValue.classList.remove('text-danger', 'text-success', 'text-white');
-                        } else {
-                            progressValue.classList.add('text-danger');
-                            progressValue.classList.remove('text-warning', 'text-success', 'text-white');
-                        }
+    if (progress < 30) {
+        progressBar.style.backgroundColor = '#E29CA2FF'; // rosa claro
+        progressValue.style.color = '#d9534f'; // texto rojo suave
+    } else if (progress < 70) {
+        progressBar.style.backgroundColor = '#C8B36FFF'; // amarillo claro
+        progressValue.style.color = '#f0ad4e'; // texto naranja suave
+    } else if (progress < 100) {
+        progressBar.style.backgroundColor = '#4AA07AFF'; // verde claro
+        progressValue.style.color = '#198754'; // texto verde Bootstrap
+    } else {
+        progressBar.style.backgroundColor = '#7A98C6FF'; // azul muy claro
+        progressValue.style.color = '#0d6efd'; // texto azul Bootstrap
+    }
+
                     }
 
                     function highlightCheckbox(checkbox) {

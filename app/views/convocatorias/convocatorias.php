@@ -83,7 +83,7 @@
 <div class="input-group mb-3">
   <span class="input-group-text"><i class="fas fa-user"></i></span>
   <div class="form-floating flex-grow-1">
-    <select class="form-select" id="fkIdInvestigador" name="fkIdInvestigador" required>
+    <select class="form-select" id="fkIdInvestigador" name="fkIdInvestigador" >
       <option value="" disabled selected>Seleccione un Investigador</option>
       <?php foreach ($investigadores as $investigador): ?>
         <option value="<?= $investigador->id ?>"><?= htmlspecialchars($investigador->nombre) ?></option>

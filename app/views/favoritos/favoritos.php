@@ -1,5 +1,3 @@
-
-
 <div class="container py-5" style="max-width: 1200px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); padding: 25px; position: relative;">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light mb-4">
@@ -9,13 +7,33 @@
                 <span class="ms-2 fw-semibold">SENA</span>
             </a>
             <div class="d-flex align-items-center">
-                <a href="#" class="text-decoration-none text-secondary me-3">Cerrar Sesión</a>
+                <a href="/logout" class="text-decoration-none text-secondary me-3">Cerrar Sesión</a>
                 <a href="/userPerfil/init" class="text-decoration-none">
                     <div class="bg-light rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
-                        <span class="fw-bold">BR</span>
+                        <span class="fw-bold">
+                            <?php
+                            if (isset($_SESSION['nombre'])) {
+                                // Separa el nombre por espacios
+                                $nombreCompleto = trim($_SESSION['nombre']);
+                                $partes = explode(' ', $nombreCompleto);
+
+                                // Toma la primera letra del primer nombre y primer apellido (si existe)
+                                $iniciales = strtoupper(substr($partes[0], 0, 1));
+                                if (isset($partes[1])) {
+                                    $iniciales .= strtoupper(substr($partes[1], 0, 1));
+                                }
+
+                                echo $iniciales;
+                            } else {
+                                echo "US"; // Si no hay nombre en sesión, muestra "US" de "Usuario"
+                            }
+                            ?>
+
+                        </span>
                     </div>
                 </a>
             </div>
+
         </div>
     </nav>
 
@@ -81,233 +99,199 @@
             </button>
         </div>
     </div>
-
-    <!-- Favoritos Categories - Grid View -->
-    <div id="gridView">
-        <!-- Próximos a vencer -->
-        <div class="mb-5">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h5 class="fw-semibold mb-0">Próximos a vencer</h5>
-                <a href="#" class="text-decoration-none text-success">Ver todos</a>
-            </div>
-
-            <div class="row g-4 mb-5">
-                <!-- Card 1 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100">
-                        <div class="position-relative">
-                            <img src="/img/sena.jpg?height=150&width=300" class="card-img-top" alt="Desarrollo Web" style="height: 150px; object-fit: cover;">
-                            <span class="badge bg-danger position-absolute top-0 end-0 m-2">Vence en 2 días</span>
-                            <button class="delete-btn">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-semibold">Técnico en Desarrollo de Aplicaciones Web</h5>
-                            <p class="card-text text-muted small">Aprende a crear aplicaciones web modernas con las tecnologías más demandadas del mercado.</p>
-                            <div class="d-flex flex-wrap mt-3 mb-3">
-                                <div class="me-3 mb-2">
-                                    <i class="far fa-clock card-info-icon me-1"></i>
-                                    <small class="text-muted">Cierre: 31 Jul</small>
-                                </div>
-                                <div class="me-3 mb-2">
-                                    <i class="fas fa-map-marker-alt card-info-icon me-1"></i>
-                                    <small class="text-muted">Bogotá</small>
-                                </div>
-                                <div class="mb-2">
-                                    <i class="far fa-calendar-alt card-info-icon me-1"></i>
-                                    <small class="text-muted">Guardado: 15 Jul</small>
-                                </div>
-                            </div>
-                            <button class="btn btn-success w-100">Inscribirse</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100">
-                        <div class="position-relative">
-                            <img src="/img/sena.jpg?height=150&width=300" class="card-img-top" alt="Análisis de Datos" style="height: 150px; object-fit: cover;">
-                            <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-2">Vence en 5 días</span>
-                            <button class="delete-btn">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-semibold">Tecnólogo en Análisis de Datos</h5>
-                            <p class="card-text text-muted small">Conviértete en un experto en análisis de datos y business intelligence.</p>
-                            <div class="d-flex flex-wrap mt-3 mb-3">
-                                <div class="me-3 mb-2">
-                                    <i class="far fa-clock card-info-icon me-1"></i>
-                                    <small class="text-muted">Cierre: 3 Ago</small>
-                                </div>
-                                <div class="me-3 mb-2">
-                                    <i class="fas fa-map-marker-alt card-info-icon me-1"></i>
-                                    <small class="text-muted">Medellín</small>
-                                </div>
-                                <div class="mb-2">
-                                    <i class="far fa-calendar-alt card-info-icon me-1"></i>
-                                    <small class="text-muted">Guardado: 18 Jul</small>
-                                </div>
-                            </div>
-                            <button class="btn btn-success w-100">Inscribirse</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3 (nueva) -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100">
-                        <div class="position-relative">
-                            <img src="/img/sena.jpg?height=150&width=300" class="card-img-top" alt="Inteligencia Artificial" style="height: 150px; object-fit: cover;">
-                            <span class="badge bg-primary position-absolute top-0 end-0 m-2">Vence en 7 días</span>
-                            <button class="delete-btn">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-semibold">Especialización en Inteligencia Artificial</h5>
-                            <p class="card-text text-muted small">Domina los fundamentos de IA y machine learning para aplicaciones empresariales.</p>
-                            <div class="d-flex flex-wrap mt-3 mb-3">
-                                <div class="me-3 mb-2">
-                                    <i class="far fa-clock card-info-icon me-1"></i>
-                                    <small class="text-muted">Cierre: 5 Ago</small>
-                                </div>
-                                <div class="me-3 mb-2">
-                                    <i class="fas fa-map-marker-alt card-info-icon me-1"></i>
-                                    <small class="text-muted">Cali</small>
-                                </div>
-                                <div class="mb-2">
-                                    <i class="far fa-calendar-alt card-info-icon me-1"></i>
-                                    <small class="text-muted">Guardado: 20 Jul</small>
-                                </div>
-                            </div>
-                            <button class="btn btn-success w-100">Inscribirse</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Otros guardados -->
-    <div class="mb-5">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h5 class="fw-semibold mb-0">Otros guardados</h5>
+<!-- Cards Section para los Favoritos -->
+<div id="gridView">
+    <div class="mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-semibold mb-0">Convocatorias Favoritas</h5>
             <a href="#" class="text-decoration-none text-success">Ver todos</a>
         </div>
+        <div class="row g-3 mb-4">
+            <?php foreach ($convocatoriasFavoritas as $conv): ?>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="position-relative">
+                            <img src="/img/image.png" class="card-img-top" alt="<?php echo htmlspecialchars($conv->nombre) ?>" style="height: 140px; object-fit: cover;">
+                            <span class="badge bg-danger position-absolute top-0 end-0 m-2">Vence en 2 días</span>
+                        </div>
 
-        <div class="row g-4">
-            <!-- Card 1 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="position-relative">
-                        <img src="/img/sena2.jpg?height=150&width=300" class="card-img-top" alt="Ciberseguridad" style="height: 150px; object-fit: cover;">
-                        <button class="delete-btn">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
-                    <div class="card-body p-4">
-                        <h5 class="card-title fw-semibold">Especialización en Ciberseguridad</h5>
-                        <p class="card-text text-muted small">Protege sistemas y redes con las técnicas más avanzadas de seguridad informática.</p>
-                        <div class="d-flex flex-wrap mt-3 mb-3">
-                            <div class="me-3 mb-2">
-                                <i class="far fa-clock card-info-icon me-1"></i>
-                                <small class="text-muted">Cierre: 15 Sep</small>
+                        <div class="card-body p-4">
+                            <h6 class="card-title fw-semibold mb-1"><?php echo htmlspecialchars($conv->nombre) ?></h6>
+                            <p class="card-text text-muted small mb-2"><?php echo htmlspecialchars($conv->descripcion) ?></p>
+
+                            <div class="d-flex flex-wrap gap-1 mb-2 small text-muted">
+                                <div>
+                                    <i class="far fa-clock me-1"></i>
+                                    Cierre: <?php echo isset($conv->fechaCierre) ? date('d M Y', strtotime($conv->fechaCierre)) : 'No definido' ?>
+                                </div>
+                                <div>
+                                    <i class="fas fa-map-marker-alt me-1"></i>
+                                    Ubicación: <?php echo isset($conv->ubicacion) ? htmlspecialchars($conv->ubicacion) : 'No definido' ?>
+                                </div>
+                                <div>
+                                    <i class="far fa-calendar-alt me-1"></i>
+                                    Guardado: <?php echo isset($conv->fechaGuardado) ? date('d M Y', strtotime($conv->fechaGuardado)) : 'No definido' ?>
+                                </div>
                             </div>
-                            <div class="me-3 mb-2">
-                                <i class="fas fa-map-marker-alt card-info-icon me-1"></i>
-                                <small class="text-muted">Cali</small>
-                            </div>
-                            <div class="mb-2">
-                                <i class="far fa-calendar-alt card-info-icon me-1"></i>
-                                <small class="text-muted">Guardado: 10 Jul</small>
+
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalConvocatoria<?php echo $conv->id ?>">Detalles</button>
+                                <button class="btn btn-outline-success btn-sm">Inscribirse</button>
+                                
+                                <form action="/favoritos/eliminarFavorito" class="form-eliminar-favorito d-inline" method="POST">
+    <input type="hidden" name="id_convocatoria" value="<?= $conv->id ?>">
+    <button type="submit" class="btn btn-light btn-sm rounded-circle shadow-sm btn-eliminar-favorito" title="Eliminar">
+        <i class="fas fa-trash-alt text-danger"></i>
+    </button>
+</form>
+
                             </div>
                         </div>
-                        <button class="btn btn-success w-100">Inscribirse</button>
                     </div>
                 </div>
-            </div>
 
-            <!-- Card 2 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="position-relative">
-                        <img src="/img/sena2.jpg?height=150&width=300" class="card-img-top" alt="Marketing Digital" style="height: 150px; object-fit: cover;">
-                        <button class="delete-btn">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
-                    <div class="card-body p-4">
-                        <h5 class="card-title fw-semibold">Técnico en Marketing Digital</h5>
-                        <p class="card-text text-muted small">Domina las estrategias digitales para posicionar marcas y productos en internet.</p>
-                        <div class="d-flex flex-wrap mt-3 mb-3">
-                            <div class="me-3 mb-2">
-                                <i class="far fa-clock card-info-icon me-1"></i>
-                                <small class="text-muted">Cierre: 30 Oct</small>
+                <!-- Modal Detalles (dentro del foreach para cada convocatoria) -->
+                <div class="modal fade" id="modalConvocatoria<?php echo $conv->id ?>" tabindex="-1" aria-labelledby="modalConvocatoriaLabel<?php echo $conv->id ?>" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content border-0 shadow">
+                            <div class="modal-header bg-success text-white border-0">
+                                <h5 class="modal-title" id="modalConvocatoriaLabel<?php echo $conv->id ?>">
+                                    <i class="fas fa-clipboard-list me-2"></i> Detalles de la Convocatoria
+                                </h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                             </div>
-                            <div class="me-3 mb-2">
-                                <i class="fas fa-map-marker-alt card-info-icon me-1"></i>
-                                <small class="text-muted">Barranquilla</small>
+                            <div class="modal-body p-0">
+                                <div class="position-relative">
+                                    <img src="/img/image.png" class="img-fluid w-100" style="height: 200px; object-fit: cover;">
+                                    <div class="position-absolute bottom-0 start-0 w-100 p-3" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+                                        <h4 class="text-white mb-0"><?php echo htmlspecialchars($conv->nombre) ?></h4>
+                                    </div>
+                                    <span class="badge bg-danger position-absolute top-0 end-0 m-3">
+                                        Cierra: <?php echo date('d M Y', strtotime($conv->fechaCierre)) ?>
+                                    </span>
+                                </div>
+
+                                <div class="p-4">
+                                    <div class="row mb-4">
+                                        <div class="col-md-4 mb-3 mb-md-0">
+                                            <div class="card h-100 border-0 bg-light">
+                                                <div class="card-body text-center">
+                                                    <i class="far fa-calendar-alt text-success fa-2x mb-2"></i>
+                                                    <h6 class="card-title">Fecha de Cierre</h6>
+                                                    <p class="card-text"><?php echo date('d M Y', strtotime($conv->fechaCierre)) ?></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3 mb-md-0">
+                                            <div class="card h-100 border-0 bg-light">
+                                                <div class="card-body text-center">
+                                                    <i class="fas fa-building text-success fa-2x mb-2"></i>
+                                                    <h6 class="card-title">Entidad</h6>
+                                                    <p class="card-text">SENA</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="card h-100 border-0 bg-light">
+                                                <div class="card-body text-center">
+                                                    <i class="fas fa-user-tie text-success fa-2x mb-2"></i>
+                                                    <h6 class="card-title">Responsable</h6>
+                                                    <p class="card-text">Administrador</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <ul class="nav nav-tabs" id="convocatoriaTab<?php echo $conv->id ?>" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="descripcion-tab<?php echo $conv->id ?>" data-bs-toggle="tab" data-bs-target="#descripcion<?php echo $conv->id ?>" type="button" role="tab">Descripción</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="objetivo-tab<?php echo $conv->id ?>" data-bs-toggle="tab" data-bs-target="#objetivo<?php echo $conv->id ?>" type="button" role="tab">Objetivo</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="requisitos-tab<?php echo $conv->id ?>" data-bs-toggle="tab" data-bs-target="#requisitos<?php echo $conv->id ?>" type="button" role="tab">Requisitos</button>
+                                        </li>
+                                    </ul>
+
+                                    <div class="tab-content p-3 border border-top-0 rounded-bottom mb-4" id="convocatoriaTabContent<?php echo $conv->id ?>">
+                                        <div class="tab-pane fade show active" id="descripcion<?php echo $conv->id ?>" role="tabpanel">
+                                            <p><?php echo htmlspecialchars($conv->descripcion) ?></p>
+                                        </div>
+                                        <div class="tab-pane fade" id="objetivo<?php echo $conv->id ?>" role="tabpanel">
+                                            <p><?php echo htmlspecialchars($conv->objetivo) ?></p>
+                                        </div>
+                                        <div class="tab-pane fade" id="requisitos<?php echo $conv->id ?>" role="tabpanel">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item bg-transparent"><i class="fas fa-check-circle text-success me-2"></i> Documento de identidad</li>
+                                                <li class="list-group-item bg-transparent"><i class="fas fa-check-circle text-success me-2"></i> Hoja de vida actualizada</li>
+                                                <li class="list-group-item bg-transparent"><i class="fas fa-check-circle text-success me-2"></i> Certificados académicos</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="mb-2">
-                                <i class="far fa-calendar-alt card-info-icon me-1"></i>
-                                <small class="text-muted">Guardado: 5 Jul</small>
+
+                            <div class="modal-footer bg-light">
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                    <i class="fas fa-times me-1"></i> Cerrar
+                                </button>
+                                <button type="button" class="btn btn-success">
+                                    <i class="fas fa-user-plus me-1"></i> Inscribirse
+                                </button>
                             </div>
                         </div>
-                        <button class="btn btn-success w-100">Inscribirse</button>
                     </div>
                 </div>
-            </div>
+                <!-- Fin del Modal -->
+            <?php endforeach; ?>
+        </div>
 
-            <!-- Card 3 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="position-relative">
-                        <img src="/img/sena2.jpg?height=150&width=300" class="card-img-top" alt="Gestión de Proyectos" style="height: 150px; object-fit: cover;">
-                        <button class="delete-btn">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
-                    <div class="card-body p-4">
-                        <h5 class="card-title fw-semibold">Tecnólogo en Gestión de Proyectos</h5>
-                        <p class="card-text text-muted small">Aprende metodologías ágiles y tradicionales para liderar proyectos exitosos.</p>
-                        <div class="d-flex flex-wrap mt-3 mb-3">
-                            <div class="me-3 mb-2">
-                                <i class="far fa-clock card-info-icon me-1"></i>
-                                <small class="text-muted">Cierre: 15 Nov</small>
-                            </div>
-                            <div class="me-3 mb-2">
-                                <i class="fas fa-map-marker-alt card-info-icon me-1"></i>
-                                <small class="text-muted">Bogotá</small>
-                            </div>
-                            <div class="mb-2">
-                                <i class="far fa-calendar-alt card-info-icon me-1"></i>
-                                <small class="text-muted">Guardado: 1 Jul</small>
-                            </div>
-                        </div>
-                        <button class="btn btn-success w-100">Inscribirse</button>
-                    </div>
-                </div>
-            </div>
+        <!-- Botón de cargar más -->
+        <div class="text-center mt-3 mb-5">
+            <button class="btn btn-outline-secondary rounded-pill px-6">
+                <i class="fas fa-sync-alt me-2"></i> Cargar más convocatorias
+            </button>
         </div>
     </div>
 </div>
 
-                  
+        <!-- Carga jQuery primero -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- Botón de cargar más -->
-    <div class="text-center mt-3 mb-5">
-        <button class="btn btn-outline-secondary rounded-pill px-6">
-            <i class="fas fa-sync-alt me-2"></i> Cargar más convocatorias
-        </button>
+<!-- Luego tus scripts que usan jQuery -->
+<script>
+$(document).ready(function () {
+    $(".form-eliminar-favorito").on("submit", function (e) {
+        e.preventDefault();
+        const form = $(this);
+        const id_convocatoria = form.find("input[name='id_convocatoria']").val();
+
+        $.ajax({
+            type: "POST",
+            url: "/favoritos/eliminarFavorito",
+            data: { id_convocatoria: id_convocatoria },
+            success: function (respuesta) {
+                if (respuesta.trim() === "ok") {
+                    form.closest("div.card").fadeOut("slow", function () {
+                        $(this).remove();
+                        alert(" ✅ Eliminado con éxito"); // Mensaje de éxito
+                    });
+                } else {
+                    alert(" ❌  Error al eliminar el favorito.");
+                }
+            },
+            error: function () {
+                alert(" ❌ Error en la solicitud.");
+            }
+        });
+    });
+});
+</script>
 
 
+ 
 
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
     <!-- Custom JavaScript for View Toggle -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -315,7 +299,7 @@
             const listViewBtn = document.getElementById('listViewBtn');
             const gridView = document.getElementById('gridView');
             const listView = document.getElementById('listView');
-            
+
             gridViewBtn.addEventListener('click', function() {
                 gridView.style.display = 'block';
                 listView.style.display = 'none';
@@ -324,7 +308,7 @@
                 listViewBtn.classList.remove('active');
                 listViewBtn.classList.add('btn-outline-secondary');
             });
-            
+
             listViewBtn.addEventListener('click', function() {
                 gridView.style.display = 'none';
                 listView.style.display = 'block';
@@ -335,5 +319,6 @@
             });
         });
     </script>
-</body>
-</html>
+    </body>
+
+    </html>

@@ -1,10 +1,8 @@
 <?php
-
 namespace App\Controller;
 
-
+use App\Models\ConvocatoriaModel;
 use App\Models\FavoritosModel;
-
 use App\Models\UserModel;
 
 require_once MAIN_APP_ROUTE . "../controllers/baseController.php";
@@ -14,37 +12,66 @@ class FavoritosController extends BaseController
 {
     public function __construct()
     {
-        //Se define Layaout para el controlador especifico
         $this->layout = 'admin_layout';
-        //parent::__construct();
     }
-    
+
     public function initFavoritos()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $correo = trim($_POST['txtCorreo'] ?? '');
-            $password = trim($_POST['txtPassword'] ?? '');
-            
-            if (empty($correo) || empty($password)) {
-                $error = "El correo y la contraseña son obligatorios";
-                $this->render("favoritos/favoritos.php", ["error" => $error]);
-                echo $correo;
-                echo $password;
-                return;
-            }
-            
-            $userModel = new FavoritosModel();
-            if ($userModel->validarLogin($correo, $password)) {
-                header("Location: /favoritos/init");
-                exit();
+        
+        $idUsuario = $_SESSION['id'] ?? null;
+
+        if ($idUsuario) {
+            // Crear instancia del modelo de favoritos
+            $favoritosModel = new FavoritosModel();
+            // Obtener las convocatorias favoritas del usuario
+            $convocatoriasFavoritas = $favoritosModel->obtenerFavoritosPorUsuario($idUsuario);
+
+            // Pasar los datos a la vista
+            $this->render("favoritos/favoritos.php", [
+                'convocatoriasFavoritas' => $convocatoriasFavoritas
+            ]);
+        } else {
+            // Si el usuario no está autenticado
+            header("Location: /favoritos/init"); // O la ruta a tu página de login
+            exit();
+        }
+    }
+
+    public function marcarFavorito()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['convocatoria_id'])) {
+            $idConv = $_POST['convocatoria_id'];
+            $idUsuario = $_SESSION['id'] ?? null;
+
+            if ($idUsuario) {
+                $model = new FavoritosModel();
+                $resultado = $model->guardarFavorito($idUsuario, $idConv);
+                echo json_encode(["success" => $resultado]);
             } else {
-                $error = "Correo o contraseña incorrectos";
-                $this->render("favoritos/favoritos.php", ["error" => $error]);
-                https://github.com/Bran666/ConvocatoriasApp
-                return;
+                echo json_encode(["success" => false, "error" => "Usuario no autenticado"]);
             }
         }
-        
-        $this->render("favoritos/favoritos.php");
     }
-}
+        public function eliminarFavorito()
+        {
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_convocatoria'])) {
+                $idConvocatoria = $_POST['id_convocatoria'];
+                $idUsuario = $_SESSION['id'] ?? null;
+                if ($idUsuario) {
+                    $model = new FavoritosModel();
+                    $resultado = $model->eliminarFavoritos($idConvocatoria, $idUsuario);
+        
+                    error_log("Resultado eliminación: " . ($resultado ? 'éxito' : 'fallo'));
+                    echo $resultado ? 'ok' : 'error';
+                    exit; // Asegurar que no se envía nada más
+                } else {
+                    echo "Usuario no autenticado.";
+                    exit;
+                }
+            } else {
+                echo "Solicitud no válida.";
+                exit;
+            }
+        }
+    }

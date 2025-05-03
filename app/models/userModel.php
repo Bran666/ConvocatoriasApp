@@ -18,7 +18,7 @@ class UserModel extends BaseModel
         private ?int $idRol = null
     ) {
         parent::__construct();
-        $this->table = "usuarios";
+        $this->table = "usuario";
     }
 
     public function validarLogin($email, $contraseña)
@@ -78,7 +78,6 @@ class UserModel extends BaseModel
         try {
             $stmt = $this->dbConnection->prepare($sql);
 
-            // Vincular los parámetros
             $stmt->bindParam(':nombre', $nombre, PDO::PARAM_STR);
             $stmt->bindParam(':apellido', $apellido, PDO::PARAM_STR);
             $stmt->bindParam(':email', $email, PDO::PARAM_STR);
@@ -94,37 +93,49 @@ class UserModel extends BaseModel
         }
     }
 
-
-
-    public function editUsuario($id, $nombre, $apellido, $email, $idRol)
+    public function editUsuario($id, $nombre, $correo)
     {
         try {
-            $fechaActualizacion = date('Y-m-d H:i:s');
-
-            $sql = "UPDATE usuarios SET 
+            $sql = "UPDATE usuario SET 
                     nombre = :nombre,
-                    apellido = :apellido,
-                    email = :email,
-                    fechaActualizacion = :fechaActualizacion,
-                    idRol = :idRol
+                    email = :email
                     WHERE id = :id";
-
+    
             $stmt = $this->dbConnection->prepare($sql);
-
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->bindParam(':nombre', $nombre, PDO::PARAM_STR);
-            $stmt->bindParam(':apellido', $apellido, PDO::PARAM_STR);
-            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-            $stmt->bindParam(':fechaActualizacion', $fechaActualizacion, PDO::PARAM_STR);
-            $stmt->bindParam(':idRol', $idRol, PDO::PARAM_INT);
-
-            return $stmt->execute();
+            $stmt->bindParam(':email', $correo, PDO::PARAM_STR);
+    
+            $result = $stmt->execute();
+    
+            if ($result) {
+                return true;
+            } else {
+                error_log("Error en la actualización del usuario: " . implode(", ", $stmt->errorInfo()));
+                return false;
+            }
         } catch (PDOException $ex) {
-            echo "Error al actualizar usuario: " . $ex->getMessage();
+            error_log("Error al actualizar usuario: " . $ex->getMessage());
             return false;
         }
     }
+    public function getUsuarioById($id)
+{
+    try {
+        $sql = "SELECT * FROM usuario WHERE id = :id";
+        $stmt = $this->dbConnection->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
 
+        return $stmt->fetch(PDO::FETCH_OBJ);
+    } catch (PDOException $ex) {
+        error_log("Error al obtener usuario por ID: " . $ex->getMessage());
+        return null;
+    }
+}
+
+    
+    
     public function deleteUsuario($id)
     {
         try {
@@ -263,3 +274,4 @@ class UserModel extends BaseModel
         }
     }
 }
+

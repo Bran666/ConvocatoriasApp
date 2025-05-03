@@ -20,6 +20,7 @@ require_once '../app/controllers/RequisitoSeleccionController.php';
 
 
 
+
 // Acceder a lo que llege a la url
 $url = $_SERVER["REQUEST_URI"];
 //Echo route

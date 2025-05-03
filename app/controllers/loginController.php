@@ -14,21 +14,7 @@ class LoginController extends BaseController
         $this->layout = 'login_layouts';
         //parent::__construct();
     }
-    // public function index(){
-    //     if (!isset($_SESSION['tipo_usuario'])) {
-    //         header("Location:/login/init");
-    //     } else {
-    //         if (!in_array($_SESSION['tipo_usuario'], ['paciente','admin'])) {
-    //             header("Location:/login/init");
-    //         }
-    //     }
-
-    //     $usuario = new UserModel();
-    //     $usuarios = $usuario->getAll();
-    //     $data[
-    //         "usuarios"  => $usuarios,
-    //     ];
-    //     $this->render("/login/index");
+ 
     // }
     public function initLogin()
     {
@@ -59,12 +45,12 @@ class LoginController extends BaseController
         $this->render("login/login.php");
     }
 
-    // public function logout()
-    // {
-    //     // Destruir todas las sesiones activas
-    //     session_destroy();
-    //     header("Location:login/init");
-    // }
+    public function logout()
+    {
+        // Destruir todas las sesiones activas
+        session_destroy();
+        header("Location:login/init");
+    }
 
 
     public function index(){

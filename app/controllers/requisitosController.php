@@ -17,7 +17,7 @@ class RequisitosController extends BaseController
 
     public function initPerfil()
     {
-        $this->layout = 'perfil_layout';
+        $this->layout = 'login_layouts';
 
         try {
             // Initialize all variables with default values

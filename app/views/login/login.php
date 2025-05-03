@@ -1,5 +1,6 @@
-<div class="container py-5">
-    <div class="row justify-content-center align-items-center">
+<div class="container py-3">
+<div class="row justify-content-center align-items-center min-vh-100 d-flex">
+
     
 
         <!-- Columna del formulario (derecha) -->

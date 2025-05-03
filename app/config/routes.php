@@ -57,6 +57,8 @@ return [
 
     // Rutas de login
     '/login/init' => ['controller' => 'App\Controller\LoginController', 'action' => 'initLogin'],
+    '/logout' => ['controller' => 'App\Controller\LoginController', 'action' => 'logout'],
+
     '/registro/init' => ['controller' => 'App\Controller\RegistroController', 'action' => 'initRegistro'],
 
     // Otras rutas de funciones de las tablas
@@ -67,10 +69,19 @@ return [
     '/convocatoria/delete/(\d+)' => ['controller' => 'App\Controller\ConvocatoriaController', 'action' => 'delete'],
     '/convocatoria/lista' => ['controller' => 'App\Controller\ConvocatoriaController', 'action' => 'lista'],
 
-    '/userPerfil/init' => ['controller' => 'App\Controller\UserPerfilController', 'action' => 'initUserPerfil'],
+   '/userPerfil/init' => ['controller' => 'App\Controller\UserPerfilController', 'action' => 'initUserPerfil'],
+'/userPerfil/edit/(\d+)' => ['controller' => 'App\Controller\UserPerfilController', 'action' => 'editUser'],
+'/userPerfil/update' => ['controller' => 'App\Controller\UserPerfilController', 'action' => 'updateUser'],
+ // Aquí ajusté la ruta para que se use la ruta sin el ID en la URL
+
     // Otras rutas
     '/menu/init' => ['controller' => 'App\Controller\MenuController', 'action' => 'initMenu'],
     '/favoritos/init' => ['controller' => 'App\Controller\FavoritosController', 'action' => 'initFavoritos'],
+    '/favorito/marcarFavorito' => ['controller' => 'App\Controller\FavoritosController','action' => 'marcarFavorito'],
+   '/favoritos/eliminarFavorito' => [ 'controller' => 'App\Controller\FavoritosController','action' => 'eliminarFavorito'
+],
+
+    '/favoritos/listar' => ['controller' => 'App\Controller\FavoritosController','action' => 'listarFavoritos'],
 
     '/explorar/init' => ['controller' => 'App\Controller\ExplorarController', 'action' => 'initExplorar'],
 
@@ -111,6 +122,11 @@ return [
 
     // Rutas para Requisitos
     '/requisitos/init' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'initPerfil'],
+
+
+
+
+
     '/requisitosCrud/init' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'initRequisitos'],
     '/requisitos/new' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'new'],
     '/requisitos/create' => ['controller' => 'App\Controller\RequisitosController', 'action' => 'create'],

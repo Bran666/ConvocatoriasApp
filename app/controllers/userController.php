@@ -44,5 +44,47 @@ class UserPerfilController extends BaseController
             $this->render("/userPerfil/userPerfil.php");
         }
     }
+    public function editUser($id)
+    {
+        $objUser = new UserModel();
+        $userInfo = $objUser->getUsuarioById($id); // ✅ Usamos el método correcto
     
+        $data = [
+            "infoReal" => $userInfo,
+        ];
+        $this->render("/userPerfil/userPerfil.php", $data);
+    }
+    
+
+    public function updateUser()
+    {
+        if (isset($_POST["txtId"]) && isset($_POST["txtNombre"]) && isset($_POST["txtEmail"])) {
+            $id = $_POST["txtId"];
+            $nombre = $_POST["txtNombre"];
+            $correo = $_POST["txtEmail"];
+    
+            // Verifica si los datos están bien recibidos
+            error_log("ID: $id, Nombre: $nombre, Correo: $correo"); // Agrega un log para ver los datos
+    
+            $userPerfilEdit = new UserModel();
+            $res = $userPerfilEdit->editUsuario($id, $nombre, $correo); // Solo envías los datos necesarios
+    
+            if ($res) {
+                // Actualizar sesión con nuevos valores si es necesario
+                $_SESSION['nombre'] = $nombre;
+                $_SESSION['email'] = $correo;
+    
+                header('Location:/userPerfil/init');
+            } else {
+                // Redirigir con mensaje de error
+                header('Location:/userPerfil/init');
+            }
+        } else {
+            // En caso de que falte algún dato
+            error_log("Faltan datos en el formulario");
+            header('Location:/userPerfil/init');
+        }
+    }
+    
+
 }
