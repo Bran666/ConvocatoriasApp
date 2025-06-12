@@ -63,32 +63,145 @@
             </a>
         </li>
     </ul>
-    <!-- Hero Section -->
-    <div class="hero-section p-4 mt-4">
-        <div class="row">
-            <div class="col-md-7">
-                <div class="badge bg-secondary bg-opacity-25 text-white mb-3">
-                    <i class="fas fa-bolt me-1"></i> Programa Destacado
-                </div>
-                <h1 class="fw-bold">Impulsa tu Talento 2025</h1>
-                <div class="green-underline"></div>
-                <p class="mb-4">Conviértete en un profesional destacado y mejora tus habilidades con el apoyo del SENA. ¡Inicia hoy tu camino profesional!</p>
-                <div class="d-flex flex-wrap">
-                    <a href="#" class="btn btn-primary me-2 mb-2">
-                        <i class="fas fa-user-plus me-1"></i> Inscribirse Ahora
-                    </a>
-                    <a href="#" class="btn btn-outline-light mb-2">
-                        <i class="fas fa-info-circle me-1"></i> Ver Detalles
-                    </a>
-                </div>
-                <div class="d-flex mt-3">
-                    <span class="badge bg-light text-dark me-2">Estudiantes</span>
-                    <span class="badge bg-light text-dark me-2">Cursos</span>
-                    <span class="badge bg-light text-dark">Empleabilidad</span>
-                </div>
+
+    
+   <!-- Bootstrap 5 y FontAwesome (agrega en el <head>) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- Estilos -->
+<style>
+  .green-underline {
+    width: 60px;
+    height: 4px;
+    background-color: #28a745;
+    margin: 10px 0 20px 0;
+    border-radius: 2px;
+  }
+  .hero-section {
+    min-height: 420px;
+  }
+</style>
+
+<!-- Carrusel de Programas -->
+<div id="carruselProgramas" class="carousel slide mt-4" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+      <div class="hero-section p-4 bg-dark text-white rounded">
+        <div class="row h-100">
+          <div class="col-md-7 d-flex flex-column justify-content-between h-100">
+            <!-- Parte superior -->
+            <div>
+              <div class="badge bg-secondary bg-opacity-25 text-white mb-3">
+                <i class="fas fa-bolt me-1"></i> Programa Destacado
+              </div>
+              <h1 class="fw-bold">Impulsa tu Talento 2025</h1>
+              <div class="green-underline"></div>
+              <p class="mb-4">Conviértete en un profesional destacado y mejora tus habilidades con el apoyo del SENA. ¡Inicia hoy tu camino profesional!</p>
             </div>
+            <!-- Parte inferior -->
+            <div>
+              <div class="d-flex flex-wrap mt-4">
+                <a href="#" class="btn btn-primary me-2 mb-2">
+                  <i class="fas fa-user-plus me-1"></i> Inscribirse Ahora
+                </a>
+                <a href="#" class="btn btn-outline-light mb-2">
+                  <i class="fas fa-info-circle me-1"></i> Ver Detalles
+                </a>
+              </div>
+              <div class="d-flex mt-3">
+                <span class="badge bg-light text-dark me-2">Estudiantes</span>
+                <span class="badge bg-light text-dark me-2">Cursos</span>
+                <span class="badge bg-light text-dark">Empleabilidad</span>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <div class="hero-section p-4" style="background-color: #14532d; color: white;">
+        <div class="row h-100">
+          <div class="col-md-7 d-flex flex-column justify-content-between h-100">
+            <!-- Parte superior -->
+            <div>
+              <div class="badge bg-light text-success mb-3">
+                <i class="fas fa-leaf me-1"></i> Oportunidad Verde
+              </div>
+              <h1 class="fw-bold">Sostenibilidad Profesional</h1>
+              <div class="green-underline"></div>
+              <p class="mb-4">Capacítate en energías limpias, economía circular y medio ambiente. ¡Sé parte del cambio!</p>
+            </div>
+            <!-- Parte inferior -->
+            <div>
+              <div class="d-flex flex-wrap mt-4">
+                <a href="#" class="btn btn-light text-success me-2 mb-2">
+                  <i class="fas fa-user-plus me-1"></i> Participar
+                </a>
+                <a href="#" class="btn btn-outline-light mb-2">
+                  <i class="fas fa-info-circle me-1"></i> Más Info
+                </a>
+              </div>
+              <div class="d-flex mt-3">
+                <span class="badge bg-light text-dark me-2">Sostenibilidad</span>
+                <span class="badge bg-light text-dark me-2">Ambiente</span>
+                <span class="badge bg-light text-dark">Futuro Verde</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-item">
+      <div class="hero-section p-4" style="background-color: #0d3b66; color: white;">
+        <div class="row h-100">
+          <div class="col-md-7 d-flex flex-column justify-content-between h-100">
+            <!-- Parte superior -->
+            <div>
+              <div class="badge bg-white text-dark mb-3">
+                <i class="fas fa-lightbulb me-1"></i> Creatividad en Acción
+              </div>
+              <h1 class="fw-bold">Diseño y Multimedia</h1>
+              <div class="green-underline"></div>
+              <p class="mb-4">Exprésate con cursos de diseño gráfico, animación y contenido digital. ¡Inspira al mundo!</p>
+            </div>
+            <!-- Parte inferior -->
+            <div>
+              <div class="d-flex flex-wrap mt-4">
+                <a href="#" class="btn btn-light me-2 mb-2">
+                  <i class="fas fa-user-plus me-1"></i> Unirse
+                </a>
+                <a href="#" class="btn btn-outline-light mb-2">
+                  <i class="fas fa-info-circle me-1"></i> Detalles
+                </a>
+              </div>
+              <div class="d-flex mt-3">
+                <span class="badge bg-light text-dark me-2">Diseño</span>
+                <span class="badge bg-light text-dark me-2">Multimedia</span>
+                <span class="badge bg-light text-dark">Creatividad</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Control de navegación -->
+  <button class="carousel-control-next" type="button" data-bs-target="#carruselProgramas" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Siguiente</span>
+  </button>
+</div>
+
+
 
     <!-- Discover Section -->
     <div class="mt-5">
@@ -243,8 +356,6 @@
                 </div>
             <?php endif; ?>
             </div>
-
-
             <!-- Modal Detalles -->
             <?php foreach ($convocatorias as $conv): ?>
                 <div class="modal fade" id="modalConvocatoria<?php echo $conv->id ?>" tabindex="-1" aria-labelledby="modalConvocatoriaLabel<?php echo $conv->id ?>" aria-hidden="true">
@@ -457,6 +568,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     </div>
                 </div>
+
                 
                 <!-- Modal Detalles -->
                     <div class="modal fade" id="modalConvocatoria${conv.id}" tabindex="-1" aria-labelledby="modalConvocatoriaLabel${conv.id}" aria-hidden="true">
