@@ -1,5 +1,4 @@
-<!-- Contenido Principal -->
-<div class="col-md-10">
+<div class="w-100 px-3">
   <div class="card border-light bg-white shadow-sm">
     <!-- Cabecera verde -->
     <div class="card-header bg-success text-white">

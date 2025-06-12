@@ -1,5 +1,5 @@
 <!-- Contenido Principal -->
-<div class="col-md-10 mx-auto">
+<div class="w-100 px-3">
   <div class="card shadow">
     <!-- Cabecera verde con ícono de rol -->
     <div class="card-header bg-success text-white">

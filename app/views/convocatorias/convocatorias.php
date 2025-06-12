@@ -1,6 +1,6 @@
-<div class="container mt-2">
+<div class="w-100 px-3">
   <div class="row">
-    <div class="col-md-10 offset-md-2">
+  <div class="col-12">
       <div class="card shadow-sm">
         <div class="card-header bg-success text-white py-2">
           <div class="d-flex justify-content-between align-items-center">

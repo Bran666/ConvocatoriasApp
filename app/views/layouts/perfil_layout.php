@@ -17,8 +17,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     :root {
-      --sena-green: #006341;
-      --sena-dark-green: #03482EFF;
+      --sena-green: #0B734FFF;
+      --sena-dark-green: #0A583BFF;
       --sena-light-green: #e8f5e9;
     }
 
@@ -103,11 +103,7 @@
       transition: all 0.3s ease;
     }
 
-    .profile-image:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    }
-
+  
     .info-card {
       border-radius: 12px;
       border: 1px solid rgba(0, 0, 0, 0.05);

@@ -1,10 +1,9 @@
-<!-- Contenido Principal -->
-<div class="container mt-2"> <!-- Espacio reducido arriba -->
-  <div class="row justify-content-end"> <!-- Alineado a la derecha -->
-    <div class="col-md-10"> <!-- Más ancho que antes -->
+<div class="w-100 px-3">
+  <div class="row justify-content-center"> <!-- Alineado al centro -->
+    <div class="col-12"> <!-- Ocupa toda la pantalla en cualquier tamaño -->
       <div class="card shadow-sm border border-light"> <!-- Borde claro y sombra suave -->
         <div class="card-header bg-success text-white">
-            <h5 class="mb-0"> <!-- Título más pequeño -->
+            <h5 class="mb-0">
                 <i class="fas fa-building me-2"></i>Detalles de la Entidad Institución
                 <a href="/entidadInstitucion/init" class="btn btn-light btn-sm float-end">
                     <i class="fas fa-arrow-left me-1"></i>Volver

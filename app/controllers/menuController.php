@@ -21,10 +21,14 @@ class MenuController extends BaseController
     {
         try {
             $convocatoriaModel = new ConvocatoriaModel();
-            $convocatorias = $convocatoriaModel->getAll();
+            $todasConvocatorias = $convocatoriaModel->getAll();
+            
+            // Solo las primeras 10 convocatorias para el renderizado inicial
+            $convocatoriasIniciales = array_slice($todasConvocatorias, 0, 10);
             
             $data = [
-                'convocatorias' => $convocatorias  // Use actual data from model
+                'convocatorias' => $convocatoriasIniciales,
+                'todasConvocatorias' => $todasConvocatorias
             ];
             
             $this->render("/admin/admin.php", $data);
@@ -33,13 +37,10 @@ class MenuController extends BaseController
             error_log("Error loading convocatorias: " . $e->getMessage());
             $data = [
                 "error" => "Error al cargar las convocatorias",
-                "convocatorias" => []
+                "convocatorias" => [],
+                "todasConvocatorias" => []
             ];
             $this->render("/admin/admin.php", $data);
-            
-            // In initMenu method
-            var_dump($convocatorias);
-            exit();
         }
     }
 }

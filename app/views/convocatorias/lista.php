@@ -1,6 +1,6 @@
 <!-- Contenido Principal -->
 <!-- Contenido Principal -->
-<div class="col-md-10 mx-auto mt-2">
+<div class="w-100 px-3">
     <div class="card shadow border border-light bg-white">
         <!-- Encabezado verde con ícono y botón a la derecha -->
         <div class="card-header bg-success text-white">
@@ -53,10 +53,11 @@
                                                 <i class="fas fa-edit me-1"></i> Editar
                                             </a>
                                             <a href="/convocatoria/delete/<?php echo $convocatoria->id; ?>"
-                                               class="btn btn-outline-danger btn-sm"
-                                               onclick="return confirm('¿Estás seguro de que deseas eliminar esta convocatoria?');">
+                                                class="btn btn-outline-danger btn-sm eliminar"
+                                                data-id="<?= $convocatoria->id ?>">
                                                 <i class="fas fa-trash me-1"></i> Eliminar
                                             </a>
+
                                         </div>
                                     </div>
                                 </div>
@@ -72,3 +73,5 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/alerta.js"></script>

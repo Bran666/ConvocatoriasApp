@@ -1,5 +1,4 @@
-<!-- Contenido Principal -->
-<div class="col-md-10 mx-auto mt-4">
+<div class="w-100 px-3">
     <div class="card shadow">
         <!-- Cabecera verde -->
         <div class="card-header bg-success text-white">
@@ -27,7 +26,8 @@
             </div>
             <div class="mb-3">
                 <label class="fw-bold"><i class="fas fa-check-square me-1"></i> ID Requisito Selección:</label>
-                <p class="form-control-plaintext"><?= htmlspecialchars($idRequisitoSeleccion) ?></p>
+              <p class="form-control-plaintext"><?= htmlspecialchars($idRequisitoSeleccion) ?></p>
+
             </div>
         </div>
     </div>

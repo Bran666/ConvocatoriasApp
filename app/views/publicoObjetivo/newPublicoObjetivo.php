@@ -1,4 +1,4 @@
-<div class="col-md-10 mx-auto">
+<div class="w-100 px-3">
     <div class="card shadow">
         <!-- Cabecera verde -->
         <div class="card-header bg-success text-white text-center py-3">

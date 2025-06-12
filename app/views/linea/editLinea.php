@@ -1,7 +1,7 @@
 <!-- Contenido Principal -->
-<div class="container mt-2">
+<div class="w-100 px-3">
   <div class="row">
-    <div class="col-md-10 offset-md-2"> <!-- Más ancho y desplazado a la derecha -->
+  <div class="col-12">
       <div class="card shadow-sm">
         <div class="card-header bg-success text-white py-2">
           <h4 class="mb-0"> <i class="fas fa-edit me-2"></i>

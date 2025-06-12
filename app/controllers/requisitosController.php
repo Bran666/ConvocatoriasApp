@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Models\EntidadInstitucionModel;
+use App\Models\RequisitoSeleccionModel;
 use App\Models\RequisitosModel;
 use Exception;
 
@@ -226,20 +228,32 @@ class RequisitosController extends BaseController
             exit();
         }
     }
+public function view($id)
+{
+    $objRequisitos = new RequisitosModel($id);
+    $requisitosInfo = $objRequisitos->getRequisitos();
 
-    public function view($id)
-    {
-        $objRequisitos = new RequisitosModel($id);
-        $requisitosInfo = $objRequisitos->getRequisitos();
-        $data = [
-            "id" => $requisitosInfo[0]->id,
-            "nombre" => $requisitosInfo[0]->nombre,
-            "observaciones" => $requisitosInfo[0]->obervaciones, // Cambiado de observaciones a obervaciones
-            "idEntidad" => $requisitosInfo[0]->idEntidad,
-            "idRequisitoSeleccion" => $requisitosInfo[0]->idRequisitoSeleccion
-        ];
-        $this->render("requisitos/viewOneRequisitos.php", $data);
-    }
+    $idEntidad = $requisitosInfo[0]->idEntidad;
+    $idRequisitoSeleccion = $requisitosInfo[0]->idRequisitoSeleccion;
+
+    // Consultar el nombre de la entidad
+    $objEntidad = new EntidadInstitucionModel();
+    $entidad = $objEntidad->getById($idEntidad);
+
+    $objRequisitoSeleccion = new RequisitoSeleccionModel($idRequisitoSeleccion);
+    $requisitoSeleccion = $objRequisitoSeleccion->getRequisitoSeleccion();
+
+    $data = [
+        "id" => $requisitosInfo[0]->id,
+        "nombre" => $requisitosInfo[0]->nombre,
+        "observaciones" => $requisitosInfo[0]->obervaciones, // 
+        "idEntidad" => $entidad ? $entidad->nombre : 'No encontrada',
+        "idRequisitoSeleccion" => $requisitoSeleccion ? $requisitoSeleccion[0]->nombre : 'No encontrado'
+    ];
+
+    $this->render("requisitos/viewOneRequisitos.php", $data);
+}
+
 
     public function editRequisitos($id)
     {

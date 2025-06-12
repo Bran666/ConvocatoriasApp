@@ -1,5 +1,4 @@
-<!-- Contenido Principal -->
-<div class="col-md-10 mx-auto">
+<div class="w-100 px-3">
     <div class="card shadow">
         <!-- Cabecera verde -->
         <div class="card-header bg-success text-white">
@@ -21,7 +20,7 @@
             <?php if (isset($roles) && is_array($roles)): ?>
                 <div class="row">
                     <?php foreach ($roles as $value): ?>
-                        <div class="col-12 mb-2">
+                        <div class="col-12 ">
                             <div class="card shadow-sm border border-white">
                                 <div class="card-body d-flex justify-content-between align-items-center p-2">
                                     <div>
@@ -35,8 +34,7 @@
                                         <a href="/rol/edit/<?= $value->id ?>" class="btn btn-outline-success btn-sm">
                                             <i class="fas fa-edit me-1"></i> Editar
                                         </a>
-                                        <a href="/rol/delete/<?= $value->id ?>" class="btn btn-outline-danger btn-sm"
-                                           onclick="return confirm('¿Está seguro de que desea eliminar este rol?');">
+                                        <a href="/rol/delete/<?= $value->id ?>" class="btn btn-outline-danger btn-sm eliminar">
                                             <i class="fas fa-trash me-1"></i> Eliminar
                                         </a>
                                     </div>
@@ -53,3 +51,5 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/alerta.js"></script>

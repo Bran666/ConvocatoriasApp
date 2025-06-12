@@ -1,7 +1,7 @@
-<div class="col-md-10 mx-auto">
+<div class="w-100 px-3">
     <div class="card shadow">
         <!-- Cabecera verde -->
-        <div class="card-header bg-success text-white text-center py-3">
+        <div class="card-header bg-success text-white  py-3">
             <h4 class="mb-0">
                 <i class="fas fa-bullhorn me-2"></i>Línea
                 <a href="/linea/init" class="btn btn-light btn-sm float-end">

@@ -42,16 +42,28 @@ class FavoritosController extends BaseController
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['convocatoria_id'])) {
             $idConv = $_POST['convocatoria_id'];
             $idUsuario = $_SESSION['id'] ?? null;
-
+    
             if ($idUsuario) {
                 $model = new FavoritosModel();
-                $resultado = $model->guardarFavorito($idUsuario, $idConv);
-                echo json_encode(["success" => $resultado]);
+    
+                // Verifica si ya existe
+                if ($model->existeFavorito($idUsuario, $idConv)) {
+                    // Si ya existe, lo elimina
+                    $resultado = $model->eliminarFavoritos($idConv, $idUsuario);
+                    echo json_encode(["success" => $resultado, "accion" => "eliminado"]);
+                } else {
+                    // Si no existe, lo guarda
+                    $resultado = $model->guardarFavorito($idUsuario, $idConv);
+                    echo json_encode(["success" => $resultado, "accion" => "agregado"]);
+                }
             } else {
                 echo json_encode(["success" => false, "error" => "Usuario no autenticado"]);
             }
+        } else {
+            echo json_encode(["success" => false, "error" => "Solicitud no válida"]);
         }
     }
+    
         public function eliminarFavorito()
         {
 

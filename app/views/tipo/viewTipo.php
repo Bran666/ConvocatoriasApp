@@ -1,5 +1,4 @@
-
-        <div class="col-md-10 mx-auto">
+<div class="w-100 px-3">
   <div class="card shadow">
     <!-- Cabecera verde con ícono -->
     <div class="card-header bg-success text-white">
@@ -16,12 +15,12 @@
             <?php if (isset($tipos) && is_array($tipos)): ?>
                 <div class="row">
                     <?php foreach ($tipos as $key => $value): ?>
-                        <div class="col-12 mb-3">
+                        <div class="col-12 ">
                             <div class="card shadow-sm border border-light">
                                 <div class="card-body d-flex justify-content-between align-items-center">
                                     <div>
                                         <i class="fas fa-tag me-2 text-secondary"></i>
-                                        <?= $value->id ?> - <?= htmlspecialchars($value->nombre) ?>
+                                         <?= htmlspecialchars($value->nombre) ?>
                                     </div>
                                     <div class="btn-group">
                                         <a href="/tipo/view/<?= $value->id ?>" class="btn btn-outline-primary btn-sm">
@@ -30,8 +29,7 @@
                                         <a href="/tipo/edit/<?= $value->id ?>" class="btn btn-outline-success btn-sm">
                                             <i class="fas fa-edit me-1"></i> Editar
                                         </a>
-                                        <a href="/tipo/delete/<?= $value->id ?>" class="btn btn-outline-danger btn-sm"
-                                           onclick="return confirm('¿Está seguro de eliminar este registro?')">
+                                        <a href="/tipo/delete/<?= $value->id ?>" class="btn btn-outline-danger btn-sm eliminar">
                                             <i class="fas fa-trash me-1"></i> Eliminar
                                         </a>
                                     </div>
@@ -48,3 +46,5 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/alerta.js"></script>

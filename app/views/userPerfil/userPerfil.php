@@ -70,8 +70,8 @@
                 </a>
 
                 <a href="/requisitos/init" class="btn btn-success btn-lg w-100 shadow-sm" id="requisitosBtn">
-  <i class="fas fa-file-contract me-2"></i> Ver Requisitos
-</a>
+                  <i class="fas fa-file-contract me-2"></i> Ver Requisitos
+                </a>
 
               </div>
             </div>
@@ -80,7 +80,7 @@
       </div>
     </div>
   </div>
-  
+
   <!-- Modal Mejorado con Bootstrap -->
 
   <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
