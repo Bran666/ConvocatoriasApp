@@ -2,9 +2,9 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light mb-4">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="/img/convo2.png" alt="Logo" width="60" height="60">
-            </a>
+              <a class="navbar-brand" href="#">
+    <img src="/img/convo2.png" alt="Logo" class="img-fluid" style="width: 120px; height: auto;">
+</a>
             <div class="d-flex align-items-center">
                 <a href="/logout" class="text-decoration-none text-secondary me-3">Cerrar Sesión</a>
                 <a href="/userPerfil/init" class="text-decoration-none">
@@ -562,7 +562,7 @@ todasLasConvocatorias.forEach(conv => {
         paginaActual--;
         renderizarConvocatorias();
        window.scrollTo({
-    top: window.innerHeight / 1,
+    top: window.innerHeight / 2,
     behavior: 'smooth'
 });
     }
@@ -573,7 +573,7 @@ btnSiguiente.addEventListener("click", () => {
         paginaActual++;
         renderizarConvocatorias();
         window.scrollTo({
-    top: window.innerHeight / 1,
+    top: window.innerHeight / 2,
     behavior: 'smooth'
 });
     }
